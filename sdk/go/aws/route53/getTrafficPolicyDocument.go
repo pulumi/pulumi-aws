@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
@@ -259,12 +258,6 @@ func (o GetTrafficPolicyDocumentResultOutput) ToGetTrafficPolicyDocumentResultOu
 
 func (o GetTrafficPolicyDocumentResultOutput) ToGetTrafficPolicyDocumentResultOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentResultOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentResult] {
-	return pulumix.Output[GetTrafficPolicyDocumentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTrafficPolicyDocumentResultOutput) Endpoints() GetTrafficPolicyDocumentEndpointArrayOutput {

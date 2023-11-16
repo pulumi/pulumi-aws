@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
@@ -77,7 +76,7 @@ type LayerVersion struct {
 	Code pulumi.ArchiveOutput `pulumi:"code"`
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures pulumi.StringArrayOutput `pulumi:"compatibleArchitectures"`
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayOutput `pulumi:"compatibleRuntimes"`
 	// Date this resource was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
@@ -150,7 +149,7 @@ type layerVersionState struct {
 	Code pulumi.Archive `pulumi:"code"`
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
 	// Date this resource was created.
 	CreatedDate *string `pulumi:"createdDate"`
@@ -191,7 +190,7 @@ type LayerVersionState struct {
 	Code pulumi.ArchiveInput
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures pulumi.StringArrayInput
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayInput
 	// Date this resource was created.
 	CreatedDate pulumi.StringPtrInput
@@ -234,7 +233,7 @@ type layerVersionArgs struct {
 	Code pulumi.Archive `pulumi:"code"`
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
 	// Description of what your Lambda Layer does.
 	Description *string `pulumi:"description"`
@@ -262,7 +261,7 @@ type LayerVersionArgs struct {
 	Code pulumi.ArchiveInput
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures pulumi.StringArrayInput
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayInput
 	// Description of what your Lambda Layer does.
 	Description pulumi.StringPtrInput
@@ -307,12 +306,6 @@ func (i *LayerVersion) ToLayerVersionOutputWithContext(ctx context.Context) Laye
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionOutput)
 }
 
-func (i *LayerVersion) ToOutput(ctx context.Context) pulumix.Output[*LayerVersion] {
-	return pulumix.Output[*LayerVersion]{
-		OutputState: i.ToLayerVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LayerVersionArrayInput is an input type that accepts LayerVersionArray and LayerVersionArrayOutput values.
 // You can construct a concrete instance of `LayerVersionArrayInput` via:
 //
@@ -336,12 +329,6 @@ func (i LayerVersionArray) ToLayerVersionArrayOutput() LayerVersionArrayOutput {
 
 func (i LayerVersionArray) ToLayerVersionArrayOutputWithContext(ctx context.Context) LayerVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionArrayOutput)
-}
-
-func (i LayerVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*LayerVersion] {
-	return pulumix.Output[[]*LayerVersion]{
-		OutputState: i.ToLayerVersionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LayerVersionMapInput is an input type that accepts LayerVersionMap and LayerVersionMapOutput values.
@@ -369,12 +356,6 @@ func (i LayerVersionMap) ToLayerVersionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionMapOutput)
 }
 
-func (i LayerVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LayerVersion] {
-	return pulumix.Output[map[string]*LayerVersion]{
-		OutputState: i.ToLayerVersionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LayerVersionOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionOutput) ElementType() reflect.Type {
@@ -387,12 +368,6 @@ func (o LayerVersionOutput) ToLayerVersionOutput() LayerVersionOutput {
 
 func (o LayerVersionOutput) ToLayerVersionOutputWithContext(ctx context.Context) LayerVersionOutput {
 	return o
-}
-
-func (o LayerVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*LayerVersion] {
-	return pulumix.Output[*LayerVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Lambda Layer with version.
@@ -410,7 +385,7 @@ func (o LayerVersionOutput) CompatibleArchitectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleArchitectures }).(pulumi.StringArrayOutput)
 }
 
-// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 func (o LayerVersionOutput) CompatibleRuntimes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleRuntimes }).(pulumi.StringArrayOutput)
 }
@@ -501,12 +476,6 @@ func (o LayerVersionArrayOutput) ToLayerVersionArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o LayerVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LayerVersion] {
-	return pulumix.Output[[]*LayerVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LayerVersionArrayOutput) Index(i pulumi.IntInput) LayerVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LayerVersion {
 		return vs[0].([]*LayerVersion)[vs[1].(int)]
@@ -525,12 +494,6 @@ func (o LayerVersionMapOutput) ToLayerVersionMapOutput() LayerVersionMapOutput {
 
 func (o LayerVersionMapOutput) ToLayerVersionMapOutputWithContext(ctx context.Context) LayerVersionMapOutput {
 	return o
-}
-
-func (o LayerVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LayerVersion] {
-	return pulumix.Output[map[string]*LayerVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LayerVersionMapOutput) MapIndex(k pulumi.StringInput) LayerVersionOutput {

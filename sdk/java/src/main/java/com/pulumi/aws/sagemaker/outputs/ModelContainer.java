@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.ModelContainerImageConfig;
+import com.pulumi.aws.sagemaker.outputs.ModelContainerModelDataSource;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Map;
@@ -39,6 +40,11 @@ public final class ModelContainer {
      * 
      */
     private @Nullable String mode;
+    /**
+     * @return The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+     * 
+     */
+    private @Nullable ModelContainerModelDataSource modelDataSource;
     /**
      * @return The URL for the S3 location where model artifacts are stored.
      * 
@@ -88,6 +94,13 @@ public final class ModelContainer {
         return Optional.ofNullable(this.mode);
     }
     /**
+     * @return The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+     * 
+     */
+    public Optional<ModelContainerModelDataSource> modelDataSource() {
+        return Optional.ofNullable(this.modelDataSource);
+    }
+    /**
      * @return The URL for the S3 location where model artifacts are stored.
      * 
      */
@@ -116,6 +129,7 @@ public final class ModelContainer {
         private @Nullable String image;
         private @Nullable ModelContainerImageConfig imageConfig;
         private @Nullable String mode;
+        private @Nullable ModelContainerModelDataSource modelDataSource;
         private @Nullable String modelDataUrl;
         private @Nullable String modelPackageName;
         public Builder() {}
@@ -126,6 +140,7 @@ public final class ModelContainer {
     	      this.image = defaults.image;
     	      this.imageConfig = defaults.imageConfig;
     	      this.mode = defaults.mode;
+    	      this.modelDataSource = defaults.modelDataSource;
     	      this.modelDataUrl = defaults.modelDataUrl;
     	      this.modelPackageName = defaults.modelPackageName;
         }
@@ -156,6 +171,11 @@ public final class ModelContainer {
             return this;
         }
         @CustomType.Setter
+        public Builder modelDataSource(@Nullable ModelContainerModelDataSource modelDataSource) {
+            this.modelDataSource = modelDataSource;
+            return this;
+        }
+        @CustomType.Setter
         public Builder modelDataUrl(@Nullable String modelDataUrl) {
             this.modelDataUrl = modelDataUrl;
             return this;
@@ -172,6 +192,7 @@ public final class ModelContainer {
             o.image = image;
             o.imageConfig = imageConfig;
             o.mode = mode;
+            o.modelDataSource = modelDataSource;
             o.modelDataUrl = modelDataUrl;
             o.modelPackageName = modelPackageName;
             return o;

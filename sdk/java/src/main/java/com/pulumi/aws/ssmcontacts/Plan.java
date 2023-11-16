@@ -182,14 +182,14 @@ public class Plan extends com.pulumi.resources.CustomResource {
         return this.contactId;
     }
     /**
-     * List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+     * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      * 
      */
     @Export(name="stages", refs={List.class,PlanStage.class}, tree="[0,1]")
     private Output<List<PlanStage>> stages;
 
     /**
-     * @return List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+     * @return One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      * 
      */
     public Output<List<PlanStage>> stages() {

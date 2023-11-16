@@ -48,14 +48,14 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * Enables the custom datatype to be configured.
      * 
      */
     @Import(name="customDatatypeConfigured")
     private @Nullable Output<Boolean> customDatatypeConfigured;
 
     /**
-     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * @return Enables the custom datatype to be configured.
      * 
      */
     public Optional<Output<Boolean>> customDatatypeConfigured() {
@@ -211,7 +211,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customDatatypeConfigured A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+         * @param customDatatypeConfigured Enables the custom datatype to be configured.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class ClassifierCsvClassifierArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customDatatypeConfigured A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+         * @param customDatatypeConfigured Enables the custom datatype to be configured.
          * 
          * @return builder
          * 

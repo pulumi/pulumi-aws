@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get an authentication token to communicate with an EKS cluster.
@@ -79,12 +78,6 @@ func (o GetClusterAuthResultOutput) ToGetClusterAuthResultOutput() GetClusterAut
 
 func (o GetClusterAuthResultOutput) ToGetClusterAuthResultOutputWithContext(ctx context.Context) GetClusterAuthResultOutput {
 	return o
-}
-
-func (o GetClusterAuthResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterAuthResult] {
-	return pulumix.Output[GetClusterAuthResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

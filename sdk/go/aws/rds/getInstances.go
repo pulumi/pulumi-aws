@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for listing RDS Database Instances.
@@ -142,12 +141,6 @@ func (o GetInstancesResultOutput) ToGetInstancesResultOutput() GetInstancesResul
 
 func (o GetInstancesResultOutput) ToGetInstancesResultOutputWithContext(ctx context.Context) GetInstancesResultOutput {
 	return o
-}
-
-func (o GetInstancesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstancesResult] {
-	return pulumix.Output[GetInstancesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetInstancesResultOutput) Filters() GetInstancesFilterArrayOutput {

@@ -213,6 +213,21 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+     * 
+     */
+    @Import(name="replayPolicy")
+    private @Nullable Output<String> replayPolicy;
+
+    /**
+     * @return JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+     * 
+     */
+    public Optional<Output<String>> replayPolicy() {
+        return Optional.ofNullable(this.replayPolicy);
+    }
+
+    /**
      * ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
      * 
      */
@@ -262,6 +277,7 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
         this.protocol = $.protocol;
         this.rawMessageDelivery = $.rawMessageDelivery;
         this.redrivePolicy = $.redrivePolicy;
+        this.replayPolicy = $.replayPolicy;
         this.subscriptionRoleArn = $.subscriptionRoleArn;
         this.topic = $.topic;
     }
@@ -555,6 +571,27 @@ public final class TopicSubscriptionState extends com.pulumi.resources.ResourceA
          */
         public Builder redrivePolicy(String redrivePolicy) {
             return redrivePolicy(Output.of(redrivePolicy));
+        }
+
+        /**
+         * @param replayPolicy JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replayPolicy(@Nullable Output<String> replayPolicy) {
+            $.replayPolicy = replayPolicy;
+            return this;
+        }
+
+        /**
+         * @param replayPolicy JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replayPolicy(String replayPolicy) {
+            return replayPolicy(Output.of(replayPolicy));
         }
 
         /**

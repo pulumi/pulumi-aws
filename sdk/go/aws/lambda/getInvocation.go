@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to invoke custom lambda functions as data source.
@@ -90,12 +89,6 @@ func (o LookupInvocationResultOutput) ToLookupInvocationResultOutput() LookupInv
 
 func (o LookupInvocationResultOutput) ToLookupInvocationResultOutputWithContext(ctx context.Context) LookupInvocationResultOutput {
 	return o
-}
-
-func (o LookupInvocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInvocationResult] {
-	return pulumix.Output[LookupInvocationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupInvocationResultOutput) FunctionName() pulumi.StringOutput {

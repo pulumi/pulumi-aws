@@ -44,9 +44,17 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     * 
+     */
     @Import(name="catalogTargets")
     private @Nullable Output<List<CrawlerCatalogTargetArgs>> catalogTargets;
 
+    /**
+     * @return List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     * 
+     */
     public Optional<Output<List<CrawlerCatalogTargetArgs>>> catalogTargets() {
         return Optional.ofNullable(this.catalogTargets);
     }
@@ -457,15 +465,33 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param catalogTargets List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogTargets(@Nullable Output<List<CrawlerCatalogTargetArgs>> catalogTargets) {
             $.catalogTargets = catalogTargets;
             return this;
         }
 
+        /**
+         * @param catalogTargets List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogTargets(List<CrawlerCatalogTargetArgs> catalogTargets) {
             return catalogTargets(Output.of(catalogTargets));
         }
 
+        /**
+         * @param catalogTargets List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder catalogTargets(CrawlerCatalogTargetArgs... catalogTargets) {
             return catalogTargets(List.of(catalogTargets));
         }

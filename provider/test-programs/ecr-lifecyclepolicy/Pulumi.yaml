@@ -1,0 +1,31 @@
+
+name: "aws_ecr_lifecyclePolicy_LifecyclePolicy_1"
+runtime: yaml
+    
+resources:
+  foo:
+    type: aws:ecr:Repository
+    properties:
+      name: bar
+  foopolicy:
+    type: aws:ecr:LifecyclePolicy
+    properties:
+      repository: ${foo.name}
+      policy: |
+        {
+            "rules": [
+                {
+                    "rulePriority": 1,
+                    "description": "Expire images older than 14 days",
+                    "selection": {
+                        "tagStatus": "untagged",
+                        "countType": "sinceImagePushed",
+                        "countUnit": "days",
+                        "countNumber": 14
+                    },
+                    "action": {
+                        "type": "expire"
+                    }
+                }
+            ]
+        }

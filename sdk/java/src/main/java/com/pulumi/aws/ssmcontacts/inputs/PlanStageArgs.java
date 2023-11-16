@@ -17,16 +17,32 @@ public final class PlanStageArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PlanStageArgs Empty = new PlanStageArgs();
 
+    /**
+     * The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+     * 
+     */
     @Import(name="durationInMinutes", required=true)
     private Output<Integer> durationInMinutes;
 
+    /**
+     * @return The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+     * 
+     */
     public Output<Integer> durationInMinutes() {
         return this.durationInMinutes;
     }
 
+    /**
+     * One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+     * 
+     */
     @Import(name="targets")
     private @Nullable Output<List<PlanStageTargetArgs>> targets;
 
+    /**
+     * @return One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+     * 
+     */
     public Optional<Output<List<PlanStageTargetArgs>>> targets() {
         return Optional.ofNullable(this.targets);
     }
@@ -56,24 +72,54 @@ public final class PlanStageArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PlanStageArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param durationInMinutes The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder durationInMinutes(Output<Integer> durationInMinutes) {
             $.durationInMinutes = durationInMinutes;
             return this;
         }
 
+        /**
+         * @param durationInMinutes The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder durationInMinutes(Integer durationInMinutes) {
             return durationInMinutes(Output.of(durationInMinutes));
         }
 
+        /**
+         * @param targets One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targets(@Nullable Output<List<PlanStageTargetArgs>> targets) {
             $.targets = targets;
             return this;
         }
 
+        /**
+         * @param targets One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targets(List<PlanStageTargetArgs> targets) {
             return targets(Output.of(targets));
         }
 
+        /**
+         * @param targets One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targets(PlanStageTargetArgs... targets) {
             return targets(List.of(targets));
         }

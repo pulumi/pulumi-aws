@@ -1,0 +1,44 @@
+
+name: "aws_cloudwatch_eventRule_EventRule_1"
+runtime: yaml
+    
+resources:
+  console:
+    type: aws:cloudwatch:EventRule
+    properties:
+      name: capture-aws-sign-in
+      description: Capture each AWS Console Sign In
+      eventPattern:
+        fn::toJSON:
+          detail-type:
+            - AWS Console Sign In via CloudTrail
+  sns:
+    type: aws:cloudwatch:EventTarget
+    properties:
+      rule: ${console.name}
+      targetId: SendToSNS
+      arn: ${aws_logins.arn}
+  aws_logins:
+    type: aws:sns:Topic
+    properties:
+      name: aws-console-logins
+  default:
+    type: aws:sns:TopicPolicy
+    properties:
+      arn: ${aws_logins.arn}
+      policy: ${snsTopicPolicy.json}
+variables:
+  snsTopicPolicy:
+    fn::invoke:
+      Function: aws:iam:getPolicyDocument
+      Arguments:
+        statements:
+          - effect: Allow
+            actions:
+              - SNS:Publish
+            principals:
+              - type: Service
+                identifiers:
+                  - events.amazonaws.com
+            resources:
+              - ${aws_logins.arn}

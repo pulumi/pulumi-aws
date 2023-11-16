@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Log Data Protection Policy resource.
@@ -203,12 +202,6 @@ func (i *LogDataProtectionPolicy) ToLogDataProtectionPolicyOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LogDataProtectionPolicyOutput)
 }
 
-func (i *LogDataProtectionPolicy) ToOutput(ctx context.Context) pulumix.Output[*LogDataProtectionPolicy] {
-	return pulumix.Output[*LogDataProtectionPolicy]{
-		OutputState: i.ToLogDataProtectionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogDataProtectionPolicyArrayInput is an input type that accepts LogDataProtectionPolicyArray and LogDataProtectionPolicyArrayOutput values.
 // You can construct a concrete instance of `LogDataProtectionPolicyArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i LogDataProtectionPolicyArray) ToLogDataProtectionPolicyArrayOutput() Log
 
 func (i LogDataProtectionPolicyArray) ToLogDataProtectionPolicyArrayOutputWithContext(ctx context.Context) LogDataProtectionPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogDataProtectionPolicyArrayOutput)
-}
-
-func (i LogDataProtectionPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogDataProtectionPolicy] {
-	return pulumix.Output[[]*LogDataProtectionPolicy]{
-		OutputState: i.ToLogDataProtectionPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogDataProtectionPolicyMapInput is an input type that accepts LogDataProtectionPolicyMap and LogDataProtectionPolicyMapOutput values.
@@ -265,12 +252,6 @@ func (i LogDataProtectionPolicyMap) ToLogDataProtectionPolicyMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LogDataProtectionPolicyMapOutput)
 }
 
-func (i LogDataProtectionPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogDataProtectionPolicy] {
-	return pulumix.Output[map[string]*LogDataProtectionPolicy]{
-		OutputState: i.ToLogDataProtectionPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogDataProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (LogDataProtectionPolicyOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o LogDataProtectionPolicyOutput) ToLogDataProtectionPolicyOutput() LogData
 
 func (o LogDataProtectionPolicyOutput) ToLogDataProtectionPolicyOutputWithContext(ctx context.Context) LogDataProtectionPolicyOutput {
 	return o
-}
-
-func (o LogDataProtectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LogDataProtectionPolicy] {
-	return pulumix.Output[*LogDataProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the log group under which the log stream is to be created.
@@ -315,12 +290,6 @@ func (o LogDataProtectionPolicyArrayOutput) ToLogDataProtectionPolicyArrayOutput
 	return o
 }
 
-func (o LogDataProtectionPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogDataProtectionPolicy] {
-	return pulumix.Output[[]*LogDataProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogDataProtectionPolicyArrayOutput) Index(i pulumi.IntInput) LogDataProtectionPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogDataProtectionPolicy {
 		return vs[0].([]*LogDataProtectionPolicy)[vs[1].(int)]
@@ -339,12 +308,6 @@ func (o LogDataProtectionPolicyMapOutput) ToLogDataProtectionPolicyMapOutput() L
 
 func (o LogDataProtectionPolicyMapOutput) ToLogDataProtectionPolicyMapOutputWithContext(ctx context.Context) LogDataProtectionPolicyMapOutput {
 	return o
-}
-
-func (o LogDataProtectionPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogDataProtectionPolicy] {
-	return pulumix.Output[map[string]*LogDataProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogDataProtectionPolicyMapOutput) MapIndex(k pulumi.StringInput) LogDataProtectionPolicyOutput {

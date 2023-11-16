@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about DocumentDB orderable DB instances.
@@ -132,12 +131,6 @@ func (o GetOrderableDbInstanceResultOutput) ToGetOrderableDbInstanceResultOutput
 
 func (o GetOrderableDbInstanceResultOutput) ToGetOrderableDbInstanceResultOutputWithContext(ctx context.Context) GetOrderableDbInstanceResultOutput {
 	return o
-}
-
-func (o GetOrderableDbInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrderableDbInstanceResult] {
-	return pulumix.Output[GetOrderableDbInstanceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Availability zones where the instance is available.

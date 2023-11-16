@@ -64,6 +64,21 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+     * 
+     */
+    @Import(name="archivePolicy")
+    private @Nullable Output<String> archivePolicy;
+
+    /**
+     * @return The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+     * 
+     */
+    public Optional<Output<String>> archivePolicy() {
+        return Optional.ofNullable(this.archivePolicy);
+    }
+
+    /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      * 
      */
@@ -76,6 +91,21 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * The oldest timestamp at which a FIFO topic subscriber can start a replay.
+     * 
+     */
+    @Import(name="beginningArchiveTime")
+    private @Nullable Output<String> beginningArchiveTime;
+
+    /**
+     * @return The oldest timestamp at which a FIFO topic subscriber can start a replay.
+     * 
+     */
+    public Optional<Output<String>> beginningArchiveTime() {
+        return Optional.ofNullable(this.beginningArchiveTime);
     }
 
     /**
@@ -94,14 +124,14 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+     * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      * 
      */
     @Import(name="deliveryPolicy")
     private @Nullable Output<String> deliveryPolicy;
 
     /**
-     * @return The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+     * @return The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      * 
      */
     public Optional<Output<String>> deliveryPolicy() {
@@ -467,7 +497,9 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         this.applicationFailureFeedbackRoleArn = $.applicationFailureFeedbackRoleArn;
         this.applicationSuccessFeedbackRoleArn = $.applicationSuccessFeedbackRoleArn;
         this.applicationSuccessFeedbackSampleRate = $.applicationSuccessFeedbackSampleRate;
+        this.archivePolicy = $.archivePolicy;
         this.arn = $.arn;
+        this.beginningArchiveTime = $.beginningArchiveTime;
         this.contentBasedDeduplication = $.contentBasedDeduplication;
         this.deliveryPolicy = $.deliveryPolicy;
         this.displayName = $.displayName;
@@ -577,6 +609,27 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param archivePolicy The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder archivePolicy(@Nullable Output<String> archivePolicy) {
+            $.archivePolicy = archivePolicy;
+            return this;
+        }
+
+        /**
+         * @param archivePolicy The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder archivePolicy(String archivePolicy) {
+            return archivePolicy(Output.of(archivePolicy));
+        }
+
+        /**
          * @param arn The ARN of the SNS topic, as a more obvious property (clone of id)
          * 
          * @return builder
@@ -595,6 +648,27 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param beginningArchiveTime The oldest timestamp at which a FIFO topic subscriber can start a replay.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder beginningArchiveTime(@Nullable Output<String> beginningArchiveTime) {
+            $.beginningArchiveTime = beginningArchiveTime;
+            return this;
+        }
+
+        /**
+         * @param beginningArchiveTime The oldest timestamp at which a FIFO topic subscriber can start a replay.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder beginningArchiveTime(String beginningArchiveTime) {
+            return beginningArchiveTime(Output.of(beginningArchiveTime));
         }
 
         /**
@@ -619,7 +693,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliveryPolicy The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+         * @param deliveryPolicy The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
          * 
          * @return builder
          * 
@@ -630,7 +704,7 @@ public final class TopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliveryPolicy The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+         * @param deliveryPolicy The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
          * 
          * @return builder
          * 

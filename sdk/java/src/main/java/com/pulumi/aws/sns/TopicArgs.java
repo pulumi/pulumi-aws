@@ -64,6 +64,21 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+     * 
+     */
+    @Import(name="archivePolicy")
+    private @Nullable Output<String> archivePolicy;
+
+    /**
+     * @return The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+     * 
+     */
+    public Optional<Output<String>> archivePolicy() {
+        return Optional.ofNullable(this.archivePolicy);
+    }
+
+    /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      * 
      */
@@ -79,14 +94,14 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+     * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      * 
      */
     @Import(name="deliveryPolicy")
     private @Nullable Output<String> deliveryPolicy;
 
     /**
-     * @return The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+     * @return The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      * 
      */
     public Optional<Output<String>> deliveryPolicy() {
@@ -414,6 +429,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         this.applicationFailureFeedbackRoleArn = $.applicationFailureFeedbackRoleArn;
         this.applicationSuccessFeedbackRoleArn = $.applicationSuccessFeedbackRoleArn;
         this.applicationSuccessFeedbackSampleRate = $.applicationSuccessFeedbackSampleRate;
+        this.archivePolicy = $.archivePolicy;
         this.contentBasedDeduplication = $.contentBasedDeduplication;
         this.deliveryPolicy = $.deliveryPolicy;
         this.displayName = $.displayName;
@@ -521,6 +537,27 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param archivePolicy The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder archivePolicy(@Nullable Output<String> archivePolicy) {
+            $.archivePolicy = archivePolicy;
+            return this;
+        }
+
+        /**
+         * @param archivePolicy The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder archivePolicy(String archivePolicy) {
+            return archivePolicy(Output.of(archivePolicy));
+        }
+
+        /**
          * @param contentBasedDeduplication Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
          * 
          * @return builder
@@ -542,7 +579,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliveryPolicy The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+         * @param deliveryPolicy The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
          * 
          * @return builder
          * 
@@ -553,7 +590,7 @@ public final class TopicArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deliveryPolicy The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+         * @param deliveryPolicy The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
          * 
          * @return builder
          * 

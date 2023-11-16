@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to allow a principal to discover a VPC endpoint service.
@@ -154,12 +153,6 @@ func (i *VpcEndpointServiceAllowedPrinciple) ToVpcEndpointServiceAllowedPrincipl
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceAllowedPrincipleOutput)
 }
 
-func (i *VpcEndpointServiceAllowedPrinciple) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointServiceAllowedPrinciple] {
-	return pulumix.Output[*VpcEndpointServiceAllowedPrinciple]{
-		OutputState: i.ToVpcEndpointServiceAllowedPrincipleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpcEndpointServiceAllowedPrincipleArrayInput is an input type that accepts VpcEndpointServiceAllowedPrincipleArray and VpcEndpointServiceAllowedPrincipleArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointServiceAllowedPrincipleArrayInput` via:
 //
@@ -183,12 +176,6 @@ func (i VpcEndpointServiceAllowedPrincipleArray) ToVpcEndpointServiceAllowedPrin
 
 func (i VpcEndpointServiceAllowedPrincipleArray) ToVpcEndpointServiceAllowedPrincipleArrayOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrincipleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceAllowedPrincipleArrayOutput)
-}
-
-func (i VpcEndpointServiceAllowedPrincipleArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointServiceAllowedPrinciple] {
-	return pulumix.Output[[]*VpcEndpointServiceAllowedPrinciple]{
-		OutputState: i.ToVpcEndpointServiceAllowedPrincipleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpcEndpointServiceAllowedPrincipleMapInput is an input type that accepts VpcEndpointServiceAllowedPrincipleMap and VpcEndpointServiceAllowedPrincipleMapOutput values.
@@ -216,12 +203,6 @@ func (i VpcEndpointServiceAllowedPrincipleMap) ToVpcEndpointServiceAllowedPrinci
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceAllowedPrincipleMapOutput)
 }
 
-func (i VpcEndpointServiceAllowedPrincipleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointServiceAllowedPrinciple] {
-	return pulumix.Output[map[string]*VpcEndpointServiceAllowedPrinciple]{
-		OutputState: i.ToVpcEndpointServiceAllowedPrincipleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcEndpointServiceAllowedPrincipleOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointServiceAllowedPrincipleOutput) ElementType() reflect.Type {
@@ -234,12 +215,6 @@ func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPri
 
 func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPrincipleOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrincipleOutput {
 	return o
-}
-
-func (o VpcEndpointServiceAllowedPrincipleOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointServiceAllowedPrinciple] {
-	return pulumix.Output[*VpcEndpointServiceAllowedPrinciple]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the principal to allow permissions.
@@ -266,12 +241,6 @@ func (o VpcEndpointServiceAllowedPrincipleArrayOutput) ToVpcEndpointServiceAllow
 	return o
 }
 
-func (o VpcEndpointServiceAllowedPrincipleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointServiceAllowedPrinciple] {
-	return pulumix.Output[[]*VpcEndpointServiceAllowedPrinciple]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcEndpointServiceAllowedPrincipleArrayOutput) Index(i pulumi.IntInput) VpcEndpointServiceAllowedPrincipleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcEndpointServiceAllowedPrinciple {
 		return vs[0].([]*VpcEndpointServiceAllowedPrinciple)[vs[1].(int)]
@@ -290,12 +259,6 @@ func (o VpcEndpointServiceAllowedPrincipleMapOutput) ToVpcEndpointServiceAllowed
 
 func (o VpcEndpointServiceAllowedPrincipleMapOutput) ToVpcEndpointServiceAllowedPrincipleMapOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrincipleMapOutput {
 	return o
-}
-
-func (o VpcEndpointServiceAllowedPrincipleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointServiceAllowedPrinciple] {
-	return pulumix.Output[map[string]*VpcEndpointServiceAllowedPrinciple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcEndpointServiceAllowedPrincipleMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointServiceAllowedPrincipleOutput {

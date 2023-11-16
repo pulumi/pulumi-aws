@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS VPC Lattice Service Network.
@@ -186,12 +185,6 @@ func (i *ServiceNetwork) ToServiceNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkOutput)
 }
 
-func (i *ServiceNetwork) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetwork] {
-	return pulumix.Output[*ServiceNetwork]{
-		OutputState: i.ToServiceNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceNetworkArrayInput is an input type that accepts ServiceNetworkArray and ServiceNetworkArrayOutput values.
 // You can construct a concrete instance of `ServiceNetworkArrayInput` via:
 //
@@ -215,12 +208,6 @@ func (i ServiceNetworkArray) ToServiceNetworkArrayOutput() ServiceNetworkArrayOu
 
 func (i ServiceNetworkArray) ToServiceNetworkArrayOutputWithContext(ctx context.Context) ServiceNetworkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkArrayOutput)
-}
-
-func (i ServiceNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceNetwork] {
-	return pulumix.Output[[]*ServiceNetwork]{
-		OutputState: i.ToServiceNetworkArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceNetworkMapInput is an input type that accepts ServiceNetworkMap and ServiceNetworkMapOutput values.
@@ -248,12 +235,6 @@ func (i ServiceNetworkMap) ToServiceNetworkMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkMapOutput)
 }
 
-func (i ServiceNetworkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceNetwork] {
-	return pulumix.Output[map[string]*ServiceNetwork]{
-		OutputState: i.ToServiceNetworkMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceNetworkOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkOutput) ElementType() reflect.Type {
@@ -266,12 +247,6 @@ func (o ServiceNetworkOutput) ToServiceNetworkOutput() ServiceNetworkOutput {
 
 func (o ServiceNetworkOutput) ToServiceNetworkOutputWithContext(ctx context.Context) ServiceNetworkOutput {
 	return o
-}
-
-func (o ServiceNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetwork] {
-	return pulumix.Output[*ServiceNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Service Network.
@@ -317,12 +292,6 @@ func (o ServiceNetworkArrayOutput) ToServiceNetworkArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ServiceNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceNetwork] {
-	return pulumix.Output[[]*ServiceNetwork]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkArrayOutput) Index(i pulumi.IntInput) ServiceNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceNetwork {
 		return vs[0].([]*ServiceNetwork)[vs[1].(int)]
@@ -341,12 +310,6 @@ func (o ServiceNetworkMapOutput) ToServiceNetworkMapOutput() ServiceNetworkMapOu
 
 func (o ServiceNetworkMapOutput) ToServiceNetworkMapOutputWithContext(ctx context.Context) ServiceNetworkMapOutput {
 	return o
-}
-
-func (o ServiceNetworkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceNetwork] {
-	return pulumix.Output[map[string]*ServiceNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceNetworkMapOutput) MapIndex(k pulumi.StringInput) ServiceNetworkOutput {

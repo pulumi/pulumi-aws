@@ -75,6 +75,7 @@ class GroupArgs:
                even if it's in the process of scaling a resource. Normally, this provider
                drains all the instances before deleting the group. This bypasses that
                behavior and potentially leaves resources dangling.
+        :param pulumi.Input[bool] force_delete_warm_pool: Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
         :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
@@ -346,6 +347,9 @@ class GroupArgs:
     @property
     @pulumi.getter(name="forceDeleteWarmPool")
     def force_delete_warm_pool(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+        """
         return pulumi.get(self, "force_delete_warm_pool")
 
     @force_delete_warm_pool.setter
@@ -754,6 +758,7 @@ class _GroupState:
                even if it's in the process of scaling a resource. Normally, this provider
                drains all the instances before deleting the group. This bypasses that
                behavior and potentially leaves resources dangling.
+        :param pulumi.Input[bool] force_delete_warm_pool: Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
         :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
@@ -1025,6 +1030,9 @@ class _GroupState:
     @property
     @pulumi.getter(name="forceDeleteWarmPool")
     def force_delete_warm_pool(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+        """
         return pulumi.get(self, "force_delete_warm_pool")
 
     @force_delete_warm_pool.setter
@@ -1791,6 +1799,7 @@ class Group(pulumi.CustomResource):
                even if it's in the process of scaling a resource. Normally, this provider
                drains all the instances before deleting the group. This bypasses that
                behavior and potentially leaves resources dangling.
+        :param pulumi.Input[bool] force_delete_warm_pool: Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
         :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
@@ -2345,6 +2354,7 @@ class Group(pulumi.CustomResource):
                even if it's in the process of scaling a resource. Normally, this provider
                drains all the instances before deleting the group. This bypasses that
                behavior and potentially leaves resources dangling.
+        :param pulumi.Input[bool] force_delete_warm_pool: Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
         :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
@@ -2540,6 +2550,9 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter(name="forceDeleteWarmPool")
     def force_delete_warm_pool(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+        """
         return pulumi.get(self, "force_delete_warm_pool")
 
     @property

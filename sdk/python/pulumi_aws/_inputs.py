@@ -475,6 +475,7 @@ class ProviderEndpointArgs:
                  ssm: Optional[pulumi.Input[str]] = None,
                  ssmcontacts: Optional[pulumi.Input[str]] = None,
                  ssmincidents: Optional[pulumi.Input[str]] = None,
+                 sso: Optional[pulumi.Input[str]] = None,
                  ssoadmin: Optional[pulumi.Input[str]] = None,
                  stepfunctions: Optional[pulumi.Input[str]] = None,
                  storagegateway: Optional[pulumi.Input[str]] = None,
@@ -957,6 +958,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "ssmcontacts", ssmcontacts)
         if ssmincidents is not None:
             pulumi.set(__self__, "ssmincidents", ssmincidents)
+        if sso is not None:
+            pulumi.set(__self__, "sso", sso)
         if ssoadmin is not None:
             pulumi.set(__self__, "ssoadmin", ssoadmin)
         if stepfunctions is not None:
@@ -3081,6 +3084,15 @@ class ProviderEndpointArgs:
     @ssmincidents.setter
     def ssmincidents(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssmincidents", value)
+
+    @property
+    @pulumi.getter
+    def sso(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sso")
+
+    @sso.setter
+    def sso(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sso", value)
 
     @property
     @pulumi.getter

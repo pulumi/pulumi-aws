@@ -1311,11 +1311,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
                  client_credentials_arn: Optional[pulumi.Input[str]] = None,
+                 jwt_token: Optional[pulumi.Input[str]] = None,
+                 oauth2_grant_type: Optional[pulumi.Input[str]] = None,
                  oauth_request: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs']] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] access_token: The access token used to access the connector on your behalf.
         :param pulumi.Input[str] client_credentials_arn: The secret manager ARN, which contains the client ID and client secret of the connected app.
+        :param pulumi.Input[str] jwt_token: A JSON web token (JWT) that authorizes access to Salesforce records.
+        :param pulumi.Input[str] oauth2_grant_type: The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
         :param pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs'] oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param pulumi.Input[str] refresh_token: The refresh token used to refresh an expired access token.
         """
@@ -1323,6 +1327,10 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
             pulumi.set(__self__, "access_token", access_token)
         if client_credentials_arn is not None:
             pulumi.set(__self__, "client_credentials_arn", client_credentials_arn)
+        if jwt_token is not None:
+            pulumi.set(__self__, "jwt_token", jwt_token)
+        if oauth2_grant_type is not None:
+            pulumi.set(__self__, "oauth2_grant_type", oauth2_grant_type)
         if oauth_request is not None:
             pulumi.set(__self__, "oauth_request", oauth_request)
         if refresh_token is not None:
@@ -1351,6 +1359,30 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
     @client_credentials_arn.setter
     def client_credentials_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_credentials_arn", value)
+
+    @property
+    @pulumi.getter(name="jwtToken")
+    def jwt_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON web token (JWT) that authorizes access to Salesforce records.
+        """
+        return pulumi.get(self, "jwt_token")
+
+    @jwt_token.setter
+    def jwt_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "jwt_token", value)
+
+    @property
+    @pulumi.getter(name="oauth2GrantType")
+    def oauth2_grant_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+        """
+        return pulumi.get(self, "oauth2_grant_type")
+
+    @oauth2_grant_type.setter
+    def oauth2_grant_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oauth2_grant_type", value)
 
     @property
     @pulumi.getter(name="oauthRequest")

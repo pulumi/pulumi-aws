@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WAF Regex Match Set Resource
@@ -167,12 +166,6 @@ func (i *RegexMatchSet) ToRegexMatchSetOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetOutput)
 }
 
-func (i *RegexMatchSet) ToOutput(ctx context.Context) pulumix.Output[*RegexMatchSet] {
-	return pulumix.Output[*RegexMatchSet]{
-		OutputState: i.ToRegexMatchSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RegexMatchSetArrayInput is an input type that accepts RegexMatchSetArray and RegexMatchSetArrayOutput values.
 // You can construct a concrete instance of `RegexMatchSetArrayInput` via:
 //
@@ -196,12 +189,6 @@ func (i RegexMatchSetArray) ToRegexMatchSetArrayOutput() RegexMatchSetArrayOutpu
 
 func (i RegexMatchSetArray) ToRegexMatchSetArrayOutputWithContext(ctx context.Context) RegexMatchSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetArrayOutput)
-}
-
-func (i RegexMatchSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegexMatchSet] {
-	return pulumix.Output[[]*RegexMatchSet]{
-		OutputState: i.ToRegexMatchSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RegexMatchSetMapInput is an input type that accepts RegexMatchSetMap and RegexMatchSetMapOutput values.
@@ -229,12 +216,6 @@ func (i RegexMatchSetMap) ToRegexMatchSetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetMapOutput)
 }
 
-func (i RegexMatchSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegexMatchSet] {
-	return pulumix.Output[map[string]*RegexMatchSet]{
-		OutputState: i.ToRegexMatchSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RegexMatchSetOutput struct{ *pulumi.OutputState }
 
 func (RegexMatchSetOutput) ElementType() reflect.Type {
@@ -247,12 +228,6 @@ func (o RegexMatchSetOutput) ToRegexMatchSetOutput() RegexMatchSetOutput {
 
 func (o RegexMatchSetOutput) ToRegexMatchSetOutputWithContext(ctx context.Context) RegexMatchSetOutput {
 	return o
-}
-
-func (o RegexMatchSetOutput) ToOutput(ctx context.Context) pulumix.Output[*RegexMatchSet] {
-	return pulumix.Output[*RegexMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN)
@@ -284,12 +259,6 @@ func (o RegexMatchSetArrayOutput) ToRegexMatchSetArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o RegexMatchSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegexMatchSet] {
-	return pulumix.Output[[]*RegexMatchSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RegexMatchSetArrayOutput) Index(i pulumi.IntInput) RegexMatchSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegexMatchSet {
 		return vs[0].([]*RegexMatchSet)[vs[1].(int)]
@@ -308,12 +277,6 @@ func (o RegexMatchSetMapOutput) ToRegexMatchSetMapOutput() RegexMatchSetMapOutpu
 
 func (o RegexMatchSetMapOutput) ToRegexMatchSetMapOutputWithContext(ctx context.Context) RegexMatchSetMapOutput {
 	return o
-}
-
-func (o RegexMatchSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegexMatchSet] {
-	return pulumix.Output[map[string]*RegexMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RegexMatchSetMapOutput) MapIndex(k pulumi.StringInput) RegexMatchSetOutput {

@@ -37,6 +37,8 @@ __all__ = [
     'IntentSlotValueElicitationPromptMessage',
     'SlotTypeEnumerationValue',
     'V2modelsBotDataPrivacy',
+    'V2modelsBotLocaleTimeouts',
+    'V2modelsBotLocaleVoiceSettings',
     'V2modelsBotMember',
     'V2modelsBotTimeouts',
     'GetSlotTypeEnumerationValueResult',
@@ -1635,6 +1637,72 @@ class V2modelsBotDataPrivacy(dict):
         (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
         """
         return pulumi.get(self, "child_directed")
+
+
+@pulumi.output_type
+class V2modelsBotLocaleTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class V2modelsBotLocaleVoiceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "voiceId":
+            suggest = "voice_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsBotLocaleVoiceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsBotLocaleVoiceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsBotLocaleVoiceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 voice_id: str,
+                 engine: Optional[str] = None):
+        pulumi.set(__self__, "voice_id", voice_id)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
+
+    @property
+    @pulumi.getter(name="voiceId")
+    def voice_id(self) -> str:
+        return pulumi.get(self, "voice_id")
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional[str]:
+        return pulumi.get(self, "engine")
 
 
 @pulumi.output_type

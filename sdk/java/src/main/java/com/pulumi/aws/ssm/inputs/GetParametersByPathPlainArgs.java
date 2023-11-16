@@ -16,14 +16,14 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
     public static final GetParametersByPathPlainArgs Empty = new GetParametersByPathPlainArgs();
 
     /**
-     * Prefix path of the parameter.
+     * The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can&#39;t be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
      * 
      */
     @Import(name="path", required=true)
     private String path;
 
     /**
-     * @return Prefix path of the parameter.
+     * @return The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can&#39;t be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
      * 
      */
     public String path() {
@@ -31,18 +31,14 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * Whether to recursively return parameters under `path`. Defaults to `false`.
-     * 
-     * In addition to all arguments above, the following attributes are exported:
+     * Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
      * 
      */
     @Import(name="recursive")
     private @Nullable Boolean recursive;
 
     /**
-     * @return Whether to recursively return parameters under `path`. Defaults to `false`.
-     * 
-     * In addition to all arguments above, the following attributes are exported:
+     * @return Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
      * 
      */
     public Optional<Boolean> recursive() {
@@ -50,14 +46,14 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     * Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
      * 
      */
     @Import(name="withDecryption")
     private @Nullable Boolean withDecryption;
 
     /**
-     * @return Whether to return decrypted `SecureString` value. Defaults to `true`.
+     * @return Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
      * 
      */
     public Optional<Boolean> withDecryption() {
@@ -91,7 +87,7 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param path Prefix path of the parameter.
+         * @param path The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can&#39;t be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
          * 
          * @return builder
          * 
@@ -102,9 +98,7 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param recursive Whether to recursively return parameters under `path`. Defaults to `false`.
-         * 
-         * In addition to all arguments above, the following attributes are exported:
+         * @param recursive Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -115,7 +109,7 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param withDecryption Whether to return decrypted `SecureString` value. Defaults to `true`.
+         * @param withDecryption Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
          * 
          * @return builder
          * 

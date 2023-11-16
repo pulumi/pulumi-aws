@@ -72,6 +72,7 @@ const (
 	autoscalingPlansMod         = "AutoScalingPlans"         // Auto Scaling Plans
 	backupMod                   = "Backup"                   // Backup
 	batchMod                    = "Batch"                    // Batch
+	bedrockFoundationMod        = "BedrockFoundation"        // BedrockFoundation
 	budgetsMod                  = "Budgets"                  // Budgets
 	chimeMod                    = "Chime"                    // Chime
 	chimeSDKMediaPipelinesMod   = "ChimeSDKMediaPipelines"   // Chime SDK Media Pipelines
@@ -273,6 +274,7 @@ var moduleMap = map[string]string{
 	"autoscaling":                     autoscalingMod,
 	"autoscalingplans":                autoscalingPlansMod,
 	"backup":                          backupMod,
+	"bedrock_foundation":              bedrockFoundationMod,
 	"batch":                           batchMod,
 	"budgets":                         budgetsMod,
 	"chime":                           chimeMod,

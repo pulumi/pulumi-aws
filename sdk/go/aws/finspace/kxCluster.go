@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS FinSpace Kx Cluster.
@@ -373,12 +372,6 @@ func (i *KxCluster) ToKxClusterOutputWithContext(ctx context.Context) KxClusterO
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterOutput)
 }
 
-func (i *KxCluster) ToOutput(ctx context.Context) pulumix.Output[*KxCluster] {
-	return pulumix.Output[*KxCluster]{
-		OutputState: i.ToKxClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KxClusterArrayInput is an input type that accepts KxClusterArray and KxClusterArrayOutput values.
 // You can construct a concrete instance of `KxClusterArrayInput` via:
 //
@@ -402,12 +395,6 @@ func (i KxClusterArray) ToKxClusterArrayOutput() KxClusterArrayOutput {
 
 func (i KxClusterArray) ToKxClusterArrayOutputWithContext(ctx context.Context) KxClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterArrayOutput)
-}
-
-func (i KxClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*KxCluster] {
-	return pulumix.Output[[]*KxCluster]{
-		OutputState: i.ToKxClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KxClusterMapInput is an input type that accepts KxClusterMap and KxClusterMapOutput values.
@@ -435,12 +422,6 @@ func (i KxClusterMap) ToKxClusterMapOutputWithContext(ctx context.Context) KxClu
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterMapOutput)
 }
 
-func (i KxClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KxCluster] {
-	return pulumix.Output[map[string]*KxCluster]{
-		OutputState: i.ToKxClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxClusterOutput struct{ *pulumi.OutputState }
 
 func (KxClusterOutput) ElementType() reflect.Type {
@@ -453,12 +434,6 @@ func (o KxClusterOutput) ToKxClusterOutput() KxClusterOutput {
 
 func (o KxClusterOutput) ToKxClusterOutputWithContext(ctx context.Context) KxClusterOutput {
 	return o
-}
-
-func (o KxClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*KxCluster] {
-	return pulumix.Output[*KxCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) identifier of the KX cluster.
@@ -604,12 +579,6 @@ func (o KxClusterArrayOutput) ToKxClusterArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o KxClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KxCluster] {
-	return pulumix.Output[[]*KxCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KxClusterArrayOutput) Index(i pulumi.IntInput) KxClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KxCluster {
 		return vs[0].([]*KxCluster)[vs[1].(int)]
@@ -628,12 +597,6 @@ func (o KxClusterMapOutput) ToKxClusterMapOutput() KxClusterMapOutput {
 
 func (o KxClusterMapOutput) ToKxClusterMapOutputWithContext(ctx context.Context) KxClusterMapOutput {
 	return o
-}
-
-func (o KxClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KxCluster] {
-	return pulumix.Output[map[string]*KxCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxClusterMapOutput) MapIndex(k pulumi.StringInput) KxClusterOutput {

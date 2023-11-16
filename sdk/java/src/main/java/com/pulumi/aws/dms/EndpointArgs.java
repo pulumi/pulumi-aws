@@ -12,6 +12,7 @@ import com.pulumi.aws.dms.inputs.EndpointRedshiftSettingsArgs;
 import com.pulumi.aws.dms.inputs.EndpointS3SettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -208,6 +209,13 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.password);
     }
 
+    @Import(name="pauseReplicationTasks")
+    private @Nullable Output<Boolean> pauseReplicationTasks;
+
+    public Optional<Output<Boolean>> pauseReplicationTasks() {
+        return Optional.ofNullable(this.pauseReplicationTasks);
+    }
+
     /**
      * Port used by the endpoint database.
      * 
@@ -380,6 +388,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyArn = $.kmsKeyArn;
         this.mongodbSettings = $.mongodbSettings;
         this.password = $.password;
+        this.pauseReplicationTasks = $.pauseReplicationTasks;
         this.port = $.port;
         this.redisSettings = $.redisSettings;
         this.redshiftSettings = $.redshiftSettings;
@@ -665,6 +674,15 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        public Builder pauseReplicationTasks(@Nullable Output<Boolean> pauseReplicationTasks) {
+            $.pauseReplicationTasks = pauseReplicationTasks;
+            return this;
+        }
+
+        public Builder pauseReplicationTasks(Boolean pauseReplicationTasks) {
+            return pauseReplicationTasks(Output.of(pauseReplicationTasks));
         }
 
         /**

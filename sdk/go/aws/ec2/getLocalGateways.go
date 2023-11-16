@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Local Gateways, such as their identifiers.
@@ -118,12 +117,6 @@ func (o GetLocalGatewaysResultOutput) ToGetLocalGatewaysResultOutput() GetLocalG
 
 func (o GetLocalGatewaysResultOutput) ToGetLocalGatewaysResultOutputWithContext(ctx context.Context) GetLocalGatewaysResultOutput {
 	return o
-}
-
-func (o GetLocalGatewaysResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalGatewaysResult] {
-	return pulumix.Output[GetLocalGatewaysResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLocalGatewaysResultOutput) Filters() GetLocalGatewaysFilterArrayOutput {

@@ -17,6 +17,11 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
      */
     private @Nullable String kmsKeyId;
     /**
+     * @return The S3 path where offline records are written.
+     * 
+     */
+    private @Nullable String resolvedOutputS3Uri;
+    /**
      * @return The S3 URI, or location in Amazon S3, of OfflineStore.
      * 
      */
@@ -29,6 +34,13 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
      */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
+    }
+    /**
+     * @return The S3 path where offline records are written.
+     * 
+     */
+    public Optional<String> resolvedOutputS3Uri() {
+        return Optional.ofNullable(this.resolvedOutputS3Uri);
     }
     /**
      * @return The S3 URI, or location in Amazon S3, of OfflineStore.
@@ -48,17 +60,24 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String kmsKeyId;
+        private @Nullable String resolvedOutputS3Uri;
         private String s3Uri;
         public Builder() {}
         public Builder(FeatureGroupOfflineStoreConfigS3StorageConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyId = defaults.kmsKeyId;
+    	      this.resolvedOutputS3Uri = defaults.resolvedOutputS3Uri;
     	      this.s3Uri = defaults.s3Uri;
         }
 
         @CustomType.Setter
         public Builder kmsKeyId(@Nullable String kmsKeyId) {
             this.kmsKeyId = kmsKeyId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder resolvedOutputS3Uri(@Nullable String resolvedOutputS3Uri) {
+            this.resolvedOutputS3Uri = resolvedOutputS3Uri;
             return this;
         }
         @CustomType.Setter
@@ -69,6 +88,7 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
         public FeatureGroupOfflineStoreConfigS3StorageConfig build() {
             final var o = new FeatureGroupOfflineStoreConfigS3StorageConfig();
             o.kmsKeyId = kmsKeyId;
+            o.resolvedOutputS3Uri = resolvedOutputS3Uri;
             o.s3Uri = s3Uri;
             return o;
         }

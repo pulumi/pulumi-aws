@@ -2134,6 +2134,14 @@ export namespace appflow {
          */
         clientCredentialsArn?: string;
         /**
+         * A JSON web token (JWT) that authorizes access to Salesforce records.
+         */
+        jwtToken?: string;
+        /**
+         * The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         */
+        oauth2GrantType?: string;
+        /**
          * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
          */
         oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest;
@@ -9129,7 +9137,7 @@ export namespace autoscaling {
          */
         predefinedMetricType: string;
         /**
-         * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
          */
         resourceLabel?: string;
     }
@@ -9140,7 +9148,7 @@ export namespace autoscaling {
          */
         predefinedMetricType: string;
         /**
-         * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
          */
         resourceLabel?: string;
     }
@@ -9151,7 +9159,7 @@ export namespace autoscaling {
          */
         predefinedMetricType: string;
         /**
-         * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+         * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
          */
         resourceLabel?: string;
     }
@@ -10057,6 +10065,48 @@ export namespace batch {
          * The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
          */
         weightFactor?: number;
+    }
+
+}
+
+export namespace bedrockfoundation {
+    export interface GetModelsModelSummary {
+        /**
+         * Customizations that the model supports.
+         */
+        customizationsSupporteds: string[];
+        /**
+         * Inference types that the model supports.
+         */
+        inferenceTypesSupporteds: string[];
+        /**
+         * Input modalities that the model supports.
+         */
+        inputModalities: string[];
+        /**
+         * Model ARN.
+         */
+        modelArn: string;
+        /**
+         * Model identifier.
+         */
+        modelId: string;
+        /**
+         * Model name.
+         */
+        modelName: string;
+        /**
+         * Output modalities that the model supports.
+         */
+        outputModalities: string[];
+        /**
+         * Model provider name.
+         */
+        providerName: string;
+        /**
+         * Indicates whether the model supports streaming.
+         */
+        responseStreamingSupported: boolean;
     }
 
 }
@@ -15677,6 +15727,7 @@ export namespace config {
         ssm?: string;
         ssmcontacts?: string;
         ssmincidents?: string;
+        sso?: string;
         ssoadmin?: string;
         stepfunctions?: string;
         storagegateway?: string;
@@ -18177,6 +18228,63 @@ export namespace datasync {
          * Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
          */
         scheduleExpression: string;
+    }
+
+    export interface TaskTaskReportConfig {
+        /**
+         * Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+         */
+        outputType?: string;
+        /**
+         * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+         */
+        reportLevel?: string;
+        /**
+         * Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
+         */
+        reportOverrides?: outputs.datasync.TaskTaskReportConfigReportOverrides;
+        /**
+         * Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
+         */
+        s3Destination: outputs.datasync.TaskTaskReportConfigS3Destination;
+        /**
+         * Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+         */
+        s3ObjectVersioning?: string;
+    }
+
+    export interface TaskTaskReportConfigReportOverrides {
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+         */
+        deletedOverride?: string;
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+         */
+        skippedOverride?: string;
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+         */
+        transferredOverride?: string;
+        /**
+         * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+         */
+        verifiedOverride?: string;
+    }
+
+    export interface TaskTaskReportConfigS3Destination {
+        /**
+         * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+         */
+        bucketAccessRoleArn: string;
+        /**
+         * Specifies the ARN of the S3 bucket where DataSync uploads your report.
+         */
+        s3BucketArn: string;
+        /**
+         * Specifies a bucket prefix for your report.
+         */
+        subdirectory?: string;
     }
 
 }
@@ -31189,7 +31297,7 @@ export namespace glue {
          */
         containsHeader?: string;
         /**
-         * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+         * Enables the custom datatype to be configured.
          */
         customDatatypeConfigured?: boolean;
         /**
@@ -33965,6 +34073,10 @@ export namespace inspector2 {
          * Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
          */
         lambda?: boolean;
+        /**
+         * Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+         */
+        lambdaCode?: boolean;
     }
 
 }
@@ -40296,6 +40408,17 @@ export namespace lex {
          * (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
          */
         childDirected: boolean;
+    }
+
+    export interface V2modelsBotLocaleTimeouts {
+        create?: string;
+        delete?: string;
+        update?: string;
+    }
+
+    export interface V2modelsBotLocaleVoiceSettings {
+        engine: string;
+        voiceId: string;
     }
 
     export interface V2modelsBotMember {
@@ -55068,6 +55191,18 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsCanvasAppSettings {
         /**
+         * The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+         */
+        directDeploySettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings;
+        /**
+         * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         */
+        identityProviderOauthSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting[];
+        /**
+         * The settings for document querying. See Kendra Settings below.
+         */
+        kendraSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings;
+        /**
          * The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
          */
         modelRegisterSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings;
@@ -55079,6 +55214,35 @@ export namespace sagemaker {
          * The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
          */
         workspaceSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings;
+    }
+
+    export interface DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings {
+        /**
+         * Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
+        /**
+         * The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+         */
+        dataSourceName?: string;
+        /**
+         * The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+         */
+        secretArn: string;
+        /**
+         * Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
+        /**
+         * Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
     }
 
     export interface DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
@@ -55789,6 +55953,10 @@ export namespace sagemaker {
          */
         kmsKeyId?: string;
         /**
+         * The S3 path where offline records are written.
+         */
+        resolvedOutputS3Uri: string;
+        /**
          * The S3 URI, or location in Amazon S3, of OfflineStore.
          */
         s3Uri: string;
@@ -55803,6 +55971,14 @@ export namespace sagemaker {
          * Security config for at-rest encryption of your OnlineStore. See Security Config Below.
          */
         securityConfig?: outputs.sagemaker.FeatureGroupOnlineStoreConfigSecurityConfig;
+        /**
+         * Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+         */
+        storageType?: string;
+        /**
+         * Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+         */
+        ttlDuration?: outputs.sagemaker.FeatureGroupOnlineStoreConfigTtlDuration;
     }
 
     export interface FeatureGroupOnlineStoreConfigSecurityConfig {
@@ -55810,6 +55986,17 @@ export namespace sagemaker {
          * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId?: string;
+    }
+
+    export interface FeatureGroupOnlineStoreConfigTtlDuration {
+        /**
+         * TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
+         */
+        unit?: string;
+        /**
+         * TtlDuration time value.
+         */
+        value?: number;
     }
 
     export interface FlowDefinitionHumanLoopActivationConfig {
@@ -55943,6 +56130,10 @@ export namespace sagemaker {
          */
         mode?: string;
         /**
+         * The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+         */
+        modelDataSource: outputs.sagemaker.ModelContainerModelDataSource;
+        /**
          * The URL for the S3 location where model artifacts are stored.
          */
         modelDataUrl?: string;
@@ -55968,6 +56159,28 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
          */
         repositoryCredentialsProviderArn: string;
+    }
+
+    export interface ModelContainerModelDataSource {
+        /**
+         * The S3 location of model data to deploy.
+         */
+        s3DataSources: outputs.sagemaker.ModelContainerModelDataSourceS3DataSource[];
+    }
+
+    export interface ModelContainerModelDataSourceS3DataSource {
+        /**
+         * How the model data is prepared. Allowed values are: `None` and `Gzip`.
+         */
+        compressionType: string;
+        /**
+         * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+         */
+        s3DataType: string;
+        /**
+         * The S3 path of model data to deploy.
+         */
+        s3Uri: string;
     }
 
     export interface ModelInferenceExecutionConfig {
@@ -56000,6 +56213,10 @@ export namespace sagemaker {
          */
         mode?: string;
         /**
+         * The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+         */
+        modelDataSource: outputs.sagemaker.ModelPrimaryContainerModelDataSource;
+        /**
          * The URL for the S3 location where model artifacts are stored.
          */
         modelDataUrl?: string;
@@ -56025,6 +56242,28 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
          */
         repositoryCredentialsProviderArn: string;
+    }
+
+    export interface ModelPrimaryContainerModelDataSource {
+        /**
+         * The S3 location of model data to deploy.
+         */
+        s3DataSources: outputs.sagemaker.ModelPrimaryContainerModelDataSourceS3DataSource[];
+    }
+
+    export interface ModelPrimaryContainerModelDataSourceS3DataSource {
+        /**
+         * How the model data is prepared. Allowed values are: `None` and `Gzip`.
+         */
+        compressionType: string;
+        /**
+         * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+         */
+        s3DataType: string;
+        /**
+         * The S3 path of model data to deploy.
+         */
+        s3Uri: string;
     }
 
     export interface ModelVpcConfig {
@@ -56255,6 +56494,18 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsCanvasAppSettings {
         /**
+         * The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+         */
+        directDeploySettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings;
+        /**
+         * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         */
+        identityProviderOauthSettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting[];
+        /**
+         * The settings for document querying. See Kendra Settings below.
+         */
+        kendraSettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsKendraSettings;
+        /**
          * The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
          */
         modelRegisterSettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings;
@@ -56266,6 +56517,35 @@ export namespace sagemaker {
          * The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
          */
         workspaceSettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings;
+    }
+
+    export interface UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings {
+        /**
+         * Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
+        /**
+         * The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+         */
+        dataSourceName?: string;
+        /**
+         * The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+         */
+        secretArn: string;
+        /**
+         * Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
+    }
+
+    export interface UserProfileUserSettingsCanvasAppSettingsKendraSettings {
+        /**
+         * Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status?: string;
     }
 
     export interface UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
@@ -59900,25 +60180,46 @@ export namespace ssmcontacts {
     }
 
     export interface PlanStage {
+        /**
+         * The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+         */
         durationInMinutes: number;
+        /**
+         * One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+         */
         targets?: outputs.ssmcontacts.PlanStageTarget[];
     }
 
     export interface PlanStageTarget {
+        /**
+         * A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+         */
         channelTargetInfo?: outputs.ssmcontacts.PlanStageTargetChannelTargetInfo;
+        /**
+         * A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+         */
         contactTargetInfo?: outputs.ssmcontacts.PlanStageTargetContactTargetInfo;
     }
 
     export interface PlanStageTargetChannelTargetInfo {
+        /**
+         * The Amazon Resource Name (ARN) of the contact channel.
+         */
         contactChannelId: string;
+        /**
+         * The number of minutes to wait before retrying to send engagement if the engagement initially failed.
+         */
         retryIntervalInMinutes?: number;
     }
 
     export interface PlanStageTargetContactTargetInfo {
         /**
-         * The Amazon Resource Name (ARN) of the contact or escalation plan.
+         * The Amazon Resource Name (ARN) of the contact.
          */
         contactId?: string;
+        /**
+         * A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+         */
         isEssential: boolean;
     }
 
@@ -63277,7 +63578,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch;
         /**
-         * The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
+         * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          */
         regexString: string;
         /**
@@ -64283,7 +64584,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatch;
         /**
-         * The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
+         * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          */
         regexString: string;
         /**

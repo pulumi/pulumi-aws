@@ -118,15 +118,23 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly applicationSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
     /**
+     * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+     */
+    public readonly archivePolicy!: pulumi.Output<string | undefined>;
+    /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      */
     public /*out*/ readonly arn!: pulumi.Output<ARN>;
+    /**
+     * The oldest timestamp at which a FIFO topic subscriber can start a replay.
+     */
+    public /*out*/ readonly beginningArchiveTime!: pulumi.Output<string>;
     /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      */
     public readonly contentBasedDeduplication!: pulumi.Output<boolean | undefined>;
     /**
-     * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+     * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      */
     public readonly deliveryPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -240,7 +248,9 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["applicationFailureFeedbackRoleArn"] = state ? state.applicationFailureFeedbackRoleArn : undefined;
             resourceInputs["applicationSuccessFeedbackRoleArn"] = state ? state.applicationSuccessFeedbackRoleArn : undefined;
             resourceInputs["applicationSuccessFeedbackSampleRate"] = state ? state.applicationSuccessFeedbackSampleRate : undefined;
+            resourceInputs["archivePolicy"] = state ? state.archivePolicy : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["beginningArchiveTime"] = state ? state.beginningArchiveTime : undefined;
             resourceInputs["contentBasedDeduplication"] = state ? state.contentBasedDeduplication : undefined;
             resourceInputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
@@ -271,6 +281,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["applicationFailureFeedbackRoleArn"] = args ? args.applicationFailureFeedbackRoleArn : undefined;
             resourceInputs["applicationSuccessFeedbackRoleArn"] = args ? args.applicationSuccessFeedbackRoleArn : undefined;
             resourceInputs["applicationSuccessFeedbackSampleRate"] = args ? args.applicationSuccessFeedbackSampleRate : undefined;
+            resourceInputs["archivePolicy"] = args ? args.archivePolicy : undefined;
             resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
             resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
@@ -295,6 +306,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["beginningArchiveTime"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -322,15 +334,23 @@ export interface TopicState {
      */
     applicationSuccessFeedbackSampleRate?: pulumi.Input<number>;
     /**
+     * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+     */
+    archivePolicy?: pulumi.Input<string>;
+    /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      */
     arn?: pulumi.Input<ARN>;
+    /**
+     * The oldest timestamp at which a FIFO topic subscriber can start a replay.
+     */
+    beginningArchiveTime?: pulumi.Input<string>;
     /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      */
     contentBasedDeduplication?: pulumi.Input<boolean>;
     /**
-     * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+     * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      */
     deliveryPolicy?: pulumi.Input<string>;
     /**
@@ -446,11 +466,15 @@ export interface TopicArgs {
      */
     applicationSuccessFeedbackSampleRate?: pulumi.Input<number>;
     /**
+     * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+     */
+    archivePolicy?: pulumi.Input<string>;
+    /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      */
     contentBasedDeduplication?: pulumi.Input<boolean>;
     /**
-     * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+     * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      */
     deliveryPolicy?: pulumi.Input<string>;
     /**

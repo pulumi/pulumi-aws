@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS KMS (Key Management) Custom Key Store.
@@ -190,12 +189,6 @@ func (i *CustomKeyStore) ToCustomKeyStoreOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomKeyStoreOutput)
 }
 
-func (i *CustomKeyStore) ToOutput(ctx context.Context) pulumix.Output[*CustomKeyStore] {
-	return pulumix.Output[*CustomKeyStore]{
-		OutputState: i.ToCustomKeyStoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomKeyStoreArrayInput is an input type that accepts CustomKeyStoreArray and CustomKeyStoreArrayOutput values.
 // You can construct a concrete instance of `CustomKeyStoreArrayInput` via:
 //
@@ -219,12 +212,6 @@ func (i CustomKeyStoreArray) ToCustomKeyStoreArrayOutput() CustomKeyStoreArrayOu
 
 func (i CustomKeyStoreArray) ToCustomKeyStoreArrayOutputWithContext(ctx context.Context) CustomKeyStoreArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomKeyStoreArrayOutput)
-}
-
-func (i CustomKeyStoreArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomKeyStore] {
-	return pulumix.Output[[]*CustomKeyStore]{
-		OutputState: i.ToCustomKeyStoreArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomKeyStoreMapInput is an input type that accepts CustomKeyStoreMap and CustomKeyStoreMapOutput values.
@@ -252,12 +239,6 @@ func (i CustomKeyStoreMap) ToCustomKeyStoreMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomKeyStoreMapOutput)
 }
 
-func (i CustomKeyStoreMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomKeyStore] {
-	return pulumix.Output[map[string]*CustomKeyStore]{
-		OutputState: i.ToCustomKeyStoreMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomKeyStoreOutput struct{ *pulumi.OutputState }
 
 func (CustomKeyStoreOutput) ElementType() reflect.Type {
@@ -270,12 +251,6 @@ func (o CustomKeyStoreOutput) ToCustomKeyStoreOutput() CustomKeyStoreOutput {
 
 func (o CustomKeyStoreOutput) ToCustomKeyStoreOutputWithContext(ctx context.Context) CustomKeyStoreOutput {
 	return o
-}
-
-func (o CustomKeyStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomKeyStore] {
-	return pulumix.Output[*CustomKeyStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Cluster ID of CloudHSM.
@@ -312,12 +287,6 @@ func (o CustomKeyStoreArrayOutput) ToCustomKeyStoreArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o CustomKeyStoreArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomKeyStore] {
-	return pulumix.Output[[]*CustomKeyStore]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomKeyStoreArrayOutput) Index(i pulumi.IntInput) CustomKeyStoreOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomKeyStore {
 		return vs[0].([]*CustomKeyStore)[vs[1].(int)]
@@ -336,12 +305,6 @@ func (o CustomKeyStoreMapOutput) ToCustomKeyStoreMapOutput() CustomKeyStoreMapOu
 
 func (o CustomKeyStoreMapOutput) ToCustomKeyStoreMapOutputWithContext(ctx context.Context) CustomKeyStoreMapOutput {
 	return o
-}
-
-func (o CustomKeyStoreMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomKeyStore] {
-	return pulumix.Output[map[string]*CustomKeyStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomKeyStoreMapOutput) MapIndex(k pulumi.StringInput) CustomKeyStoreOutput {

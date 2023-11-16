@@ -3,16 +3,35 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettings {
+    /**
+     * @return The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+     * 
+     */
+    private @Nullable DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
+    /**
+     * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+     * 
+     */
+    private @Nullable List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings;
+    /**
+     * @return The settings for document querying. See Kendra Settings below.
+     * 
+     */
+    private @Nullable DomainDefaultUserSettingsCanvasAppSettingsKendraSettings kendraSettings;
     /**
      * @return The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
      * 
@@ -30,6 +49,27 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings;
 
     private DomainDefaultUserSettingsCanvasAppSettings() {}
+    /**
+     * @return The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+     * 
+     */
+    public Optional<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings> directDeploySettings() {
+        return Optional.ofNullable(this.directDeploySettings);
+    }
+    /**
+     * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+     * 
+     */
+    public List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings() {
+        return this.identityProviderOauthSettings == null ? List.of() : this.identityProviderOauthSettings;
+    }
+    /**
+     * @return The settings for document querying. See Kendra Settings below.
+     * 
+     */
+    public Optional<DomainDefaultUserSettingsCanvasAppSettingsKendraSettings> kendraSettings() {
+        return Optional.ofNullable(this.kendraSettings);
+    }
     /**
      * @return The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
      * 
@@ -61,17 +101,41 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
+        private @Nullable List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings;
+        private @Nullable DomainDefaultUserSettingsCanvasAppSettingsKendraSettings kendraSettings;
         private @Nullable DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
         private @Nullable DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
         private @Nullable DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings;
         public Builder() {}
         public Builder(DomainDefaultUserSettingsCanvasAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.directDeploySettings = defaults.directDeploySettings;
+    	      this.identityProviderOauthSettings = defaults.identityProviderOauthSettings;
+    	      this.kendraSettings = defaults.kendraSettings;
     	      this.modelRegisterSettings = defaults.modelRegisterSettings;
     	      this.timeSeriesForecastingSettings = defaults.timeSeriesForecastingSettings;
     	      this.workspaceSettings = defaults.workspaceSettings;
         }
 
+        @CustomType.Setter
+        public Builder directDeploySettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings) {
+            this.directDeploySettings = directDeploySettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder identityProviderOauthSettings(@Nullable List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings) {
+            this.identityProviderOauthSettings = identityProviderOauthSettings;
+            return this;
+        }
+        public Builder identityProviderOauthSettings(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting... identityProviderOauthSettings) {
+            return identityProviderOauthSettings(List.of(identityProviderOauthSettings));
+        }
+        @CustomType.Setter
+        public Builder kendraSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsKendraSettings kendraSettings) {
+            this.kendraSettings = kendraSettings;
+            return this;
+        }
         @CustomType.Setter
         public Builder modelRegisterSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings) {
             this.modelRegisterSettings = modelRegisterSettings;
@@ -89,6 +153,9 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
         }
         public DomainDefaultUserSettingsCanvasAppSettings build() {
             final var o = new DomainDefaultUserSettingsCanvasAppSettings();
+            o.directDeploySettings = directDeploySettings;
+            o.identityProviderOauthSettings = identityProviderOauthSettings;
+            o.kendraSettings = kendraSettings;
             o.modelRegisterSettings = modelRegisterSettings;
             o.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
             o.workspaceSettings = workspaceSettings;

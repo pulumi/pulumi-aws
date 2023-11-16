@@ -1,0 +1,129 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-11-10T17:59:05.075652-05:00",
+            "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+            "version": "v3.92.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:7qfZ4pQNjbM=:v1:rFQ+HjkTS4MXSgZG:JYQw7c6F5ugfqGsRniKfnaHZTy9ttQ=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-lambda-lay-8cf36131::lambda-layer-new::pulumi:pulumi:Stack::lambda-layer-new-p-it-antons-mac-lambda-lay-8cf36131",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "outputs": {
+                    "layerArn": "arn:aws:lambda:us-west-2:616138583583:layer:lambda_layer_name:11",
+                    "layerSize": 236
+                },
+                "created": "2023-11-10T22:58:57.007568Z",
+                "modified": "2023-11-10T22:58:57.007568Z",
+                "sourcePosition": "project:///node_modules/@pulumi/runtime/stack.ts#36,23"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-lambda-lay-8cf36131::lambda-layer-new::pulumi:providers:aws::prov",
+                "custom": true,
+                "id": "54d0f22d-0538-4b5a-8ede-41e1befd4752",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "region": "us-west-2",
+                    "skipCredentialsValidation": "false",
+                    "skipMetadataApiCheck": "true",
+                    "skipRegionValidation": "true",
+                    "version": "5.42.0"
+                },
+                "outputs": {
+                    "region": "us-west-2",
+                    "skipCredentialsValidation": "false",
+                    "skipMetadataApiCheck": "true",
+                    "skipRegionValidation": "true",
+                    "version": "5.42.0"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-lambda-lay-8cf36131::lambda-layer-new::pulumi:pulumi:Stack::lambda-layer-new-p-it-antons-mac-lambda-lay-8cf36131",
+                "propertyDependencies": {
+                    "region": null,
+                    "skipCredentialsValidation": null,
+                    "skipMetadataApiCheck": null,
+                    "skipRegionValidation": null
+                },
+                "created": "2023-11-10T22:58:58.565395Z",
+                "modified": "2023-11-10T22:58:58.565395Z",
+                "sourcePosition": "project:///node_modules/@pulumi/provider.ts#128,9"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-lambda-lay-8cf36131::lambda-layer-new::aws:lambda/layerVersion:LayerVersion::my-layer-version",
+                "custom": true,
+                "id": "arn:aws:lambda:us-west-2:616138583583:layer:lambda_layer_name:11",
+                "type": "aws:lambda/layerVersion:LayerVersion",
+                "inputs": {
+                    "__defaults": [
+                        "skipDestroy"
+                    ],
+                    "code": {
+                        "4dabf18193072939515e22adb298388d": "0def7320c3a5731c473e5ecbe6d01bc7",
+                        "assets": {
+                            "index.js": {
+                                "4dabf18193072939515e22adb298388d": "c44067f5952c0a294b673a41bacd8c17",
+                                "hash": "fd60d6666d78aeb7725928f9b92129b682f188a66573523e6795928d0a97cd77",
+                                "text": "exports.handler = (e, c, cb) => cb(null, {statusCode: 200, body: 'Hello, world!'});"
+                            }
+                        },
+                        "hash": "b898ebe846ff6543102dd399b89309fad766b5a1620bdb18c08b234b0b9bbd8a"
+                    },
+                    "compatibleRuntimes": [
+                        "nodejs10.x",
+                        "nodejs12.x"
+                    ],
+                    "layerName": "lambda_layer_name",
+                    "skipDestroy": false
+                },
+                "outputs": {
+                    "arn": "arn:aws:lambda:us-west-2:616138583583:layer:lambda_layer_name:11",
+                    "code": {
+                        "4dabf18193072939515e22adb298388d": "0def7320c3a5731c473e5ecbe6d01bc7",
+                        "assets": {
+                            "index.js": {
+                                "4dabf18193072939515e22adb298388d": "c44067f5952c0a294b673a41bacd8c17",
+                                "hash": "fd60d6666d78aeb7725928f9b92129b682f188a66573523e6795928d0a97cd77",
+                                "text": "exports.handler = (e, c, cb) => cb(null, {statusCode: 200, body: 'Hello, world!'});"
+                            }
+                        },
+                        "hash": "b898ebe846ff6543102dd399b89309fad766b5a1620bdb18c08b234b0b9bbd8a"
+                    },
+                    "compatibleArchitectures": [],
+                    "compatibleRuntimes": [
+                        "nodejs10.x",
+                        "nodejs12.x"
+                    ],
+                    "createdDate": "2023-11-10T22:59:04.850+0000",
+                    "description": "",
+                    "id": "arn:aws:lambda:us-west-2:616138583583:layer:lambda_layer_name:11",
+                    "layerArn": "arn:aws:lambda:us-west-2:616138583583:layer:lambda_layer_name",
+                    "layerName": "lambda_layer_name",
+                    "licenseInfo": "",
+                    "signingJobArn": "",
+                    "signingProfileVersionArn": "",
+                    "skipDestroy": false,
+                    "sourceCodeHash": "yIGkchJOBl4WngdvqxG31xQS90gp7Zfmtqqp4T24JM0=",
+                    "sourceCodeSize": 236,
+                    "version": "11"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-lambda-lay-8cf36131::lambda-layer-new::pulumi:pulumi:Stack::lambda-layer-new-p-it-antons-mac-lambda-lay-8cf36131",
+                "provider": "urn:pulumi:p-it-antons-mac-lambda-lay-8cf36131::lambda-layer-new::pulumi:providers:aws::prov::54d0f22d-0538-4b5a-8ede-41e1befd4752",
+                "propertyDependencies": {
+                    "code": null,
+                    "compatibleRuntimes": null,
+                    "layerName": null
+                },
+                "created": "2023-11-10T22:59:05.063925Z",
+                "modified": "2023-11-10T22:59:05.063925Z",
+                "sourcePosition": "project:///index.ts#10,13"
+            }
+        ]
+    }
+}

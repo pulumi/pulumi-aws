@@ -801,7 +801,7 @@ class Policy(pulumi.CustomResource):
                     ),
                     predefined_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs(
                         predefined_metric_type="ASGTotalCPUUtilization",
-                        resource_label="testLabel",
+                        resource_label="app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
                     ),
                     target_value=10,
                 ),
@@ -1037,7 +1037,7 @@ class Policy(pulumi.CustomResource):
                     ),
                     predefined_load_metric_specification=aws.autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs(
                         predefined_metric_type="ASGTotalCPUUtilization",
-                        resource_label="testLabel",
+                        resource_label="app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
                     ),
                     target_value=10,
                 ),

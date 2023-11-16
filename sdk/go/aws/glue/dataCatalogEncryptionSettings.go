@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Data Catalog Encryption Settings resource.
@@ -156,12 +155,6 @@ func (i *DataCatalogEncryptionSettings) ToDataCatalogEncryptionSettingsOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsOutput)
 }
 
-func (i *DataCatalogEncryptionSettings) ToOutput(ctx context.Context) pulumix.Output[*DataCatalogEncryptionSettings] {
-	return pulumix.Output[*DataCatalogEncryptionSettings]{
-		OutputState: i.ToDataCatalogEncryptionSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCatalogEncryptionSettingsArrayInput is an input type that accepts DataCatalogEncryptionSettingsArray and DataCatalogEncryptionSettingsArrayOutput values.
 // You can construct a concrete instance of `DataCatalogEncryptionSettingsArrayInput` via:
 //
@@ -185,12 +178,6 @@ func (i DataCatalogEncryptionSettingsArray) ToDataCatalogEncryptionSettingsArray
 
 func (i DataCatalogEncryptionSettingsArray) ToDataCatalogEncryptionSettingsArrayOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsArrayOutput)
-}
-
-func (i DataCatalogEncryptionSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataCatalogEncryptionSettings] {
-	return pulumix.Output[[]*DataCatalogEncryptionSettings]{
-		OutputState: i.ToDataCatalogEncryptionSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataCatalogEncryptionSettingsMapInput is an input type that accepts DataCatalogEncryptionSettingsMap and DataCatalogEncryptionSettingsMapOutput values.
@@ -218,12 +205,6 @@ func (i DataCatalogEncryptionSettingsMap) ToDataCatalogEncryptionSettingsMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsMapOutput)
 }
 
-func (i DataCatalogEncryptionSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCatalogEncryptionSettings] {
-	return pulumix.Output[map[string]*DataCatalogEncryptionSettings]{
-		OutputState: i.ToDataCatalogEncryptionSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCatalogEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
@@ -236,12 +217,6 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutp
 
 func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsOutput {
 	return o
-}
-
-func (o DataCatalogEncryptionSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCatalogEncryptionSettings] {
-	return pulumix.Output[*DataCatalogEncryptionSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
@@ -270,12 +245,6 @@ func (o DataCatalogEncryptionSettingsArrayOutput) ToDataCatalogEncryptionSetting
 	return o
 }
 
-func (o DataCatalogEncryptionSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataCatalogEncryptionSettings] {
-	return pulumix.Output[[]*DataCatalogEncryptionSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataCatalogEncryptionSettingsArrayOutput) Index(i pulumi.IntInput) DataCatalogEncryptionSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataCatalogEncryptionSettings {
 		return vs[0].([]*DataCatalogEncryptionSettings)[vs[1].(int)]
@@ -294,12 +263,6 @@ func (o DataCatalogEncryptionSettingsMapOutput) ToDataCatalogEncryptionSettingsM
 
 func (o DataCatalogEncryptionSettingsMapOutput) ToDataCatalogEncryptionSettingsMapOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsMapOutput {
 	return o
-}
-
-func (o DataCatalogEncryptionSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCatalogEncryptionSettings] {
-	return pulumix.Output[map[string]*DataCatalogEncryptionSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCatalogEncryptionSettingsMapOutput) MapIndex(k pulumi.StringInput) DataCatalogEncryptionSettingsOutput {

@@ -13,6 +13,30 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class UserProfileUserSettingsCanvasAppSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        /// </summary>
+        [Input("directDeploySettings")]
+        public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsGetArgs>? DirectDeploySettings { get; set; }
+
+        [Input("identityProviderOauthSettings")]
+        private InputList<Inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingGetArgs>? _identityProviderOauthSettings;
+
+        /// <summary>
+        /// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+        /// </summary>
+        public InputList<Inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingGetArgs> IdentityProviderOauthSettings
+        {
+            get => _identityProviderOauthSettings ?? (_identityProviderOauthSettings = new InputList<Inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingGetArgs>());
+            set => _identityProviderOauthSettings = value;
+        }
+
+        /// <summary>
+        /// The settings for document querying. See Kendra Settings below.
+        /// </summary>
+        [Input("kendraSettings")]
+        public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsKendraSettingsGetArgs>? KendraSettings { get; set; }
+
+        /// <summary>
         /// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
         /// </summary>
         [Input("modelRegisterSettings")]

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing a Verified Access Logging Configuration.
@@ -315,12 +314,6 @@ func (i *InstanceLoggingConfiguration) ToInstanceLoggingConfigurationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationOutput)
 }
 
-func (i *InstanceLoggingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfiguration] {
-	return pulumix.Output[*InstanceLoggingConfiguration]{
-		OutputState: i.ToInstanceLoggingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceLoggingConfigurationArrayInput is an input type that accepts InstanceLoggingConfigurationArray and InstanceLoggingConfigurationArrayOutput values.
 // You can construct a concrete instance of `InstanceLoggingConfigurationArrayInput` via:
 //
@@ -344,12 +337,6 @@ func (i InstanceLoggingConfigurationArray) ToInstanceLoggingConfigurationArrayOu
 
 func (i InstanceLoggingConfigurationArray) ToInstanceLoggingConfigurationArrayOutputWithContext(ctx context.Context) InstanceLoggingConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationArrayOutput)
-}
-
-func (i InstanceLoggingConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceLoggingConfiguration] {
-	return pulumix.Output[[]*InstanceLoggingConfiguration]{
-		OutputState: i.ToInstanceLoggingConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InstanceLoggingConfigurationMapInput is an input type that accepts InstanceLoggingConfigurationMap and InstanceLoggingConfigurationMapOutput values.
@@ -377,12 +364,6 @@ func (i InstanceLoggingConfigurationMap) ToInstanceLoggingConfigurationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationMapOutput)
 }
 
-func (i InstanceLoggingConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceLoggingConfiguration] {
-	return pulumix.Output[map[string]*InstanceLoggingConfiguration]{
-		OutputState: i.ToInstanceLoggingConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InstanceLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -395,12 +376,6 @@ func (o InstanceLoggingConfigurationOutput) ToInstanceLoggingConfigurationOutput
 
 func (o InstanceLoggingConfigurationOutput) ToInstanceLoggingConfigurationOutputWithContext(ctx context.Context) InstanceLoggingConfigurationOutput {
 	return o
-}
-
-func (o InstanceLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfiguration] {
-	return pulumix.Output[*InstanceLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A block that specifies the configuration options for Verified Access instances. Detailed below.
@@ -429,12 +404,6 @@ func (o InstanceLoggingConfigurationArrayOutput) ToInstanceLoggingConfigurationA
 	return o
 }
 
-func (o InstanceLoggingConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceLoggingConfiguration] {
-	return pulumix.Output[[]*InstanceLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceLoggingConfigurationArrayOutput) Index(i pulumi.IntInput) InstanceLoggingConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceLoggingConfiguration {
 		return vs[0].([]*InstanceLoggingConfiguration)[vs[1].(int)]
@@ -453,12 +422,6 @@ func (o InstanceLoggingConfigurationMapOutput) ToInstanceLoggingConfigurationMap
 
 func (o InstanceLoggingConfigurationMapOutput) ToInstanceLoggingConfigurationMapOutputWithContext(ctx context.Context) InstanceLoggingConfigurationMapOutput {
 	return o
-}
-
-func (o InstanceLoggingConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceLoggingConfiguration] {
-	return pulumix.Output[map[string]*InstanceLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceLoggingConfigurationMapOutput) MapIndex(k pulumi.StringInput) InstanceLoggingConfigurationOutput {

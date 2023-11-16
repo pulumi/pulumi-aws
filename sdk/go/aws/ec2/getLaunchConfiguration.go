@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Launch Configuration.
@@ -131,12 +130,6 @@ func (o LookupLaunchConfigurationResultOutput) ToLookupLaunchConfigurationResult
 
 func (o LookupLaunchConfigurationResultOutput) ToLookupLaunchConfigurationResultOutputWithContext(ctx context.Context) LookupLaunchConfigurationResultOutput {
 	return o
-}
-
-func (o LookupLaunchConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLaunchConfigurationResult] {
-	return pulumix.Output[LookupLaunchConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name of the launch configuration.

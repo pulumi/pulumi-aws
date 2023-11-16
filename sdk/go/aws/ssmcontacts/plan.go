@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SSM Contact Plan.
@@ -163,7 +162,7 @@ type Plan struct {
 
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringOutput `pulumi:"contactId"`
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayOutput `pulumi:"stages"`
 }
 
@@ -205,14 +204,14 @@ func GetPlan(ctx *pulumi.Context,
 type planState struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId *string `pulumi:"contactId"`
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages []PlanStage `pulumi:"stages"`
 }
 
 type PlanState struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringPtrInput
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayInput
 }
 
@@ -223,7 +222,7 @@ func (PlanState) ElementType() reflect.Type {
 type planArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId string `pulumi:"contactId"`
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages []PlanStage `pulumi:"stages"`
 }
 
@@ -231,7 +230,7 @@ type planArgs struct {
 type PlanArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringInput
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayInput
 }
 
@@ -256,12 +255,6 @@ func (i *Plan) ToPlanOutput() PlanOutput {
 
 func (i *Plan) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanOutput)
-}
-
-func (i *Plan) ToOutput(ctx context.Context) pulumix.Output[*Plan] {
-	return pulumix.Output[*Plan]{
-		OutputState: i.ToPlanOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PlanArrayInput is an input type that accepts PlanArray and PlanArrayOutput values.
@@ -289,12 +282,6 @@ func (i PlanArray) ToPlanArrayOutputWithContext(ctx context.Context) PlanArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(PlanArrayOutput)
 }
 
-func (i PlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*Plan] {
-	return pulumix.Output[[]*Plan]{
-		OutputState: i.ToPlanArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PlanMapInput is an input type that accepts PlanMap and PlanMapOutput values.
 // You can construct a concrete instance of `PlanMapInput` via:
 //
@@ -320,12 +307,6 @@ func (i PlanMap) ToPlanMapOutputWithContext(ctx context.Context) PlanMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanMapOutput)
 }
 
-func (i PlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Plan] {
-	return pulumix.Output[map[string]*Plan]{
-		OutputState: i.ToPlanMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -340,18 +321,12 @@ func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return o
 }
 
-func (o PlanOutput) ToOutput(ctx context.Context) pulumix.Output[*Plan] {
-	return pulumix.Output[*Plan]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) of the contact or escalation plan.
 func (o PlanOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.ContactId }).(pulumi.StringOutput)
 }
 
-// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 func (o PlanOutput) Stages() PlanStageArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanStageArrayOutput { return v.Stages }).(PlanStageArrayOutput)
 }
@@ -368,12 +343,6 @@ func (o PlanArrayOutput) ToPlanArrayOutput() PlanArrayOutput {
 
 func (o PlanArrayOutput) ToPlanArrayOutputWithContext(ctx context.Context) PlanArrayOutput {
 	return o
-}
-
-func (o PlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Plan] {
-	return pulumix.Output[[]*Plan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlanArrayOutput) Index(i pulumi.IntInput) PlanOutput {
@@ -394,12 +363,6 @@ func (o PlanMapOutput) ToPlanMapOutput() PlanMapOutput {
 
 func (o PlanMapOutput) ToPlanMapOutputWithContext(ctx context.Context) PlanMapOutput {
 	return o
-}
-
-func (o PlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Plan] {
-	return pulumix.Output[map[string]*Plan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlanMapOutput) MapIndex(k pulumi.StringInput) PlanOutput {

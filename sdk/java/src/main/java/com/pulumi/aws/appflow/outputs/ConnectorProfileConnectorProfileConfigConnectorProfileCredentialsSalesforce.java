@@ -23,6 +23,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private @Nullable String clientCredentialsArn;
     /**
+     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
+     * 
+     */
+    private @Nullable String jwtToken;
+    /**
+     * @return The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
+    private @Nullable String oauth2GrantType;
+    /**
      * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
      * 
      */
@@ -47,6 +57,20 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     public Optional<String> clientCredentialsArn() {
         return Optional.ofNullable(this.clientCredentialsArn);
+    }
+    /**
+     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
+     * 
+     */
+    public Optional<String> jwtToken() {
+        return Optional.ofNullable(this.jwtToken);
+    }
+    /**
+     * @return The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
+    public Optional<String> oauth2GrantType() {
+        return Optional.ofNullable(this.oauth2GrantType);
     }
     /**
      * @return Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
@@ -74,6 +98,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final class Builder {
         private @Nullable String accessToken;
         private @Nullable String clientCredentialsArn;
+        private @Nullable String jwtToken;
+        private @Nullable String oauth2GrantType;
         private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest oauthRequest;
         private @Nullable String refreshToken;
         public Builder() {}
@@ -81,6 +107,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
     	      this.clientCredentialsArn = defaults.clientCredentialsArn;
+    	      this.jwtToken = defaults.jwtToken;
+    	      this.oauth2GrantType = defaults.oauth2GrantType;
     	      this.oauthRequest = defaults.oauthRequest;
     	      this.refreshToken = defaults.refreshToken;
         }
@@ -93,6 +121,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         @CustomType.Setter
         public Builder clientCredentialsArn(@Nullable String clientCredentialsArn) {
             this.clientCredentialsArn = clientCredentialsArn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jwtToken(@Nullable String jwtToken) {
+            this.jwtToken = jwtToken;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder oauth2GrantType(@Nullable String oauth2GrantType) {
+            this.oauth2GrantType = oauth2GrantType;
             return this;
         }
         @CustomType.Setter
@@ -109,6 +147,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             final var o = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce();
             o.accessToken = accessToken;
             o.clientCredentialsArn = clientCredentialsArn;
+            o.jwtToken = jwtToken;
+            o.oauth2GrantType = oauth2GrantType;
             o.oauthRequest = oauthRequest;
             o.refreshToken = refreshToken;
             return o;

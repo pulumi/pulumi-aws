@@ -35,6 +35,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? Mode;
         /// <summary>
+        /// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        /// </summary>
+        public readonly Outputs.ModelContainerModelDataSource? ModelDataSource;
+        /// <summary>
         /// The URL for the S3 location where model artifacts are stored.
         /// </summary>
         public readonly string? ModelDataUrl;
@@ -55,6 +59,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             string? mode,
 
+            Outputs.ModelContainerModelDataSource? modelDataSource,
+
             string? modelDataUrl,
 
             string? modelPackageName)
@@ -64,6 +70,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             Image = image;
             ImageConfig = imageConfig;
             Mode = mode;
+            ModelDataSource = modelDataSource;
             ModelDataUrl = modelDataUrl;
             ModelPackageName = modelPackageName;
         }

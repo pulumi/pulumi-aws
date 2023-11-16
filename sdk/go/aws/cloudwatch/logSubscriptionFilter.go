@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Logs subscription filter resource.
@@ -197,12 +196,6 @@ func (i *LogSubscriptionFilter) ToLogSubscriptionFilterOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LogSubscriptionFilterOutput)
 }
 
-func (i *LogSubscriptionFilter) ToOutput(ctx context.Context) pulumix.Output[*LogSubscriptionFilter] {
-	return pulumix.Output[*LogSubscriptionFilter]{
-		OutputState: i.ToLogSubscriptionFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogSubscriptionFilterArrayInput is an input type that accepts LogSubscriptionFilterArray and LogSubscriptionFilterArrayOutput values.
 // You can construct a concrete instance of `LogSubscriptionFilterArrayInput` via:
 //
@@ -226,12 +219,6 @@ func (i LogSubscriptionFilterArray) ToLogSubscriptionFilterArrayOutput() LogSubs
 
 func (i LogSubscriptionFilterArray) ToLogSubscriptionFilterArrayOutputWithContext(ctx context.Context) LogSubscriptionFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogSubscriptionFilterArrayOutput)
-}
-
-func (i LogSubscriptionFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogSubscriptionFilter] {
-	return pulumix.Output[[]*LogSubscriptionFilter]{
-		OutputState: i.ToLogSubscriptionFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogSubscriptionFilterMapInput is an input type that accepts LogSubscriptionFilterMap and LogSubscriptionFilterMapOutput values.
@@ -259,12 +246,6 @@ func (i LogSubscriptionFilterMap) ToLogSubscriptionFilterMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LogSubscriptionFilterMapOutput)
 }
 
-func (i LogSubscriptionFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogSubscriptionFilter] {
-	return pulumix.Output[map[string]*LogSubscriptionFilter]{
-		OutputState: i.ToLogSubscriptionFilterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogSubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (LogSubscriptionFilterOutput) ElementType() reflect.Type {
@@ -277,12 +258,6 @@ func (o LogSubscriptionFilterOutput) ToLogSubscriptionFilterOutput() LogSubscrip
 
 func (o LogSubscriptionFilterOutput) ToLogSubscriptionFilterOutputWithContext(ctx context.Context) LogSubscriptionFilterOutput {
 	return o
-}
-
-func (o LogSubscriptionFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*LogSubscriptionFilter] {
-	return pulumix.Output[*LogSubscriptionFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
@@ -329,12 +304,6 @@ func (o LogSubscriptionFilterArrayOutput) ToLogSubscriptionFilterArrayOutputWith
 	return o
 }
 
-func (o LogSubscriptionFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogSubscriptionFilter] {
-	return pulumix.Output[[]*LogSubscriptionFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogSubscriptionFilterArrayOutput) Index(i pulumi.IntInput) LogSubscriptionFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogSubscriptionFilter {
 		return vs[0].([]*LogSubscriptionFilter)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o LogSubscriptionFilterMapOutput) ToLogSubscriptionFilterMapOutput() LogSu
 
 func (o LogSubscriptionFilterMapOutput) ToLogSubscriptionFilterMapOutputWithContext(ctx context.Context) LogSubscriptionFilterMapOutput {
 	return o
-}
-
-func (o LogSubscriptionFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogSubscriptionFilter] {
-	return pulumix.Output[map[string]*LogSubscriptionFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogSubscriptionFilterMapOutput) MapIndex(k pulumi.StringInput) LogSubscriptionFilterOutput {

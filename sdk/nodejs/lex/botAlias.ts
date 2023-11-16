@@ -70,7 +70,7 @@ export class BotAlias extends pulumi.CustomResource {
      */
     public readonly botName!: pulumi.Output<string>;
     /**
-     * The name of the bot.
+     * The version of the bot.
      */
     public readonly botVersion!: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export interface BotAliasState {
      */
     botName?: pulumi.Input<string>;
     /**
-     * The name of the bot.
+     * The version of the bot.
      */
     botVersion?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface BotAliasArgs {
      */
     botName: pulumi.Input<string>;
     /**
-     * The name of the bot.
+     * The version of the bot.
      */
     botVersion: pulumi.Input<string>;
     /**

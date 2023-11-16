@@ -21,15 +21,29 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
         /// </summary>
         public readonly Outputs.FeatureGroupOnlineStoreConfigSecurityConfig? SecurityConfig;
+        /// <summary>
+        /// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+        /// </summary>
+        public readonly string? StorageType;
+        /// <summary>
+        /// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+        /// </summary>
+        public readonly Outputs.FeatureGroupOnlineStoreConfigTtlDuration? TtlDuration;
 
         [OutputConstructor]
         private FeatureGroupOnlineStoreConfig(
             bool? enableOnlineStore,
 
-            Outputs.FeatureGroupOnlineStoreConfigSecurityConfig? securityConfig)
+            Outputs.FeatureGroupOnlineStoreConfigSecurityConfig? securityConfig,
+
+            string? storageType,
+
+            Outputs.FeatureGroupOnlineStoreConfigTtlDuration? ttlDuration)
         {
             EnableOnlineStore = enableOnlineStore;
             SecurityConfig = securityConfig;
+            StorageType = storageType;
+            TtlDuration = ttlDuration;
         }
     }
 }

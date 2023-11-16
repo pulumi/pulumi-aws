@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about an Elastic File System (EFS) File System.
@@ -147,12 +146,6 @@ func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutput() LookupFil
 
 func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutputWithContext(ctx context.Context) LookupFileSystemResultOutput {
 	return o
-}
-
-func (o LookupFileSystemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFileSystemResult] {
-	return pulumix.Output[LookupFileSystemResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name of the file system.

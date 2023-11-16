@@ -13,11 +13,14 @@ namespace Pulumi.Aws.SsmContacts.Inputs
     public sealed class PlanStageTargetContactTargetInfoGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// The Amazon Resource Name (ARN) of the contact.
         /// </summary>
         [Input("contactId")]
         public Input<string>? ContactId { get; set; }
 
+        /// <summary>
+        /// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+        /// </summary>
         [Input("isEssential", required: true)]
         public Input<bool> IsEssential { get; set; } = null!;
 

@@ -30,6 +30,11 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
+
+# This should cancel any previous runs of the same workflow on the same branch which are still running.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build_sdk:
     if: github.event_name == 'repository_dispatch' ||
@@ -382,6 +387,9 @@ jobs:
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Make upstream
       run: make upstream
+    - name: Run provider tests
+      run: |
+        cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - name: Run tests
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
         matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i RoleInlinePolicyArgs) ToRoleInlinePolicyOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RoleInlinePolicyOutput)
 }
 
-func (i RoleInlinePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RoleInlinePolicy] {
-	return pulumix.Output[RoleInlinePolicy]{
-		OutputState: i.ToRoleInlinePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RoleInlinePolicyArrayInput is an input type that accepts RoleInlinePolicyArray and RoleInlinePolicyArrayOutput values.
 // You can construct a concrete instance of `RoleInlinePolicyArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i RoleInlinePolicyArray) ToRoleInlinePolicyArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RoleInlinePolicyArrayOutput)
 }
 
-func (i RoleInlinePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]RoleInlinePolicy] {
-	return pulumix.Output[[]RoleInlinePolicy]{
-		OutputState: i.ToRoleInlinePolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoleInlinePolicyOutput struct{ *pulumi.OutputState }
 
 func (RoleInlinePolicyOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o RoleInlinePolicyOutput) ToRoleInlinePolicyOutput() RoleInlinePolicyOutpu
 
 func (o RoleInlinePolicyOutput) ToRoleInlinePolicyOutputWithContext(ctx context.Context) RoleInlinePolicyOutput {
 	return o
-}
-
-func (o RoleInlinePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RoleInlinePolicy] {
-	return pulumix.Output[RoleInlinePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the role policy.
@@ -130,12 +111,6 @@ func (o RoleInlinePolicyArrayOutput) ToRoleInlinePolicyArrayOutput() RoleInlineP
 
 func (o RoleInlinePolicyArrayOutput) ToRoleInlinePolicyArrayOutputWithContext(ctx context.Context) RoleInlinePolicyArrayOutput {
 	return o
-}
-
-func (o RoleInlinePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RoleInlinePolicy] {
-	return pulumix.Output[[]RoleInlinePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoleInlinePolicyArrayOutput) Index(i pulumi.IntInput) RoleInlinePolicyOutput {
@@ -185,12 +160,6 @@ func (i GetAccessKeysAccessKeyArgs) ToGetAccessKeysAccessKeyOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccessKeysAccessKeyOutput)
 }
 
-func (i GetAccessKeysAccessKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccessKeysAccessKey] {
-	return pulumix.Output[GetAccessKeysAccessKey]{
-		OutputState: i.ToGetAccessKeysAccessKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAccessKeysAccessKeyArrayInput is an input type that accepts GetAccessKeysAccessKeyArray and GetAccessKeysAccessKeyArrayOutput values.
 // You can construct a concrete instance of `GetAccessKeysAccessKeyArrayInput` via:
 //
@@ -216,12 +185,6 @@ func (i GetAccessKeysAccessKeyArray) ToGetAccessKeysAccessKeyArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccessKeysAccessKeyArrayOutput)
 }
 
-func (i GetAccessKeysAccessKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccessKeysAccessKey] {
-	return pulumix.Output[[]GetAccessKeysAccessKey]{
-		OutputState: i.ToGetAccessKeysAccessKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccessKeysAccessKeyOutput struct{ *pulumi.OutputState }
 
 func (GetAccessKeysAccessKeyOutput) ElementType() reflect.Type {
@@ -234,12 +197,6 @@ func (o GetAccessKeysAccessKeyOutput) ToGetAccessKeysAccessKeyOutput() GetAccess
 
 func (o GetAccessKeysAccessKeyOutput) ToGetAccessKeysAccessKeyOutputWithContext(ctx context.Context) GetAccessKeysAccessKeyOutput {
 	return o
-}
-
-func (o GetAccessKeysAccessKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccessKeysAccessKey] {
-	return pulumix.Output[GetAccessKeysAccessKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Access key ID.
@@ -269,12 +226,6 @@ func (o GetAccessKeysAccessKeyArrayOutput) ToGetAccessKeysAccessKeyArrayOutput()
 
 func (o GetAccessKeysAccessKeyArrayOutput) ToGetAccessKeysAccessKeyArrayOutputWithContext(ctx context.Context) GetAccessKeysAccessKeyArrayOutput {
 	return o
-}
-
-func (o GetAccessKeysAccessKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccessKeysAccessKey] {
-	return pulumix.Output[[]GetAccessKeysAccessKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccessKeysAccessKeyArrayOutput) Index(i pulumi.IntInput) GetAccessKeysAccessKeyOutput {
@@ -328,12 +279,6 @@ func (i GetGroupUserArgs) ToGetGroupUserOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupUserOutput)
 }
 
-func (i GetGroupUserArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupUser] {
-	return pulumix.Output[GetGroupUser]{
-		OutputState: i.ToGetGroupUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetGroupUserArrayInput is an input type that accepts GetGroupUserArray and GetGroupUserArrayOutput values.
 // You can construct a concrete instance of `GetGroupUserArrayInput` via:
 //
@@ -359,12 +304,6 @@ func (i GetGroupUserArray) ToGetGroupUserArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupUserArrayOutput)
 }
 
-func (i GetGroupUserArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupUser] {
-	return pulumix.Output[[]GetGroupUser]{
-		OutputState: i.ToGetGroupUserArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetGroupUserOutput struct{ *pulumi.OutputState }
 
 func (GetGroupUserOutput) ElementType() reflect.Type {
@@ -377,12 +316,6 @@ func (o GetGroupUserOutput) ToGetGroupUserOutput() GetGroupUserOutput {
 
 func (o GetGroupUserOutput) ToGetGroupUserOutputWithContext(ctx context.Context) GetGroupUserOutput {
 	return o
-}
-
-func (o GetGroupUserOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupUser] {
-	return pulumix.Output[GetGroupUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 // User ARN.
@@ -417,12 +350,6 @@ func (o GetGroupUserArrayOutput) ToGetGroupUserArrayOutput() GetGroupUserArrayOu
 
 func (o GetGroupUserArrayOutput) ToGetGroupUserArrayOutputWithContext(ctx context.Context) GetGroupUserArrayOutput {
 	return o
-}
-
-func (o GetGroupUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupUser] {
-	return pulumix.Output[[]GetGroupUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetGroupUserArrayOutput) Index(i pulumi.IntInput) GetGroupUserOutput {
@@ -496,12 +423,6 @@ func (i GetPolicyDocumentStatementArgs) ToGetPolicyDocumentStatementOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementOutput)
 }
 
-func (i GetPolicyDocumentStatementArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDocumentStatement] {
-	return pulumix.Output[GetPolicyDocumentStatement]{
-		OutputState: i.ToGetPolicyDocumentStatementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyDocumentStatementArrayInput is an input type that accepts GetPolicyDocumentStatementArray and GetPolicyDocumentStatementArrayOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementArrayInput` via:
 //
@@ -527,12 +448,6 @@ func (i GetPolicyDocumentStatementArray) ToGetPolicyDocumentStatementArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementArrayOutput)
 }
 
-func (i GetPolicyDocumentStatementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyDocumentStatement] {
-	return pulumix.Output[[]GetPolicyDocumentStatement]{
-		OutputState: i.ToGetPolicyDocumentStatementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyDocumentStatementOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementOutput) ElementType() reflect.Type {
@@ -545,12 +460,6 @@ func (o GetPolicyDocumentStatementOutput) ToGetPolicyDocumentStatementOutput() G
 
 func (o GetPolicyDocumentStatementOutput) ToGetPolicyDocumentStatementOutputWithContext(ctx context.Context) GetPolicyDocumentStatementOutput {
 	return o
-}
-
-func (o GetPolicyDocumentStatementOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDocumentStatement] {
-	return pulumix.Output[GetPolicyDocumentStatement]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
@@ -612,12 +521,6 @@ func (o GetPolicyDocumentStatementArrayOutput) ToGetPolicyDocumentStatementArray
 	return o
 }
 
-func (o GetPolicyDocumentStatementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyDocumentStatement] {
-	return pulumix.Output[[]GetPolicyDocumentStatement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetPolicyDocumentStatementArrayOutput) Index(i pulumi.IntInput) GetPolicyDocumentStatementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyDocumentStatement {
 		return vs[0].([]GetPolicyDocumentStatement)[vs[1].(int)]
@@ -665,12 +568,6 @@ func (i GetPolicyDocumentStatementConditionArgs) ToGetPolicyDocumentStatementCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementConditionOutput)
 }
 
-func (i GetPolicyDocumentStatementConditionArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDocumentStatementCondition] {
-	return pulumix.Output[GetPolicyDocumentStatementCondition]{
-		OutputState: i.ToGetPolicyDocumentStatementConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyDocumentStatementConditionArrayInput is an input type that accepts GetPolicyDocumentStatementConditionArray and GetPolicyDocumentStatementConditionArrayOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementConditionArrayInput` via:
 //
@@ -696,12 +593,6 @@ func (i GetPolicyDocumentStatementConditionArray) ToGetPolicyDocumentStatementCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementConditionArrayOutput)
 }
 
-func (i GetPolicyDocumentStatementConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyDocumentStatementCondition] {
-	return pulumix.Output[[]GetPolicyDocumentStatementCondition]{
-		OutputState: i.ToGetPolicyDocumentStatementConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyDocumentStatementConditionOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementConditionOutput) ElementType() reflect.Type {
@@ -714,12 +605,6 @@ func (o GetPolicyDocumentStatementConditionOutput) ToGetPolicyDocumentStatementC
 
 func (o GetPolicyDocumentStatementConditionOutput) ToGetPolicyDocumentStatementConditionOutputWithContext(ctx context.Context) GetPolicyDocumentStatementConditionOutput {
 	return o
-}
-
-func (o GetPolicyDocumentStatementConditionOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDocumentStatementCondition] {
-	return pulumix.Output[GetPolicyDocumentStatementCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
@@ -749,12 +634,6 @@ func (o GetPolicyDocumentStatementConditionArrayOutput) ToGetPolicyDocumentState
 
 func (o GetPolicyDocumentStatementConditionArrayOutput) ToGetPolicyDocumentStatementConditionArrayOutputWithContext(ctx context.Context) GetPolicyDocumentStatementConditionArrayOutput {
 	return o
-}
-
-func (o GetPolicyDocumentStatementConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyDocumentStatementCondition] {
-	return pulumix.Output[[]GetPolicyDocumentStatementCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyDocumentStatementConditionArrayOutput) Index(i pulumi.IntInput) GetPolicyDocumentStatementConditionOutput {
@@ -800,12 +679,6 @@ func (i GetPolicyDocumentStatementNotPrincipalArgs) ToGetPolicyDocumentStatement
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementNotPrincipalOutput)
 }
 
-func (i GetPolicyDocumentStatementNotPrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDocumentStatementNotPrincipal] {
-	return pulumix.Output[GetPolicyDocumentStatementNotPrincipal]{
-		OutputState: i.ToGetPolicyDocumentStatementNotPrincipalOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyDocumentStatementNotPrincipalArrayInput is an input type that accepts GetPolicyDocumentStatementNotPrincipalArray and GetPolicyDocumentStatementNotPrincipalArrayOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementNotPrincipalArrayInput` via:
 //
@@ -831,12 +704,6 @@ func (i GetPolicyDocumentStatementNotPrincipalArray) ToGetPolicyDocumentStatemen
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementNotPrincipalArrayOutput)
 }
 
-func (i GetPolicyDocumentStatementNotPrincipalArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyDocumentStatementNotPrincipal] {
-	return pulumix.Output[[]GetPolicyDocumentStatementNotPrincipal]{
-		OutputState: i.ToGetPolicyDocumentStatementNotPrincipalArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyDocumentStatementNotPrincipalOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementNotPrincipalOutput) ElementType() reflect.Type {
@@ -849,12 +716,6 @@ func (o GetPolicyDocumentStatementNotPrincipalOutput) ToGetPolicyDocumentStateme
 
 func (o GetPolicyDocumentStatementNotPrincipalOutput) ToGetPolicyDocumentStatementNotPrincipalOutputWithContext(ctx context.Context) GetPolicyDocumentStatementNotPrincipalOutput {
 	return o
-}
-
-func (o GetPolicyDocumentStatementNotPrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDocumentStatementNotPrincipal] {
-	return pulumix.Output[GetPolicyDocumentStatementNotPrincipal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
@@ -879,12 +740,6 @@ func (o GetPolicyDocumentStatementNotPrincipalArrayOutput) ToGetPolicyDocumentSt
 
 func (o GetPolicyDocumentStatementNotPrincipalArrayOutput) ToGetPolicyDocumentStatementNotPrincipalArrayOutputWithContext(ctx context.Context) GetPolicyDocumentStatementNotPrincipalArrayOutput {
 	return o
-}
-
-func (o GetPolicyDocumentStatementNotPrincipalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyDocumentStatementNotPrincipal] {
-	return pulumix.Output[[]GetPolicyDocumentStatementNotPrincipal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyDocumentStatementNotPrincipalArrayOutput) Index(i pulumi.IntInput) GetPolicyDocumentStatementNotPrincipalOutput {
@@ -930,12 +785,6 @@ func (i GetPolicyDocumentStatementPrincipalArgs) ToGetPolicyDocumentStatementPri
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementPrincipalOutput)
 }
 
-func (i GetPolicyDocumentStatementPrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDocumentStatementPrincipal] {
-	return pulumix.Output[GetPolicyDocumentStatementPrincipal]{
-		OutputState: i.ToGetPolicyDocumentStatementPrincipalOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyDocumentStatementPrincipalArrayInput is an input type that accepts GetPolicyDocumentStatementPrincipalArray and GetPolicyDocumentStatementPrincipalArrayOutput values.
 // You can construct a concrete instance of `GetPolicyDocumentStatementPrincipalArrayInput` via:
 //
@@ -961,12 +810,6 @@ func (i GetPolicyDocumentStatementPrincipalArray) ToGetPolicyDocumentStatementPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyDocumentStatementPrincipalArrayOutput)
 }
 
-func (i GetPolicyDocumentStatementPrincipalArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyDocumentStatementPrincipal] {
-	return pulumix.Output[[]GetPolicyDocumentStatementPrincipal]{
-		OutputState: i.ToGetPolicyDocumentStatementPrincipalArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyDocumentStatementPrincipalOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyDocumentStatementPrincipalOutput) ElementType() reflect.Type {
@@ -979,12 +822,6 @@ func (o GetPolicyDocumentStatementPrincipalOutput) ToGetPolicyDocumentStatementP
 
 func (o GetPolicyDocumentStatementPrincipalOutput) ToGetPolicyDocumentStatementPrincipalOutputWithContext(ctx context.Context) GetPolicyDocumentStatementPrincipalOutput {
 	return o
-}
-
-func (o GetPolicyDocumentStatementPrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDocumentStatementPrincipal] {
-	return pulumix.Output[GetPolicyDocumentStatementPrincipal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
@@ -1009,12 +846,6 @@ func (o GetPolicyDocumentStatementPrincipalArrayOutput) ToGetPolicyDocumentState
 
 func (o GetPolicyDocumentStatementPrincipalArrayOutput) ToGetPolicyDocumentStatementPrincipalArrayOutputWithContext(ctx context.Context) GetPolicyDocumentStatementPrincipalArrayOutput {
 	return o
-}
-
-func (o GetPolicyDocumentStatementPrincipalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyDocumentStatementPrincipal] {
-	return pulumix.Output[[]GetPolicyDocumentStatementPrincipal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyDocumentStatementPrincipalArrayOutput) Index(i pulumi.IntInput) GetPolicyDocumentStatementPrincipalOutput {
@@ -1072,12 +903,6 @@ func (i GetPrincipalPolicySimulationContextArgs) ToGetPrincipalPolicySimulationC
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalPolicySimulationContextOutput)
 }
 
-func (i GetPrincipalPolicySimulationContextArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrincipalPolicySimulationContext] {
-	return pulumix.Output[GetPrincipalPolicySimulationContext]{
-		OutputState: i.ToGetPrincipalPolicySimulationContextOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPrincipalPolicySimulationContextArrayInput is an input type that accepts GetPrincipalPolicySimulationContextArray and GetPrincipalPolicySimulationContextArrayOutput values.
 // You can construct a concrete instance of `GetPrincipalPolicySimulationContextArrayInput` via:
 //
@@ -1103,12 +928,6 @@ func (i GetPrincipalPolicySimulationContextArray) ToGetPrincipalPolicySimulation
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalPolicySimulationContextArrayOutput)
 }
 
-func (i GetPrincipalPolicySimulationContextArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrincipalPolicySimulationContext] {
-	return pulumix.Output[[]GetPrincipalPolicySimulationContext]{
-		OutputState: i.ToGetPrincipalPolicySimulationContextArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPrincipalPolicySimulationContextOutput struct{ *pulumi.OutputState }
 
 func (GetPrincipalPolicySimulationContextOutput) ElementType() reflect.Type {
@@ -1121,12 +940,6 @@ func (o GetPrincipalPolicySimulationContextOutput) ToGetPrincipalPolicySimulatio
 
 func (o GetPrincipalPolicySimulationContextOutput) ToGetPrincipalPolicySimulationContextOutputWithContext(ctx context.Context) GetPrincipalPolicySimulationContextOutput {
 	return o
-}
-
-func (o GetPrincipalPolicySimulationContextOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrincipalPolicySimulationContext] {
-	return pulumix.Output[GetPrincipalPolicySimulationContext]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The context _condition key_ to set.
@@ -1160,12 +973,6 @@ func (o GetPrincipalPolicySimulationContextArrayOutput) ToGetPrincipalPolicySimu
 
 func (o GetPrincipalPolicySimulationContextArrayOutput) ToGetPrincipalPolicySimulationContextArrayOutputWithContext(ctx context.Context) GetPrincipalPolicySimulationContextArrayOutput {
 	return o
-}
-
-func (o GetPrincipalPolicySimulationContextArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrincipalPolicySimulationContext] {
-	return pulumix.Output[[]GetPrincipalPolicySimulationContext]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPrincipalPolicySimulationContextArrayOutput) Index(i pulumi.IntInput) GetPrincipalPolicySimulationContextOutput {
@@ -1231,12 +1038,6 @@ func (i GetPrincipalPolicySimulationResultArgs) ToGetPrincipalPolicySimulationRe
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalPolicySimulationResultOutput)
 }
 
-func (i GetPrincipalPolicySimulationResultArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrincipalPolicySimulationResult] {
-	return pulumix.Output[GetPrincipalPolicySimulationResult]{
-		OutputState: i.ToGetPrincipalPolicySimulationResultOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPrincipalPolicySimulationResultArrayInput is an input type that accepts GetPrincipalPolicySimulationResultArray and GetPrincipalPolicySimulationResultArrayOutput values.
 // You can construct a concrete instance of `GetPrincipalPolicySimulationResultArrayInput` via:
 //
@@ -1262,12 +1063,6 @@ func (i GetPrincipalPolicySimulationResultArray) ToGetPrincipalPolicySimulationR
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalPolicySimulationResultArrayOutput)
 }
 
-func (i GetPrincipalPolicySimulationResultArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrincipalPolicySimulationResult] {
-	return pulumix.Output[[]GetPrincipalPolicySimulationResult]{
-		OutputState: i.ToGetPrincipalPolicySimulationResultArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPrincipalPolicySimulationResultOutput struct{ *pulumi.OutputState }
 
 func (GetPrincipalPolicySimulationResultOutput) ElementType() reflect.Type {
@@ -1280,12 +1075,6 @@ func (o GetPrincipalPolicySimulationResultOutput) ToGetPrincipalPolicySimulation
 
 func (o GetPrincipalPolicySimulationResultOutput) ToGetPrincipalPolicySimulationResultOutputWithContext(ctx context.Context) GetPrincipalPolicySimulationResultOutput {
 	return o
-}
-
-func (o GetPrincipalPolicySimulationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrincipalPolicySimulationResult] {
-	return pulumix.Output[GetPrincipalPolicySimulationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the single IAM action used for this particular request.
@@ -1339,12 +1128,6 @@ func (o GetPrincipalPolicySimulationResultArrayOutput) ToGetPrincipalPolicySimul
 	return o
 }
 
-func (o GetPrincipalPolicySimulationResultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrincipalPolicySimulationResult] {
-	return pulumix.Output[[]GetPrincipalPolicySimulationResult]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetPrincipalPolicySimulationResultArrayOutput) Index(i pulumi.IntInput) GetPrincipalPolicySimulationResultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPrincipalPolicySimulationResult {
 		return vs[0].([]GetPrincipalPolicySimulationResult)[vs[1].(int)]
@@ -1384,12 +1167,6 @@ func (i GetPrincipalPolicySimulationResultMatchedStatementArgs) ToGetPrincipalPo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalPolicySimulationResultMatchedStatementOutput)
 }
 
-func (i GetPrincipalPolicySimulationResultMatchedStatementArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrincipalPolicySimulationResultMatchedStatement] {
-	return pulumix.Output[GetPrincipalPolicySimulationResultMatchedStatement]{
-		OutputState: i.ToGetPrincipalPolicySimulationResultMatchedStatementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPrincipalPolicySimulationResultMatchedStatementArrayInput is an input type that accepts GetPrincipalPolicySimulationResultMatchedStatementArray and GetPrincipalPolicySimulationResultMatchedStatementArrayOutput values.
 // You can construct a concrete instance of `GetPrincipalPolicySimulationResultMatchedStatementArrayInput` via:
 //
@@ -1415,12 +1192,6 @@ func (i GetPrincipalPolicySimulationResultMatchedStatementArray) ToGetPrincipalP
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrincipalPolicySimulationResultMatchedStatementArrayOutput)
 }
 
-func (i GetPrincipalPolicySimulationResultMatchedStatementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrincipalPolicySimulationResultMatchedStatement] {
-	return pulumix.Output[[]GetPrincipalPolicySimulationResultMatchedStatement]{
-		OutputState: i.ToGetPrincipalPolicySimulationResultMatchedStatementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPrincipalPolicySimulationResultMatchedStatementOutput struct{ *pulumi.OutputState }
 
 func (GetPrincipalPolicySimulationResultMatchedStatementOutput) ElementType() reflect.Type {
@@ -1433,12 +1204,6 @@ func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) ToGetPrincipal
 
 func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) ToGetPrincipalPolicySimulationResultMatchedStatementOutputWithContext(ctx context.Context) GetPrincipalPolicySimulationResultMatchedStatementOutput {
 	return o
-}
-
-func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrincipalPolicySimulationResultMatchedStatement] {
-	return pulumix.Output[GetPrincipalPolicySimulationResultMatchedStatement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPrincipalPolicySimulationResultMatchedStatementOutput) SourcePolicyId() pulumi.StringOutput {
@@ -1461,12 +1226,6 @@ func (o GetPrincipalPolicySimulationResultMatchedStatementArrayOutput) ToGetPrin
 
 func (o GetPrincipalPolicySimulationResultMatchedStatementArrayOutput) ToGetPrincipalPolicySimulationResultMatchedStatementArrayOutputWithContext(ctx context.Context) GetPrincipalPolicySimulationResultMatchedStatementArrayOutput {
 	return o
-}
-
-func (o GetPrincipalPolicySimulationResultMatchedStatementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrincipalPolicySimulationResultMatchedStatement] {
-	return pulumix.Output[[]GetPrincipalPolicySimulationResultMatchedStatement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPrincipalPolicySimulationResultMatchedStatementArrayOutput) Index(i pulumi.IntInput) GetPrincipalPolicySimulationResultMatchedStatementOutput {
@@ -1512,12 +1271,6 @@ func (i GetRoleRoleLastUsedArgs) ToGetRoleRoleLastUsedOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRoleRoleLastUsedOutput)
 }
 
-func (i GetRoleRoleLastUsedArgs) ToOutput(ctx context.Context) pulumix.Output[GetRoleRoleLastUsed] {
-	return pulumix.Output[GetRoleRoleLastUsed]{
-		OutputState: i.ToGetRoleRoleLastUsedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRoleRoleLastUsedArrayInput is an input type that accepts GetRoleRoleLastUsedArray and GetRoleRoleLastUsedArrayOutput values.
 // You can construct a concrete instance of `GetRoleRoleLastUsedArrayInput` via:
 //
@@ -1543,12 +1296,6 @@ func (i GetRoleRoleLastUsedArray) ToGetRoleRoleLastUsedArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetRoleRoleLastUsedArrayOutput)
 }
 
-func (i GetRoleRoleLastUsedArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRoleRoleLastUsed] {
-	return pulumix.Output[[]GetRoleRoleLastUsed]{
-		OutputState: i.ToGetRoleRoleLastUsedArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRoleRoleLastUsedOutput struct{ *pulumi.OutputState }
 
 func (GetRoleRoleLastUsedOutput) ElementType() reflect.Type {
@@ -1561,12 +1308,6 @@ func (o GetRoleRoleLastUsedOutput) ToGetRoleRoleLastUsedOutput() GetRoleRoleLast
 
 func (o GetRoleRoleLastUsedOutput) ToGetRoleRoleLastUsedOutputWithContext(ctx context.Context) GetRoleRoleLastUsedOutput {
 	return o
-}
-
-func (o GetRoleRoleLastUsedOutput) ToOutput(ctx context.Context) pulumix.Output[GetRoleRoleLastUsed] {
-	return pulumix.Output[GetRoleRoleLastUsed]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The date and time, in RFC 3339 format, that the role was last used.
@@ -1591,12 +1332,6 @@ func (o GetRoleRoleLastUsedArrayOutput) ToGetRoleRoleLastUsedArrayOutput() GetRo
 
 func (o GetRoleRoleLastUsedArrayOutput) ToGetRoleRoleLastUsedArrayOutputWithContext(ctx context.Context) GetRoleRoleLastUsedArrayOutput {
 	return o
-}
-
-func (o GetRoleRoleLastUsedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRoleRoleLastUsed] {
-	return pulumix.Output[[]GetRoleRoleLastUsed]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRoleRoleLastUsedArrayOutput) Index(i pulumi.IntInput) GetRoleRoleLastUsedOutput {

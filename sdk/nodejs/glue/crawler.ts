@@ -162,6 +162,9 @@ export class Crawler extends pulumi.CustomResource {
      * The ARN of the crawler
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     */
     public readonly catalogTargets!: pulumi.Output<outputs.glue.CrawlerCatalogTarget[] | undefined>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
@@ -339,6 +342,9 @@ export interface CrawlerState {
      * The ARN of the crawler
      */
     arn?: pulumi.Input<string>;
+    /**
+     * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     */
     catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
@@ -436,6 +442,9 @@ export interface CrawlerState {
  * The set of arguments for constructing a Crawler resource.
  */
 export interface CrawlerArgs {
+    /**
+     * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     */
     catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.

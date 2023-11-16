@@ -544,6 +544,9 @@ namespace Pulumi.Aws.AutoScaling
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
+        /// <summary>
+        /// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+        /// </summary>
         [Output("forceDeleteWarmPool")]
         public Output<bool?> ForceDeleteWarmPool { get; private set; } = null!;
 
@@ -873,6 +876,9 @@ namespace Pulumi.Aws.AutoScaling
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
+        /// <summary>
+        /// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+        /// </summary>
         [Input("forceDeleteWarmPool")]
         public Input<bool>? ForceDeleteWarmPool { get; set; }
 
@@ -1206,6 +1212,9 @@ namespace Pulumi.Aws.AutoScaling
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
 
+        /// <summary>
+        /// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+        /// </summary>
         [Input("forceDeleteWarmPool")]
         public Input<bool>? ForceDeleteWarmPool { get; set; }
 

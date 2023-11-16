@@ -243,6 +243,7 @@ public final class Endpoints {
     private @Nullable String ssm;
     private @Nullable String ssmcontacts;
     private @Nullable String ssmincidents;
+    private @Nullable String sso;
     private @Nullable String ssoadmin;
     private @Nullable String stepfunctions;
     private @Nullable String storagegateway;
@@ -959,6 +960,9 @@ public final class Endpoints {
     public Optional<String> ssmincidents() {
         return Optional.ofNullable(this.ssmincidents);
     }
+    public Optional<String> sso() {
+        return Optional.ofNullable(this.sso);
+    }
     public Optional<String> ssoadmin() {
         return Optional.ofNullable(this.ssoadmin);
     }
@@ -1255,6 +1259,7 @@ public final class Endpoints {
         private @Nullable String ssm;
         private @Nullable String ssmcontacts;
         private @Nullable String ssmincidents;
+        private @Nullable String sso;
         private @Nullable String ssoadmin;
         private @Nullable String stepfunctions;
         private @Nullable String storagegateway;
@@ -1508,6 +1513,7 @@ public final class Endpoints {
     	      this.ssm = defaults.ssm;
     	      this.ssmcontacts = defaults.ssmcontacts;
     	      this.ssmincidents = defaults.ssmincidents;
+    	      this.sso = defaults.sso;
     	      this.ssoadmin = defaults.ssoadmin;
     	      this.stepfunctions = defaults.stepfunctions;
     	      this.storagegateway = defaults.storagegateway;
@@ -2689,6 +2695,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder sso(@Nullable String sso) {
+            this.sso = sso;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ssoadmin(@Nullable String ssoadmin) {
             this.ssoadmin = ssoadmin;
             return this;
@@ -3012,6 +3023,7 @@ public final class Endpoints {
             o.ssm = ssm;
             o.ssmcontacts = ssmcontacts;
             o.ssmincidents = ssmincidents;
+            o.sso = sso;
             o.ssoadmin = ssoadmin;
             o.stepfunctions = stepfunctions;
             o.storagegateway = storagegateway;

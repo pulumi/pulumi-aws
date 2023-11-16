@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
@@ -111,12 +110,6 @@ func (o LookupDedicatedIpPoolResultOutput) ToLookupDedicatedIpPoolResultOutput()
 
 func (o LookupDedicatedIpPoolResultOutput) ToLookupDedicatedIpPoolResultOutputWithContext(ctx context.Context) LookupDedicatedIpPoolResultOutput {
 	return o
-}
-
-func (o LookupDedicatedIpPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDedicatedIpPoolResult] {
-	return pulumix.Output[LookupDedicatedIpPoolResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Dedicated IP Pool.

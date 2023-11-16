@@ -24,7 +24,8 @@ class TaskArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
                  schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 task_report_config: Optional[pulumi.Input['TaskTaskReportConfigArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
         :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
@@ -36,6 +37,7 @@ class TaskArgs:
         :param pulumi.Input['TaskOptionsArgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['TaskTaskReportConfigArgs'] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         """
         pulumi.set(__self__, "destination_location_arn", destination_location_arn)
         pulumi.set(__self__, "source_location_arn", source_location_arn)
@@ -53,6 +55,8 @@ class TaskArgs:
             pulumi.set(__self__, "schedule", schedule)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if task_report_config is not None:
+            pulumi.set(__self__, "task_report_config", task_report_config)
 
     @property
     @pulumi.getter(name="destinationLocationArn")
@@ -162,6 +166,18 @@ class TaskArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="taskReportConfig")
+    def task_report_config(self) -> Optional[pulumi.Input['TaskTaskReportConfigArgs']]:
+        """
+        Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        """
+        return pulumi.get(self, "task_report_config")
+
+    @task_report_config.setter
+    def task_report_config(self, value: Optional[pulumi.Input['TaskTaskReportConfigArgs']]):
+        pulumi.set(self, "task_report_config", value)
+
 
 @pulumi.input_type
 class _TaskState:
@@ -176,7 +192,8 @@ class _TaskState:
                  schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 task_report_config: Optional[pulumi.Input['TaskTaskReportConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Task resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Task.
@@ -190,6 +207,7 @@ class _TaskState:
         :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['TaskTaskReportConfigArgs'] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -216,6 +234,8 @@ class _TaskState:
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if task_report_config is not None:
+            pulumi.set(__self__, "task_report_config", task_report_config)
 
     @property
     @pulumi.getter
@@ -352,6 +372,18 @@ class _TaskState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @property
+    @pulumi.getter(name="taskReportConfig")
+    def task_report_config(self) -> Optional[pulumi.Input['TaskTaskReportConfigArgs']]:
+        """
+        Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        """
+        return pulumi.get(self, "task_report_config")
+
+    @task_report_config.setter
+    def task_report_config(self, value: Optional[pulumi.Input['TaskTaskReportConfigArgs']]):
+        pulumi.set(self, "task_report_config", value)
+
 
 class Task(pulumi.CustomResource):
     @overload
@@ -367,6 +399,7 @@ class Task(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 task_report_config: Optional[pulumi.Input[pulumi.InputType['TaskTaskReportConfigArgs']]] = None,
                  __props__=None):
         """
         Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
@@ -423,6 +456,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TaskScheduleArgs']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[pulumi.InputType['TaskTaskReportConfigArgs']] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         """
         ...
     @overload
@@ -498,6 +532,7 @@ class Task(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 task_report_config: Optional[pulumi.Input[pulumi.InputType['TaskTaskReportConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -520,6 +555,7 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_location_arn'")
             __props__.__dict__["source_location_arn"] = source_location_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["task_report_config"] = task_report_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
@@ -544,7 +580,8 @@ class Task(pulumi.CustomResource):
             schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
             source_location_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Task':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            task_report_config: Optional[pulumi.Input[pulumi.InputType['TaskTaskReportConfigArgs']]] = None) -> 'Task':
         """
         Get an existing Task resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -563,6 +600,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[pulumi.InputType['TaskTaskReportConfigArgs']] task_report_config: Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -579,6 +617,7 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["source_location_arn"] = source_location_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["task_report_config"] = task_report_config
         return Task(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -671,4 +710,12 @@ class Task(pulumi.CustomResource):
         pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
 
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="taskReportConfig")
+    def task_report_config(self) -> pulumi.Output[Optional['outputs.TaskTaskReportConfig']]:
+        """
+        Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        """
+        return pulumi.get(self, "task_report_config")
 

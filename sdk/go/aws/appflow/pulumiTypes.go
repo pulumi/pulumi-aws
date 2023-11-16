@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i ConnectorProfileConnectorProfileConfigArgs) ToConnectorProfileConnectorP
 
 func (i ConnectorProfileConnectorProfileConfigArgs) ToConnectorProfileConnectorProfileConfigOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigOutput)
-}
-
-func (i ConnectorProfileConnectorProfileConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfig] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfig]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConnectorProfileConnectorProfileConfigArgs) ToConnectorProfileConnectorProfileConfigPtrOutput() ConnectorProfileConnectorProfileConfigPtrOutput {
@@ -98,12 +91,6 @@ func (i *connectorProfileConnectorProfileConfigPtrType) ToConnectorProfileConnec
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfig] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfig]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o ConnectorProfileConnectorProfileConfigOutput) ToConnectorProfileConnecto
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfig) *ConnectorProfileConnectorProfileConfig {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfig] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
@@ -160,12 +141,6 @@ func (o ConnectorProfileConnectorProfileConfigPtrOutput) ToConnectorProfileConne
 
 func (o ConnectorProfileConnectorProfileConfigPtrOutput) ToConnectorProfileConnectorProfileConfigPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfig] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigPtrOutput) Elem() ConnectorProfileConnectorProfileConfigOutput {
@@ -299,12 +274,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentials] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentials]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutputWithContext(context.Background())
 }
@@ -346,12 +315,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentials] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentials]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -374,12 +337,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentials {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentials] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentials]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
@@ -520,12 +477,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutp
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentials] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentials]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsOutput {
@@ -755,12 +706,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutputWithContext(context.Background())
 }
@@ -802,12 +747,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplit
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutput) ElementType() reflect.Type {
@@ -830,12 +769,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
@@ -864,12 +797,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitu
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeOutput {
@@ -951,12 +878,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutputWithContext(context.Background())
 }
@@ -998,12 +919,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustom
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput) ElementType() reflect.Type {
@@ -1026,12 +941,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
@@ -1081,12 +990,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOutput {
@@ -1186,12 +1089,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutputWithContext(context.Background())
 }
@@ -1233,12 +1130,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustom
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyOutput) ElementType() reflect.Type {
@@ -1261,12 +1152,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
@@ -1295,12 +1180,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyOutput {
@@ -1370,12 +1249,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutputWithContext(context.Background())
 }
@@ -1417,12 +1290,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustom
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutput) ElementType() reflect.Type {
@@ -1445,12 +1312,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password to use to connect to a resource.
@@ -1479,12 +1340,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicOutput {
@@ -1554,12 +1409,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutputWithContext(context.Background())
 }
@@ -1601,12 +1450,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustom
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput) ElementType() reflect.Type {
@@ -1629,12 +1472,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map that holds custom authentication credentials.
@@ -1663,12 +1500,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomOutput {
@@ -1750,12 +1581,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Output)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutputWithContext(context.Background())
 }
@@ -1797,12 +1622,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustom
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Output struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Output) ElementType() reflect.Type {
@@ -1825,12 +1644,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Output) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access token used to access the connector on your behalf.
@@ -1880,12 +1693,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2PtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Output {
@@ -1985,12 +1792,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutputWithContext(context.Background())
 }
@@ -2032,12 +1833,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustom
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestOutput) ElementType() reflect.Type {
@@ -2060,12 +1855,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The code provided by the connector when it has been authenticated via the connected app.
@@ -2094,12 +1883,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomC
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestOutput {
@@ -2169,12 +1952,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutputWithContext(context.Background())
 }
@@ -2216,12 +1993,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsDatado
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutput) ElementType() reflect.Type {
@@ -2244,12 +2015,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
@@ -2278,12 +2043,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogOutput {
@@ -2349,12 +2108,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatra
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutputWithContext(context.Background())
 }
@@ -2396,12 +2149,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatr
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutput) ElementType() reflect.Type {
@@ -2426,12 +2173,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatra
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The API tokens used by Dynatrace API to authenticate various API calls.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutput) ApiToken() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace) string {
@@ -2451,12 +2192,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatra
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatracePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceOutput {
@@ -2528,12 +2263,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutputWithContext(context.Background())
 }
@@ -2575,12 +2304,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogle
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput) ElementType() reflect.Type {
@@ -2603,12 +2326,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access token used to access the connector on your behalf.
@@ -2658,12 +2375,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOutput {
@@ -2763,12 +2474,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutputWithContext(context.Background())
 }
@@ -2810,12 +2515,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogle
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestOutput) ElementType() reflect.Type {
@@ -2838,12 +2537,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The code provided by the connector when it has been authenticated via the connected app.
@@ -2872,12 +2565,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleA
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestOutput {
@@ -2951,12 +2638,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutputWithContext(context.Background())
 }
@@ -2998,12 +2679,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyc
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput) ElementType() reflect.Type {
@@ -3026,12 +2701,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access token used to access the connector on your behalf.
@@ -3067,12 +2736,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOutput {
@@ -3152,12 +2815,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutputWithContext(context.Background())
 }
@@ -3199,12 +2856,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyc
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestOutput) ElementType() reflect.Type {
@@ -3227,12 +2878,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The code provided by the connector when it has been authenticated via the connected app.
@@ -3261,12 +2906,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneyco
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestOutput {
@@ -3344,12 +2983,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutputWithContext(context.Background())
 }
@@ -3391,12 +3024,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsInforN
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput) ElementType() reflect.Type {
@@ -3419,12 +3046,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Access Key portion of the credentials.
@@ -3467,12 +3088,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNe
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusOutput {
@@ -3570,12 +3185,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutputWithContext(context.Background())
 }
@@ -3617,12 +3226,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsMarket
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutput) ElementType() reflect.Type {
@@ -3645,12 +3248,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access token used to access the connector on your behalf.
@@ -3693,12 +3290,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOutput {
@@ -3788,12 +3379,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutputWithContext(context.Background())
 }
@@ -3835,12 +3420,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsMarket
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestOutput) ElementType() reflect.Type {
@@ -3863,12 +3442,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The code provided by the connector when it has been authenticated via the connected app.
@@ -3897,12 +3470,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestOutput {
@@ -3972,12 +3539,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshif
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutputWithContext(context.Background())
 }
@@ -4019,12 +3580,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutput) ElementType() reflect.Type {
@@ -4047,12 +3602,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshif
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password to use to connect to a resource.
@@ -4081,12 +3630,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshif
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftOutput {
@@ -4124,6 +3667,10 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 	AccessToken *string `pulumi:"accessToken"`
 	// The secret manager ARN, which contains the client ID and client secret of the connected app.
 	ClientCredentialsArn *string `pulumi:"clientCredentialsArn"`
+	// A JSON web token (JWT) that authorizes access to Salesforce records.
+	JwtToken *string `pulumi:"jwtToken"`
+	// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+	Oauth2GrantType *string `pulumi:"oauth2GrantType"`
 	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
 	OauthRequest *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest `pulumi:"oauthRequest"`
 	// The refresh token used to refresh an expired access token.
@@ -4146,6 +3693,10 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// The secret manager ARN, which contains the client ID and client secret of the connected app.
 	ClientCredentialsArn pulumi.StringPtrInput `pulumi:"clientCredentialsArn"`
+	// A JSON web token (JWT) that authorizes access to Salesforce records.
+	JwtToken pulumi.StringPtrInput `pulumi:"jwtToken"`
+	// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+	Oauth2GrantType pulumi.StringPtrInput `pulumi:"oauth2GrantType"`
 	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
 	OauthRequest ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrInput `pulumi:"oauthRequest"`
 	// The refresh token used to refresh an expired access token.
@@ -4162,12 +3713,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput)
-}
-
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput {
@@ -4211,12 +3756,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesf
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) ElementType() reflect.Type {
@@ -4241,12 +3780,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The access token used to access the connector on your behalf.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
@@ -4258,6 +3791,20 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) ClientCredentialsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
 		return v.ClientCredentialsArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A JSON web token (JWT) that authorizes access to Salesforce records.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
+		return v.JwtToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) Oauth2GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
+		return v.Oauth2GrantType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4289,12 +3836,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	return o
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
 		if v != nil {
@@ -4322,6 +3863,26 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 			return nil
 		}
 		return v.ClientCredentialsArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A JSON web token (JWT) that authorizes access to Salesforce records.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JwtToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) Oauth2GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Oauth2GrantType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4382,12 +3943,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutputWithContext(context.Background())
 }
@@ -4429,12 +3984,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesf
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestOutput) ElementType() reflect.Type {
@@ -4457,12 +4006,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The code provided by the connector when it has been authenticated via the connected app.
@@ -4491,12 +4034,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestOutput {
@@ -4566,12 +4103,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutputWithContext(context.Background())
 }
@@ -4613,12 +4144,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDa
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput) ElementType() reflect.Type {
@@ -4641,12 +4166,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The SAPOData basic authentication credentials.
@@ -4675,12 +4194,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOutput {
@@ -4750,12 +4263,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutputWithContext(context.Background())
 }
@@ -4797,12 +4304,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDa
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutput) ElementType() reflect.Type {
@@ -4825,12 +4326,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password to use to connect to a resource.
@@ -4859,12 +4354,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsOutput {
@@ -4946,12 +4435,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutputWithContext(context.Background())
 }
@@ -4993,12 +4476,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDa
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput) ElementType() reflect.Type {
@@ -5021,12 +4498,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access token used to access the connector on your behalf.
@@ -5076,12 +4547,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOutput {
@@ -5181,12 +4646,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutputWithContext(context.Background())
 }
@@ -5228,12 +4687,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDa
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestOutput) ElementType() reflect.Type {
@@ -5256,12 +4709,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The code provided by the connector when it has been authenticated via the connected app.
@@ -5290,12 +4737,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDat
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestOutput {
@@ -5365,12 +4806,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsService
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutputWithContext(context.Background())
 }
@@ -5412,12 +4847,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsServic
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutput) ElementType() reflect.Type {
@@ -5440,12 +4869,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsService
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password to use to connect to a resource.
@@ -5474,12 +4897,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsService
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowOutput {
@@ -5545,12 +4962,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingula
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutputWithContext(context.Background())
 }
@@ -5592,12 +5003,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSingul
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutput) ElementType() reflect.Type {
@@ -5622,12 +5027,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingula
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular) string {
@@ -5647,12 +5046,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingula
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularOutput {
@@ -5720,12 +5113,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackAr
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutputWithContext(context.Background())
 }
@@ -5767,12 +5154,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackP
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutput) ElementType() reflect.Type {
@@ -5795,12 +5176,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access token used to access the connector on your behalf.
@@ -5843,12 +5218,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPt
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOutput {
@@ -5938,12 +5307,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOa
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutputWithContext(context.Background())
 }
@@ -5985,12 +5348,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestOutput) ElementType() reflect.Type {
@@ -6013,12 +5370,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The code provided by the connector when it has been authenticated via the connected app.
@@ -6047,12 +5398,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOa
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestOutput {
@@ -6122,12 +5467,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowfla
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutputWithContext(context.Background())
 }
@@ -6169,12 +5508,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowfl
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutput) ElementType() reflect.Type {
@@ -6197,12 +5530,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowfla
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password to use to connect to a resource.
@@ -6231,12 +5558,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowfla
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeOutput {
@@ -6302,12 +5623,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutputWithContext(context.Background())
 }
@@ -6349,12 +5664,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendm
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroOutput) ElementType() reflect.Type {
@@ -6379,12 +5688,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmi
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The API secret key required for API key authentication.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroOutput) ApiSecretKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro) string {
@@ -6404,12 +5707,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmi
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroOutput {
@@ -6469,12 +5766,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaAr
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutputWithContext(context.Background())
 }
@@ -6516,12 +5807,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaP
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutput) ElementType() reflect.Type {
@@ -6544,12 +5829,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password to use to connect to a resource.
@@ -6578,12 +5857,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPt
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaOutput {
@@ -6661,12 +5934,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutputWithContext(context.Background())
 }
@@ -6708,12 +5975,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsZendes
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutput) ElementType() reflect.Type {
@@ -6736,12 +5997,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access token used to access the connector on your behalf.
@@ -6784,12 +6039,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOutput {
@@ -6879,12 +6128,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutputWithContext(context.Background())
 }
@@ -6926,12 +6169,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsZendes
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestOutput) ElementType() reflect.Type {
@@ -6954,12 +6191,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The code provided by the connector when it has been authenticated via the connected app.
@@ -6988,12 +6219,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestOutput {
@@ -7127,12 +6352,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileProperties] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileProperties]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutputWithContext(context.Background())
 }
@@ -7174,12 +6393,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileProperties] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileProperties]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -7202,12 +6415,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfileProperties) *ConnectorProfileConnectorProfileConfigConnectorProfileProperties {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileProperties] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfileProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
@@ -7348,12 +6555,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutpu
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileProperties] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfileProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesOutput {
@@ -7575,12 +6776,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitud
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutputWithContext(context.Background())
 }
@@ -7622,12 +6817,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeOutput) ElementType() reflect.Type {
@@ -7652,12 +6841,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitud
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput) ElementType() reflect.Type {
@@ -7670,12 +6853,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitud
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeOutput {
@@ -7725,12 +6902,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutputWithContext(context.Background())
 }
@@ -7772,12 +6943,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput) ElementType() reflect.Type {
@@ -7800,12 +6965,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The OAuth 2.0 properties required for OAuth 2.0 authentication.
@@ -7834,12 +6993,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOutput {
@@ -7913,12 +7066,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutputWithContext(context.Background())
 }
@@ -7960,12 +7107,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesOutput) ElementType() reflect.Type {
@@ -7988,12 +7129,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
@@ -8029,12 +7164,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomCo
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesOutput {
@@ -8110,12 +7239,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogA
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutputWithContext(context.Background())
 }
@@ -8157,12 +7280,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogOutput) ElementType() reflect.Type {
@@ -8187,12 +7304,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogO
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The location of the Datadog resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog) string {
@@ -8212,12 +7323,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogP
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogOutput {
@@ -8273,12 +7378,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrac
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutputWithContext(context.Background())
 }
@@ -8320,12 +7419,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatra
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceOutput) ElementType() reflect.Type {
@@ -8350,12 +7443,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrac
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The location of the Datadog resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace) string {
@@ -8375,12 +7462,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrac
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatracePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceOutput {
@@ -8432,12 +7513,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAn
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutputWithContext(context.Background())
 }
@@ -8479,12 +7554,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleA
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsOutput) ElementType() reflect.Type {
@@ -8509,12 +7578,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAn
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput) ElementType() reflect.Type {
@@ -8527,12 +7590,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAn
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsOutput {
@@ -8572,12 +7629,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycod
 
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeOutput)
-}
-
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput {
@@ -8621,12 +7672,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneyco
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeOutput) ElementType() reflect.Type {
@@ -8651,12 +7696,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycod
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput) ElementType() reflect.Type {
@@ -8669,12 +7708,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycod
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeOutput {
@@ -8720,12 +7753,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutputWithContext(context.Background())
 }
@@ -8767,12 +7794,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNe
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusOutput) ElementType() reflect.Type {
@@ -8797,12 +7818,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNex
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The location of the Datadog resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus) string {
@@ -8822,12 +7837,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNex
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusOutput {
@@ -8883,12 +7892,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoA
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutputWithContext(context.Background())
 }
@@ -8930,12 +7933,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoOutput) ElementType() reflect.Type {
@@ -8960,12 +7957,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoO
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The location of the Datadog resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo) string {
@@ -8985,12 +7976,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoP
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoOutput {
@@ -9070,12 +8055,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutputWithContext(context.Background())
 }
@@ -9117,12 +8096,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshif
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) ElementType() reflect.Type {
@@ -9145,12 +8118,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A name for the associated Amazon S3 bucket.
@@ -9214,12 +8181,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftOutput {
@@ -9339,12 +8300,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfor
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutputWithContext(context.Background())
 }
@@ -9386,12 +8341,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput) ElementType() reflect.Type {
@@ -9414,12 +8363,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfor
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The location of the Datadog resource.
@@ -9448,12 +8391,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesfor
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforcePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceOutput {
@@ -9543,12 +8480,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutputWithContext(context.Background())
 }
@@ -9590,12 +8521,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDat
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput) ElementType() reflect.Type {
@@ -9618,12 +8543,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The location of the SAPOData resource.
@@ -9687,12 +8606,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOutput {
@@ -9816,12 +8729,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutputWithContext(context.Background())
 }
@@ -9863,12 +8770,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDat
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutput) ElementType() reflect.Type {
@@ -9891,12 +8792,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
@@ -9932,12 +8827,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesOutput {
@@ -10013,12 +8902,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceN
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutputWithContext(context.Background())
 }
@@ -10060,12 +8943,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesService
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowOutput) ElementType() reflect.Type {
@@ -10090,12 +8967,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceN
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The location of the Datadog resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow) string {
@@ -10115,12 +8986,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceN
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowOutput {
@@ -10172,12 +9037,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutputWithContext(context.Background())
 }
@@ -10219,12 +9078,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSingula
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularOutput) ElementType() reflect.Type {
@@ -10249,12 +9102,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput) ElementType() reflect.Type {
@@ -10267,12 +9114,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularOutput {
@@ -10318,12 +9159,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArg
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutputWithContext(context.Background())
 }
@@ -10365,12 +9200,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPt
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackOutput) ElementType() reflect.Type {
@@ -10395,12 +9224,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackOut
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The location of the Datadog resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack) string {
@@ -10420,12 +9243,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtr
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackOutput {
@@ -10505,12 +9322,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutputWithContext(context.Background())
 }
@@ -10552,12 +9363,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowfla
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput) ElementType() reflect.Type {
@@ -10580,12 +9385,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake) *ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake {
 		return &v
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput)
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the account.
@@ -10649,12 +9448,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflak
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakePtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeOutput {
@@ -10766,12 +9559,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmic
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutputWithContext(context.Background())
 }
@@ -10813,12 +9600,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroOutput) ElementType() reflect.Type {
@@ -10843,12 +9624,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmic
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput) ElementType() reflect.Type {
@@ -10861,12 +9636,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmic
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroOutput {
@@ -10912,12 +9681,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArg
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutputWithContext(context.Background())
 }
@@ -10959,12 +9722,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPt
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaOutput) ElementType() reflect.Type {
@@ -10989,12 +9746,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaOut
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The location of the Datadog resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva) string {
@@ -11014,12 +9765,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtr
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaOutput {
@@ -11075,12 +9820,6 @@ func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskA
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskOutput)
 }
 
-func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput {
 	return i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutputWithContext(context.Background())
 }
@@ -11122,12 +9861,6 @@ func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput)
 }
 
-func (i *connectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk]{
-		OutputState: i.ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskOutput) ElementType() reflect.Type {
@@ -11152,12 +9885,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskO
 	}).(ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput)
 }
 
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk] {
-	return pulumix.Output[ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The location of the Datadog resource.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk) string {
@@ -11177,12 +9904,6 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskP
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput) ToConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutputWithContext(ctx context.Context) ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput {
 	return o
-}
-
-func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk] {
-	return pulumix.Output[*ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskPtrOutput) Elem() ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskOutput {
@@ -11250,12 +9971,6 @@ func (i FlowDestinationFlowConfigArgs) ToFlowDestinationFlowConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfig] {
-	return pulumix.Output[FlowDestinationFlowConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlowDestinationFlowConfigArrayInput is an input type that accepts FlowDestinationFlowConfigArray and FlowDestinationFlowConfigArrayOutput values.
 // You can construct a concrete instance of `FlowDestinationFlowConfigArrayInput` via:
 //
@@ -11281,12 +9996,6 @@ func (i FlowDestinationFlowConfigArray) ToFlowDestinationFlowConfigArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigArrayOutput)
 }
 
-func (i FlowDestinationFlowConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]FlowDestinationFlowConfig] {
-	return pulumix.Output[[]FlowDestinationFlowConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigOutput) ElementType() reflect.Type {
@@ -11299,12 +10008,6 @@ func (o FlowDestinationFlowConfigOutput) ToFlowDestinationFlowConfigOutput() Flo
 
 func (o FlowDestinationFlowConfigOutput) ToFlowDestinationFlowConfigOutputWithContext(ctx context.Context) FlowDestinationFlowConfigOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfig] {
-	return pulumix.Output[FlowDestinationFlowConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // API version that the destination connector uses.
@@ -11341,12 +10044,6 @@ func (o FlowDestinationFlowConfigArrayOutput) ToFlowDestinationFlowConfigArrayOu
 
 func (o FlowDestinationFlowConfigArrayOutput) ToFlowDestinationFlowConfigArrayOutputWithContext(ctx context.Context) FlowDestinationFlowConfigArrayOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FlowDestinationFlowConfig] {
-	return pulumix.Output[[]FlowDestinationFlowConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigArrayOutput) Index(i pulumi.IntInput) FlowDestinationFlowConfigOutput {
@@ -11434,12 +10131,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesArgs) ToFlowDesti
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorProperties] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorProperties]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) ElementType() reflect.Type {
@@ -11452,12 +10143,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) ToFlowDes
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorProperties] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
@@ -11599,12 +10284,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorAr
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutputWithContext(context.Background())
 }
@@ -11646,12 +10325,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorP
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput) ElementType() reflect.Type {
@@ -11674,12 +10347,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector) *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
@@ -11729,12 +10396,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPt
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorOutput {
@@ -11838,12 +10499,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -11885,12 +10540,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorE
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -11913,12 +10562,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -11954,12 +10597,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorEr
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigOutput {
@@ -12039,12 +10676,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesA
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutputWithContext(context.Background())
 }
@@ -12086,12 +10717,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput) ElementType() reflect.Type {
@@ -12114,12 +10739,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles) *FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Amazon Connect Customer Profiles domain.
@@ -12148,12 +10767,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesP
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesOutput {
@@ -12223,12 +10836,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutputWithContext(context.Background())
 }
@@ -12270,12 +10877,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput) ElementType() reflect.Type {
@@ -12298,12 +10899,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge) *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
@@ -12330,12 +10925,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOut
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgePtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeOutput {
@@ -12409,12 +10998,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -12456,12 +11039,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeError
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -12484,12 +11061,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -12525,12 +11096,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorH
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigOutput {
@@ -12610,12 +11175,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutputWithContext(context.Background())
 }
@@ -12657,12 +11216,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrType
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput) ElementType() reflect.Type {
@@ -12685,12 +11238,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode) *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
@@ -12717,12 +11264,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutpu
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodePtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeOutput {
@@ -12796,12 +11337,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHan
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -12843,12 +11378,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHa
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -12871,12 +11400,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHan
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -12912,12 +11435,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHan
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigOutput {
@@ -12989,12 +11506,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArg
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutputWithContext(context.Background())
 }
@@ -13036,12 +11547,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPt
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutput) ElementType() reflect.Type {
@@ -13066,12 +11571,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOut
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput)
 }
 
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput) ElementType() reflect.Type {
@@ -13084,12 +11583,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtr
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsOutput {
@@ -13139,12 +11632,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs) ToFl
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutputWithContext(context.Background())
 }
@@ -13186,12 +11673,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput) ElementType() reflect.Type {
@@ -13214,12 +11695,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput) To
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo) *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
@@ -13246,12 +11721,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput)
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoOutput {
@@ -13325,12 +11794,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -13372,12 +11835,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHand
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -13400,12 +11857,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -13441,12 +11892,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandl
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigOutput {
@@ -13534,12 +11979,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs) ToF
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutputWithContext(context.Background())
 }
@@ -13581,12 +12020,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) ElementType() reflect.Type {
@@ -13609,12 +12042,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) T
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift) *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon S3 bucket prefix.
@@ -13653,12 +12080,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftOutput {
@@ -13752,12 +12173,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -13799,12 +12214,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHan
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -13827,12 +12236,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -13868,12 +12271,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHand
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigOutput {
@@ -13957,12 +12354,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args) ToFlowDes
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args) ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutputWithContext(context.Background())
 }
@@ -14004,12 +12395,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesS3PtrType) ToFlo
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) ElementType() reflect.Type {
@@ -14032,12 +12417,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) ToFlowD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesS3) *FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -14069,12 +12448,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) ToFl
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3PtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesS3Output {
@@ -14162,12 +12535,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutputWithContext(context.Background())
 }
@@ -14209,12 +12576,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormat
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput) ElementType() reflect.Type {
@@ -14237,12 +12598,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
@@ -14285,12 +12640,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigOutput {
@@ -14376,12 +12725,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutputWithContext(context.Background())
 }
@@ -14423,12 +12766,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormat
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput) ElementType() reflect.Type {
@@ -14453,12 +12790,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput) AggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig) *string {
@@ -14478,12 +12809,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigOutput {
@@ -14543,12 +12868,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutputWithContext(context.Background())
 }
@@ -14590,12 +12909,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormat
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput) ElementType() reflect.Type {
@@ -14618,12 +12931,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
@@ -14652,12 +12959,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatC
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigOutput {
@@ -14735,12 +13036,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutputWithContext(context.Background())
 }
@@ -14782,12 +13077,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput) ElementType() reflect.Type {
@@ -14810,12 +13099,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce) *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
@@ -14856,12 +13139,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutp
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforcePtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceOutput {
@@ -14955,12 +13232,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -15002,12 +13273,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorH
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -15030,12 +13295,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -15071,12 +13330,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHa
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigOutput {
@@ -15168,12 +13421,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs) ToF
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutputWithContext(context.Background())
 }
@@ -15215,12 +13462,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) ElementType() reflect.Type {
@@ -15243,12 +13484,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) T
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
@@ -15296,12 +13531,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataOutput {
@@ -15405,12 +13634,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHand
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -15452,12 +13675,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHan
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -15480,12 +13697,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHand
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -15521,12 +13732,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHand
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigOutput {
@@ -15606,12 +13811,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRe
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -15653,12 +13852,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessR
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutput) ElementType() reflect.Type {
@@ -15681,12 +13874,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -15715,12 +13902,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessRe
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigOutput {
@@ -15798,12 +13979,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutputWithContext(context.Background())
 }
@@ -15845,12 +14020,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrType
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) ElementType() reflect.Type {
@@ -15873,12 +14042,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake) *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon S3 bucket prefix.
@@ -15919,12 +14082,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutpu
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakePtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeOutput {
@@ -16018,12 +14175,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -16065,12 +14216,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHa
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -16093,12 +14238,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -16134,12 +14273,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHan
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigOutput {
@@ -16223,12 +14356,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs) ToF
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutputWithContext(context.Background())
 }
@@ -16270,12 +14397,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) ElementType() reflect.Type {
@@ -16298,12 +14419,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) T
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver) *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -16335,12 +14450,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverOutput {
@@ -16424,12 +14533,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutputWithContext(context.Background())
 }
@@ -16471,12 +14574,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3Output
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput) ElementType() reflect.Type {
@@ -16499,12 +14596,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
@@ -16540,12 +14631,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigOutput {
@@ -16621,12 +14706,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutputWithContext(context.Background())
 }
@@ -16668,12 +14747,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3Output
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutput) ElementType() reflect.Type {
@@ -16698,12 +14771,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput)
 }
 
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutput) AggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig) *string {
@@ -16723,12 +14790,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigOutput {
@@ -16788,12 +14849,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutputWithContext(context.Background())
 }
@@ -16835,12 +14890,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3Output
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput) ElementType() reflect.Type {
@@ -16863,12 +14912,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
@@ -16897,12 +14940,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputF
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigOutput {
@@ -16980,12 +15017,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs) ToFl
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutputWithContext(context.Background())
 }
@@ -17027,12 +15058,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput) ElementType() reflect.Type {
@@ -17055,12 +15080,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput) To
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk) *FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
@@ -17099,12 +15118,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput)
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskOutput {
@@ -17198,12 +15211,6 @@ func (i FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput)
 }
 
-func (i FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs) ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput() FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput {
 	return i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutputWithContext(context.Background())
 }
@@ -17245,12 +15252,6 @@ func (i *flowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHand
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput)
 }
 
-func (i *flowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig]{
-		OutputState: i.ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -17273,12 +15274,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig) *FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig {
 		return &v
 	}).(FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput)
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig] {
-	return pulumix.Output[FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -17314,12 +15309,6 @@ func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandl
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput) ToFlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutputWithContext(ctx context.Context) FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput {
 	return o
-}
-
-func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig] {
-	return pulumix.Output[*FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigPtrOutput) Elem() FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigOutput {
@@ -17411,12 +15400,6 @@ func (i FlowSourceFlowConfigArgs) ToFlowSourceFlowConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigOutput)
 }
 
-func (i FlowSourceFlowConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfig] {
-	return pulumix.Output[FlowSourceFlowConfig]{
-		OutputState: i.ToFlowSourceFlowConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigArgs) ToFlowSourceFlowConfigPtrOutput() FlowSourceFlowConfigPtrOutput {
 	return i.ToFlowSourceFlowConfigPtrOutputWithContext(context.Background())
 }
@@ -17458,12 +15441,6 @@ func (i *flowSourceFlowConfigPtrType) ToFlowSourceFlowConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigPtrOutput)
 }
 
-func (i *flowSourceFlowConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfig] {
-	return pulumix.Output[*FlowSourceFlowConfig]{
-		OutputState: i.ToFlowSourceFlowConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigOutput) ElementType() reflect.Type {
@@ -17486,12 +15463,6 @@ func (o FlowSourceFlowConfigOutput) ToFlowSourceFlowConfigPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceFlowConfig) *FlowSourceFlowConfig {
 		return &v
 	}).(FlowSourceFlowConfigPtrOutput)
-}
-
-func (o FlowSourceFlowConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfig] {
-	return pulumix.Output[FlowSourceFlowConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // API version that the destination connector uses.
@@ -17535,12 +15506,6 @@ func (o FlowSourceFlowConfigPtrOutput) ToFlowSourceFlowConfigPtrOutput() FlowSou
 
 func (o FlowSourceFlowConfigPtrOutput) ToFlowSourceFlowConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfig] {
-	return pulumix.Output[*FlowSourceFlowConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigPtrOutput) Elem() FlowSourceFlowConfigOutput {
@@ -17636,12 +15601,6 @@ func (i FlowSourceFlowConfigIncrementalPullConfigArgs) ToFlowSourceFlowConfigInc
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigIncrementalPullConfigOutput)
 }
 
-func (i FlowSourceFlowConfigIncrementalPullConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigIncrementalPullConfig] {
-	return pulumix.Output[FlowSourceFlowConfigIncrementalPullConfig]{
-		OutputState: i.ToFlowSourceFlowConfigIncrementalPullConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigIncrementalPullConfigArgs) ToFlowSourceFlowConfigIncrementalPullConfigPtrOutput() FlowSourceFlowConfigIncrementalPullConfigPtrOutput {
 	return i.ToFlowSourceFlowConfigIncrementalPullConfigPtrOutputWithContext(context.Background())
 }
@@ -17683,12 +15642,6 @@ func (i *flowSourceFlowConfigIncrementalPullConfigPtrType) ToFlowSourceFlowConfi
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigIncrementalPullConfigPtrOutput)
 }
 
-func (i *flowSourceFlowConfigIncrementalPullConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigIncrementalPullConfig] {
-	return pulumix.Output[*FlowSourceFlowConfigIncrementalPullConfig]{
-		OutputState: i.ToFlowSourceFlowConfigIncrementalPullConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigIncrementalPullConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigIncrementalPullConfigOutput) ElementType() reflect.Type {
@@ -17713,12 +15666,6 @@ func (o FlowSourceFlowConfigIncrementalPullConfigOutput) ToFlowSourceFlowConfigI
 	}).(FlowSourceFlowConfigIncrementalPullConfigPtrOutput)
 }
 
-func (o FlowSourceFlowConfigIncrementalPullConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigIncrementalPullConfig] {
-	return pulumix.Output[FlowSourceFlowConfigIncrementalPullConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
 func (o FlowSourceFlowConfigIncrementalPullConfigOutput) DatetimeTypeFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigIncrementalPullConfig) *string { return v.DatetimeTypeFieldName }).(pulumi.StringPtrOutput)
@@ -17736,12 +15683,6 @@ func (o FlowSourceFlowConfigIncrementalPullConfigPtrOutput) ToFlowSourceFlowConf
 
 func (o FlowSourceFlowConfigIncrementalPullConfigPtrOutput) ToFlowSourceFlowConfigIncrementalPullConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigIncrementalPullConfigPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigIncrementalPullConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigIncrementalPullConfig] {
-	return pulumix.Output[*FlowSourceFlowConfigIncrementalPullConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigIncrementalPullConfigPtrOutput) Elem() FlowSourceFlowConfigIncrementalPullConfigOutput {
@@ -17857,12 +15798,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesArgs) ToFlowSourceFlowConfi
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorProperties] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorProperties]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesPtrOutputWithContext(context.Background())
 }
@@ -17904,12 +15839,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesPtrType) ToFlowSourceFlowC
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorProperties] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorProperties]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesOutput) ElementType() reflect.Type {
@@ -17932,12 +15861,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) ToFlowSourceFlowCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceFlowConfigSourceConnectorProperties) *FlowSourceFlowConfigSourceConnectorProperties {
 		return &v
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput)
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorProperties] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Information that is required for querying Amplitude. See Generic Source Properties for more details.
@@ -18064,12 +15987,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) ToFlowSourceFlow
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorProperties] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesOutput {
@@ -18275,12 +16192,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs) ToFlowSource
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesAmplitude] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesAmplitude]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutputWithContext(context.Background())
 }
@@ -18322,12 +16233,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrType) ToFlowSo
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesAmplitude] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesAmplitude]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput) ElementType() reflect.Type {
@@ -18352,12 +16257,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput) ToFlowSour
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesAmplitude] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesAmplitude]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesAmplitude) string { return v.Object }).(pulumi.StringOutput)
@@ -18375,12 +16274,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput) ToFlowS
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesAmplitude] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesAmplitude]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesAmplitudePtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeOutput {
@@ -18440,12 +16333,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs) ToFlow
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutputWithContext(context.Background())
 }
@@ -18487,12 +16374,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput) ElementType() reflect.Type {
@@ -18515,12 +16396,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput) ToFl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector) *FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector {
 		return &v
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput)
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
@@ -18547,12 +16422,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput) T
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorOutput {
@@ -18618,12 +16487,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs) ToFlowSourceFl
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesDatadog] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesDatadog]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesDatadogOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutputWithContext(context.Background())
 }
@@ -18665,12 +16528,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesDatadogPtrType) ToFlowSour
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesDatadogPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesDatadog] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesDatadog]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput) ElementType() reflect.Type {
@@ -18695,12 +16552,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput) ToFlowSource
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesDatadog] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesDatadog]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesDatadog) string { return v.Object }).(pulumi.StringOutput)
@@ -18718,12 +16569,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput) ToFlowSou
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesDatadog] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesDatadog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDatadogPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesDatadogOutput {
@@ -18779,12 +16624,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs) ToFlowSource
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesDynatrace] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesDynatrace]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutputWithContext(context.Background())
 }
@@ -18826,12 +16665,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesDynatracePtrType) ToFlowSo
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesDynatracePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesDynatrace] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesDynatrace]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput) ElementType() reflect.Type {
@@ -18856,12 +16689,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput) ToFlowSour
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesDynatrace] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesDynatrace]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesDynatrace) string { return v.Object }).(pulumi.StringOutput)
@@ -18879,12 +16706,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput) ToFlowS
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesDynatrace] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesDynatrace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesDynatracePtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesDynatraceOutput {
@@ -18940,12 +16761,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs) ToFlow
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutputWithContext(context.Background())
 }
@@ -18987,12 +16802,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput) ElementType() reflect.Type {
@@ -19017,12 +16826,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput) ToFl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics) string { return v.Object }).(pulumi.StringOutput)
@@ -19040,12 +16843,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput) T
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsOutput {
@@ -19101,12 +16898,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs) ToFlowSourc
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesInforNexus] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesInforNexus]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutputWithContext(context.Background())
 }
@@ -19148,12 +16939,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrType) ToFlowS
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesInforNexus] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesInforNexus]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput) ElementType() reflect.Type {
@@ -19178,12 +16963,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesInforNexus] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesInforNexus]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesInforNexus) string { return v.Object }).(pulumi.StringOutput)
@@ -19201,12 +16980,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput) ToFlow
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesInforNexus] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesInforNexus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesInforNexusPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesInforNexusOutput {
@@ -19262,12 +17035,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs) ToFlowSourceFl
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesMarketo] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesMarketo]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesMarketoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutputWithContext(context.Background())
 }
@@ -19309,12 +17076,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesMarketoPtrType) ToFlowSour
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesMarketoPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesMarketo] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesMarketo]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput) ElementType() reflect.Type {
@@ -19339,12 +17100,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput) ToFlowSource
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesMarketo] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesMarketo]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesMarketo) string { return v.Object }).(pulumi.StringOutput)
@@ -19362,12 +17117,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput) ToFlowSou
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesMarketo] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesMarketo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesMarketoPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesMarketoOutput {
@@ -19431,12 +17180,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesS3Args) ToFlowSourceFlowCon
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesS3Output)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesS3Args) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesS3] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesS3]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesS3Args) ToFlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutputWithContext(context.Background())
 }
@@ -19478,12 +17221,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesS3PtrType) ToFlowSourceFlo
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesS3] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesS3]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesS3Output struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesS3Output) ElementType() reflect.Type {
@@ -19506,12 +17243,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) ToFlowSourceFlowC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceFlowConfigSourceConnectorPropertiesS3) *FlowSourceFlowConfigSourceConnectorPropertiesS3 {
 		return &v
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput)
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesS3Output) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesS3] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Amazon S3 bucket.
@@ -19543,12 +17274,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) ToFlowSourceFl
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesS3] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3PtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesS3Output {
@@ -19624,12 +17349,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutputWithContext(context.Background())
 }
@@ -19671,12 +17390,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput) ElementType() reflect.Type {
@@ -19701,12 +17414,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput) S3InputFileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig) *string {
@@ -19726,12 +17433,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOut
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigOutput {
@@ -19795,12 +17496,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs) ToFlowSourc
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSalesforce] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSalesforce]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutputWithContext(context.Background())
 }
@@ -19842,12 +17537,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrType) ToFlowS
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSalesforce] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSalesforce]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) ElementType() reflect.Type {
@@ -19870,12 +17559,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) ToFlowSou
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceFlowConfigSourceConnectorPropertiesSalesforce) *FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
 		return &v
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput)
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSalesforce] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSalesforce]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
@@ -19907,12 +17590,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) ToFlow
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSalesforce] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSalesforce]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSalesforcePtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesSalesforceOutput {
@@ -19988,12 +17665,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs) ToFlowSourceF
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSapoData] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSapoData]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutputWithContext(context.Background())
 }
@@ -20035,12 +17706,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrType) ToFlowSou
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSapoData] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSapoData]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) ElementType() reflect.Type {
@@ -20065,12 +17730,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) ToFlowSourc
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSapoData] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSapoData]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object path specified in the SAPOData flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput) ObjectPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSapoData) string { return v.ObjectPath }).(pulumi.StringOutput)
@@ -20088,12 +17747,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) ToFlowSo
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSapoData] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSapoData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesSapoDataOutput {
@@ -20149,12 +17802,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs) ToFlowSourc
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesServiceNow] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesServiceNow]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutputWithContext(context.Background())
 }
@@ -20196,12 +17843,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrType) ToFlowS
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesServiceNow] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesServiceNow]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput) ElementType() reflect.Type {
@@ -20226,12 +17867,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesServiceNow] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesServiceNow]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesServiceNow) string { return v.Object }).(pulumi.StringOutput)
@@ -20249,12 +17884,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput) ToFlow
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesServiceNow] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesServiceNow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesServiceNowPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesServiceNowOutput {
@@ -20310,12 +17939,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs) ToFlowSourceF
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSingular] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSingular]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesSingularOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutputWithContext(context.Background())
 }
@@ -20357,12 +17980,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesSingularPtrType) ToFlowSou
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesSingularPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSingular] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSingular]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput) ElementType() reflect.Type {
@@ -20387,12 +18004,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput) ToFlowSourc
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSingular] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSingular]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSingular) string { return v.Object }).(pulumi.StringOutput)
@@ -20410,12 +18021,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput) ToFlowSo
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSingular] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSingular]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSingularPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesSingularOutput {
@@ -20471,12 +18076,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs) ToFlowSourceFlow
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSlack] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSlack]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesSlackOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutputWithContext(context.Background())
 }
@@ -20518,12 +18117,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesSlackPtrType) ToFlowSource
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesSlackPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSlack] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSlack]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput) ElementType() reflect.Type {
@@ -20548,12 +18141,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput) ToFlowSourceFl
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSlack] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesSlack]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesSlack) string { return v.Object }).(pulumi.StringOutput)
@@ -20571,12 +18158,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput) ToFlowSourc
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSlack] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesSlack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesSlackPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesSlackOutput {
@@ -20632,12 +18213,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs) ToFlowSourc
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutputWithContext(context.Background())
 }
@@ -20679,12 +18254,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrType) ToFlowS
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput) ElementType() reflect.Type {
@@ -20709,12 +18278,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput) ToFlowSou
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro) string { return v.Object }).(pulumi.StringOutput)
@@ -20732,12 +18295,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput) ToFlow
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroOutput {
@@ -20809,12 +18366,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs) ToFlowSourceFlow
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesVeeva] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesVeeva]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesVeevaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutputWithContext(context.Background())
 }
@@ -20856,12 +18407,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesVeevaPtrType) ToFlowSource
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesVeevaPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesVeeva] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesVeeva]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) ElementType() reflect.Type {
@@ -20884,12 +18429,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) ToFlowSourceFl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowSourceFlowConfigSourceConnectorPropertiesVeeva) *FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
 		return &v
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput)
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesVeeva] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesVeeva]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Document type specified in the Veeva document extract flow.
@@ -20929,12 +18468,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) ToFlowSourc
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesVeeva] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesVeeva]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesVeevaPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesVeevaOutput {
@@ -21030,12 +18563,6 @@ func (i FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs) ToFlowSourceFl
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput)
 }
 
-func (i FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesZendesk] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesZendesk]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesZendeskOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs) ToFlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput() FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput {
 	return i.ToFlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutputWithContext(context.Background())
 }
@@ -21077,12 +18604,6 @@ func (i *flowSourceFlowConfigSourceConnectorPropertiesZendeskPtrType) ToFlowSour
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput)
 }
 
-func (i *flowSourceFlowConfigSourceConnectorPropertiesZendeskPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesZendesk] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesZendesk]{
-		OutputState: i.ToFlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput) ElementType() reflect.Type {
@@ -21107,12 +18628,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput) ToFlowSource
 	}).(FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput)
 }
 
-func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesZendesk] {
-	return pulumix.Output[FlowSourceFlowConfigSourceConnectorPropertiesZendesk]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object specified in the flow destination.
 func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfigSourceConnectorPropertiesZendesk) string { return v.Object }).(pulumi.StringOutput)
@@ -21130,12 +18645,6 @@ func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput) ToFlowSou
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput) ToFlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutputWithContext(ctx context.Context) FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput {
 	return o
-}
-
-func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesZendesk] {
-	return pulumix.Output[*FlowSourceFlowConfigSourceConnectorPropertiesZendesk]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowSourceFlowConfigSourceConnectorPropertiesZendeskPtrOutput) Elem() FlowSourceFlowConfigSourceConnectorPropertiesZendeskOutput {
@@ -21207,12 +18716,6 @@ func (i FlowTaskArgs) ToFlowTaskOutputWithContext(ctx context.Context) FlowTaskO
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTaskOutput)
 }
 
-func (i FlowTaskArgs) ToOutput(ctx context.Context) pulumix.Output[FlowTask] {
-	return pulumix.Output[FlowTask]{
-		OutputState: i.ToFlowTaskOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlowTaskArrayInput is an input type that accepts FlowTaskArray and FlowTaskArrayOutput values.
 // You can construct a concrete instance of `FlowTaskArrayInput` via:
 //
@@ -21238,12 +18741,6 @@ func (i FlowTaskArray) ToFlowTaskArrayOutputWithContext(ctx context.Context) Flo
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTaskArrayOutput)
 }
 
-func (i FlowTaskArray) ToOutput(ctx context.Context) pulumix.Output[[]FlowTask] {
-	return pulumix.Output[[]FlowTask]{
-		OutputState: i.ToFlowTaskArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowTaskOutput struct{ *pulumi.OutputState }
 
 func (FlowTaskOutput) ElementType() reflect.Type {
@@ -21256,12 +18753,6 @@ func (o FlowTaskOutput) ToFlowTaskOutput() FlowTaskOutput {
 
 func (o FlowTaskOutput) ToFlowTaskOutputWithContext(ctx context.Context) FlowTaskOutput {
 	return o
-}
-
-func (o FlowTaskOutput) ToOutput(ctx context.Context) pulumix.Output[FlowTask] {
-	return pulumix.Output[FlowTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Operation to be performed on the provided source fields. See Connector Operator for details.
@@ -21301,12 +18792,6 @@ func (o FlowTaskArrayOutput) ToFlowTaskArrayOutput() FlowTaskArrayOutput {
 
 func (o FlowTaskArrayOutput) ToFlowTaskArrayOutputWithContext(ctx context.Context) FlowTaskArrayOutput {
 	return o
-}
-
-func (o FlowTaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FlowTask] {
-	return pulumix.Output[[]FlowTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowTaskArrayOutput) Index(i pulumi.IntInput) FlowTaskOutput {
@@ -21408,12 +18893,6 @@ func (i FlowTaskConnectorOperatorArgs) ToFlowTaskConnectorOperatorOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTaskConnectorOperatorOutput)
 }
 
-func (i FlowTaskConnectorOperatorArgs) ToOutput(ctx context.Context) pulumix.Output[FlowTaskConnectorOperator] {
-	return pulumix.Output[FlowTaskConnectorOperator]{
-		OutputState: i.ToFlowTaskConnectorOperatorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlowTaskConnectorOperatorArrayInput is an input type that accepts FlowTaskConnectorOperatorArray and FlowTaskConnectorOperatorArrayOutput values.
 // You can construct a concrete instance of `FlowTaskConnectorOperatorArrayInput` via:
 //
@@ -21439,12 +18918,6 @@ func (i FlowTaskConnectorOperatorArray) ToFlowTaskConnectorOperatorArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTaskConnectorOperatorArrayOutput)
 }
 
-func (i FlowTaskConnectorOperatorArray) ToOutput(ctx context.Context) pulumix.Output[[]FlowTaskConnectorOperator] {
-	return pulumix.Output[[]FlowTaskConnectorOperator]{
-		OutputState: i.ToFlowTaskConnectorOperatorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowTaskConnectorOperatorOutput struct{ *pulumi.OutputState }
 
 func (FlowTaskConnectorOperatorOutput) ElementType() reflect.Type {
@@ -21457,12 +18930,6 @@ func (o FlowTaskConnectorOperatorOutput) ToFlowTaskConnectorOperatorOutput() Flo
 
 func (o FlowTaskConnectorOperatorOutput) ToFlowTaskConnectorOperatorOutputWithContext(ctx context.Context) FlowTaskConnectorOperatorOutput {
 	return o
-}
-
-func (o FlowTaskConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FlowTaskConnectorOperator] {
-	return pulumix.Output[FlowTaskConnectorOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
@@ -21559,12 +19026,6 @@ func (o FlowTaskConnectorOperatorArrayOutput) ToFlowTaskConnectorOperatorArrayOu
 	return o
 }
 
-func (o FlowTaskConnectorOperatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FlowTaskConnectorOperator] {
-	return pulumix.Output[[]FlowTaskConnectorOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowTaskConnectorOperatorArrayOutput) Index(i pulumi.IntInput) FlowTaskConnectorOperatorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowTaskConnectorOperator {
 		return vs[0].([]FlowTaskConnectorOperator)[vs[1].(int)]
@@ -21608,12 +19069,6 @@ func (i FlowTriggerConfigArgs) ToFlowTriggerConfigOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigOutput)
 }
 
-func (i FlowTriggerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FlowTriggerConfig] {
-	return pulumix.Output[FlowTriggerConfig]{
-		OutputState: i.ToFlowTriggerConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowTriggerConfigArgs) ToFlowTriggerConfigPtrOutput() FlowTriggerConfigPtrOutput {
 	return i.ToFlowTriggerConfigPtrOutputWithContext(context.Background())
 }
@@ -21655,12 +19110,6 @@ func (i *flowTriggerConfigPtrType) ToFlowTriggerConfigPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigPtrOutput)
 }
 
-func (i *flowTriggerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowTriggerConfig] {
-	return pulumix.Output[*FlowTriggerConfig]{
-		OutputState: i.ToFlowTriggerConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowTriggerConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowTriggerConfigOutput) ElementType() reflect.Type {
@@ -21685,12 +19134,6 @@ func (o FlowTriggerConfigOutput) ToFlowTriggerConfigPtrOutputWithContext(ctx con
 	}).(FlowTriggerConfigPtrOutput)
 }
 
-func (o FlowTriggerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FlowTriggerConfig] {
-	return pulumix.Output[FlowTriggerConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
 func (o FlowTriggerConfigOutput) TriggerProperties() FlowTriggerConfigTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfig) *FlowTriggerConfigTriggerProperties { return v.TriggerProperties }).(FlowTriggerConfigTriggerPropertiesPtrOutput)
@@ -21713,12 +19156,6 @@ func (o FlowTriggerConfigPtrOutput) ToFlowTriggerConfigPtrOutput() FlowTriggerCo
 
 func (o FlowTriggerConfigPtrOutput) ToFlowTriggerConfigPtrOutputWithContext(ctx context.Context) FlowTriggerConfigPtrOutput {
 	return o
-}
-
-func (o FlowTriggerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowTriggerConfig] {
-	return pulumix.Output[*FlowTriggerConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowTriggerConfigPtrOutput) Elem() FlowTriggerConfigOutput {
@@ -21782,12 +19219,6 @@ func (i FlowTriggerConfigTriggerPropertiesArgs) ToFlowTriggerConfigTriggerProper
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigTriggerPropertiesOutput)
 }
 
-func (i FlowTriggerConfigTriggerPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[FlowTriggerConfigTriggerProperties] {
-	return pulumix.Output[FlowTriggerConfigTriggerProperties]{
-		OutputState: i.ToFlowTriggerConfigTriggerPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowTriggerConfigTriggerPropertiesArgs) ToFlowTriggerConfigTriggerPropertiesPtrOutput() FlowTriggerConfigTriggerPropertiesPtrOutput {
 	return i.ToFlowTriggerConfigTriggerPropertiesPtrOutputWithContext(context.Background())
 }
@@ -21829,12 +19260,6 @@ func (i *flowTriggerConfigTriggerPropertiesPtrType) ToFlowTriggerConfigTriggerPr
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigTriggerPropertiesPtrOutput)
 }
 
-func (i *flowTriggerConfigTriggerPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowTriggerConfigTriggerProperties] {
-	return pulumix.Output[*FlowTriggerConfigTriggerProperties]{
-		OutputState: i.ToFlowTriggerConfigTriggerPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowTriggerConfigTriggerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowTriggerConfigTriggerPropertiesOutput) ElementType() reflect.Type {
@@ -21859,12 +19284,6 @@ func (o FlowTriggerConfigTriggerPropertiesOutput) ToFlowTriggerConfigTriggerProp
 	}).(FlowTriggerConfigTriggerPropertiesPtrOutput)
 }
 
-func (o FlowTriggerConfigTriggerPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[FlowTriggerConfigTriggerProperties] {
-	return pulumix.Output[FlowTriggerConfigTriggerProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowTriggerConfigTriggerPropertiesOutput) Scheduled() FlowTriggerConfigTriggerPropertiesScheduledPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfigTriggerProperties) *FlowTriggerConfigTriggerPropertiesScheduled {
 		return v.Scheduled
@@ -21883,12 +19302,6 @@ func (o FlowTriggerConfigTriggerPropertiesPtrOutput) ToFlowTriggerConfigTriggerP
 
 func (o FlowTriggerConfigTriggerPropertiesPtrOutput) ToFlowTriggerConfigTriggerPropertiesPtrOutputWithContext(ctx context.Context) FlowTriggerConfigTriggerPropertiesPtrOutput {
 	return o
-}
-
-func (o FlowTriggerConfigTriggerPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowTriggerConfigTriggerProperties] {
-	return pulumix.Output[*FlowTriggerConfigTriggerProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowTriggerConfigTriggerPropertiesPtrOutput) Elem() FlowTriggerConfigTriggerPropertiesOutput {
@@ -21967,12 +19380,6 @@ func (i FlowTriggerConfigTriggerPropertiesScheduledArgs) ToFlowTriggerConfigTrig
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigTriggerPropertiesScheduledOutput)
 }
 
-func (i FlowTriggerConfigTriggerPropertiesScheduledArgs) ToOutput(ctx context.Context) pulumix.Output[FlowTriggerConfigTriggerPropertiesScheduled] {
-	return pulumix.Output[FlowTriggerConfigTriggerPropertiesScheduled]{
-		OutputState: i.ToFlowTriggerConfigTriggerPropertiesScheduledOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FlowTriggerConfigTriggerPropertiesScheduledArgs) ToFlowTriggerConfigTriggerPropertiesScheduledPtrOutput() FlowTriggerConfigTriggerPropertiesScheduledPtrOutput {
 	return i.ToFlowTriggerConfigTriggerPropertiesScheduledPtrOutputWithContext(context.Background())
 }
@@ -22014,12 +19421,6 @@ func (i *flowTriggerConfigTriggerPropertiesScheduledPtrType) ToFlowTriggerConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigTriggerPropertiesScheduledPtrOutput)
 }
 
-func (i *flowTriggerConfigTriggerPropertiesScheduledPtrType) ToOutput(ctx context.Context) pulumix.Output[*FlowTriggerConfigTriggerPropertiesScheduled] {
-	return pulumix.Output[*FlowTriggerConfigTriggerPropertiesScheduled]{
-		OutputState: i.ToFlowTriggerConfigTriggerPropertiesScheduledPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowTriggerConfigTriggerPropertiesScheduledOutput struct{ *pulumi.OutputState }
 
 func (FlowTriggerConfigTriggerPropertiesScheduledOutput) ElementType() reflect.Type {
@@ -22042,12 +19443,6 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) ToFlowTriggerConfigTr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowTriggerConfigTriggerPropertiesScheduled) *FlowTriggerConfigTriggerPropertiesScheduled {
 		return &v
 	}).(FlowTriggerConfigTriggerPropertiesScheduledPtrOutput)
-}
-
-func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) ToOutput(ctx context.Context) pulumix.Output[FlowTriggerConfigTriggerPropertiesScheduled] {
-	return pulumix.Output[FlowTriggerConfigTriggerPropertiesScheduled]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
@@ -22097,12 +19492,6 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ToFlowTriggerConfi
 
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ToFlowTriggerConfigTriggerPropertiesScheduledPtrOutputWithContext(ctx context.Context) FlowTriggerConfigTriggerPropertiesScheduledPtrOutput {
 	return o
-}
-
-func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowTriggerConfigTriggerPropertiesScheduled] {
-	return pulumix.Output[*FlowTriggerConfigTriggerPropertiesScheduled]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) Elem() FlowTriggerConfigTriggerPropertiesScheduledOutput {

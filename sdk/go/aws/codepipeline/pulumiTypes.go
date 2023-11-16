@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -71,12 +70,6 @@ func (i CustomActionTypeConfigurationPropertyArgs) ToCustomActionTypeConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeConfigurationPropertyOutput)
 }
 
-func (i CustomActionTypeConfigurationPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[CustomActionTypeConfigurationProperty] {
-	return pulumix.Output[CustomActionTypeConfigurationProperty]{
-		OutputState: i.ToCustomActionTypeConfigurationPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomActionTypeConfigurationPropertyArrayInput is an input type that accepts CustomActionTypeConfigurationPropertyArray and CustomActionTypeConfigurationPropertyArrayOutput values.
 // You can construct a concrete instance of `CustomActionTypeConfigurationPropertyArrayInput` via:
 //
@@ -102,12 +95,6 @@ func (i CustomActionTypeConfigurationPropertyArray) ToCustomActionTypeConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeConfigurationPropertyArrayOutput)
 }
 
-func (i CustomActionTypeConfigurationPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomActionTypeConfigurationProperty] {
-	return pulumix.Output[[]CustomActionTypeConfigurationProperty]{
-		OutputState: i.ToCustomActionTypeConfigurationPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomActionTypeConfigurationPropertyOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeConfigurationPropertyOutput) ElementType() reflect.Type {
@@ -120,12 +107,6 @@ func (o CustomActionTypeConfigurationPropertyOutput) ToCustomActionTypeConfigura
 
 func (o CustomActionTypeConfigurationPropertyOutput) ToCustomActionTypeConfigurationPropertyOutputWithContext(ctx context.Context) CustomActionTypeConfigurationPropertyOutput {
 	return o
-}
-
-func (o CustomActionTypeConfigurationPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[CustomActionTypeConfigurationProperty] {
-	return pulumix.Output[CustomActionTypeConfigurationProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the action configuration property.
@@ -177,12 +158,6 @@ func (o CustomActionTypeConfigurationPropertyArrayOutput) ToCustomActionTypeConf
 	return o
 }
 
-func (o CustomActionTypeConfigurationPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomActionTypeConfigurationProperty] {
-	return pulumix.Output[[]CustomActionTypeConfigurationProperty]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomActionTypeConfigurationPropertyArrayOutput) Index(i pulumi.IntInput) CustomActionTypeConfigurationPropertyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomActionTypeConfigurationProperty {
 		return vs[0].([]CustomActionTypeConfigurationProperty)[vs[1].(int)]
@@ -226,12 +201,6 @@ func (i CustomActionTypeInputArtifactDetailsArgs) ToCustomActionTypeInputArtifac
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeInputArtifactDetailsOutput)
 }
 
-func (i CustomActionTypeInputArtifactDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[CustomActionTypeInputArtifactDetails] {
-	return pulumix.Output[CustomActionTypeInputArtifactDetails]{
-		OutputState: i.ToCustomActionTypeInputArtifactDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CustomActionTypeInputArtifactDetailsArgs) ToCustomActionTypeInputArtifactDetailsPtrOutput() CustomActionTypeInputArtifactDetailsPtrOutput {
 	return i.ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(context.Background())
 }
@@ -273,12 +242,6 @@ func (i *customActionTypeInputArtifactDetailsPtrType) ToCustomActionTypeInputArt
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeInputArtifactDetailsPtrOutput)
 }
 
-func (i *customActionTypeInputArtifactDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomActionTypeInputArtifactDetails] {
-	return pulumix.Output[*CustomActionTypeInputArtifactDetails]{
-		OutputState: i.ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomActionTypeInputArtifactDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeInputArtifactDetailsOutput) ElementType() reflect.Type {
@@ -303,12 +266,6 @@ func (o CustomActionTypeInputArtifactDetailsOutput) ToCustomActionTypeInputArtif
 	}).(CustomActionTypeInputArtifactDetailsPtrOutput)
 }
 
-func (o CustomActionTypeInputArtifactDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[CustomActionTypeInputArtifactDetails] {
-	return pulumix.Output[CustomActionTypeInputArtifactDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeInputArtifactDetailsOutput) MaximumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeInputArtifactDetails) int { return v.MaximumCount }).(pulumi.IntOutput)
@@ -331,12 +288,6 @@ func (o CustomActionTypeInputArtifactDetailsPtrOutput) ToCustomActionTypeInputAr
 
 func (o CustomActionTypeInputArtifactDetailsPtrOutput) ToCustomActionTypeInputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeInputArtifactDetailsPtrOutput {
 	return o
-}
-
-func (o CustomActionTypeInputArtifactDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomActionTypeInputArtifactDetails] {
-	return pulumix.Output[*CustomActionTypeInputArtifactDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomActionTypeInputArtifactDetailsPtrOutput) Elem() CustomActionTypeInputArtifactDetailsOutput {
@@ -406,12 +357,6 @@ func (i CustomActionTypeOutputArtifactDetailsArgs) ToCustomActionTypeOutputArtif
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeOutputArtifactDetailsOutput)
 }
 
-func (i CustomActionTypeOutputArtifactDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[CustomActionTypeOutputArtifactDetails] {
-	return pulumix.Output[CustomActionTypeOutputArtifactDetails]{
-		OutputState: i.ToCustomActionTypeOutputArtifactDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CustomActionTypeOutputArtifactDetailsArgs) ToCustomActionTypeOutputArtifactDetailsPtrOutput() CustomActionTypeOutputArtifactDetailsPtrOutput {
 	return i.ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(context.Background())
 }
@@ -453,12 +398,6 @@ func (i *customActionTypeOutputArtifactDetailsPtrType) ToCustomActionTypeOutputA
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeOutputArtifactDetailsPtrOutput)
 }
 
-func (i *customActionTypeOutputArtifactDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomActionTypeOutputArtifactDetails] {
-	return pulumix.Output[*CustomActionTypeOutputArtifactDetails]{
-		OutputState: i.ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomActionTypeOutputArtifactDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeOutputArtifactDetailsOutput) ElementType() reflect.Type {
@@ -483,12 +422,6 @@ func (o CustomActionTypeOutputArtifactDetailsOutput) ToCustomActionTypeOutputArt
 	}).(CustomActionTypeOutputArtifactDetailsPtrOutput)
 }
 
-func (o CustomActionTypeOutputArtifactDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[CustomActionTypeOutputArtifactDetails] {
-	return pulumix.Output[CustomActionTypeOutputArtifactDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
 func (o CustomActionTypeOutputArtifactDetailsOutput) MaximumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeOutputArtifactDetails) int { return v.MaximumCount }).(pulumi.IntOutput)
@@ -511,12 +444,6 @@ func (o CustomActionTypeOutputArtifactDetailsPtrOutput) ToCustomActionTypeOutput
 
 func (o CustomActionTypeOutputArtifactDetailsPtrOutput) ToCustomActionTypeOutputArtifactDetailsPtrOutputWithContext(ctx context.Context) CustomActionTypeOutputArtifactDetailsPtrOutput {
 	return o
-}
-
-func (o CustomActionTypeOutputArtifactDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomActionTypeOutputArtifactDetails] {
-	return pulumix.Output[*CustomActionTypeOutputArtifactDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomActionTypeOutputArtifactDetailsPtrOutput) Elem() CustomActionTypeOutputArtifactDetailsOutput {
@@ -594,12 +521,6 @@ func (i CustomActionTypeSettingsArgs) ToCustomActionTypeSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeSettingsOutput)
 }
 
-func (i CustomActionTypeSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[CustomActionTypeSettings] {
-	return pulumix.Output[CustomActionTypeSettings]{
-		OutputState: i.ToCustomActionTypeSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CustomActionTypeSettingsArgs) ToCustomActionTypeSettingsPtrOutput() CustomActionTypeSettingsPtrOutput {
 	return i.ToCustomActionTypeSettingsPtrOutputWithContext(context.Background())
 }
@@ -641,12 +562,6 @@ func (i *customActionTypeSettingsPtrType) ToCustomActionTypeSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeSettingsPtrOutput)
 }
 
-func (i *customActionTypeSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomActionTypeSettings] {
-	return pulumix.Output[*CustomActionTypeSettings]{
-		OutputState: i.ToCustomActionTypeSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomActionTypeSettingsOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeSettingsOutput) ElementType() reflect.Type {
@@ -669,12 +584,6 @@ func (o CustomActionTypeSettingsOutput) ToCustomActionTypeSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomActionTypeSettings) *CustomActionTypeSettings {
 		return &v
 	}).(CustomActionTypeSettingsPtrOutput)
-}
-
-func (o CustomActionTypeSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[CustomActionTypeSettings] {
-	return pulumix.Output[CustomActionTypeSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
@@ -709,12 +618,6 @@ func (o CustomActionTypeSettingsPtrOutput) ToCustomActionTypeSettingsPtrOutput()
 
 func (o CustomActionTypeSettingsPtrOutput) ToCustomActionTypeSettingsPtrOutputWithContext(ctx context.Context) CustomActionTypeSettingsPtrOutput {
 	return o
-}
-
-func (o CustomActionTypeSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomActionTypeSettings] {
-	return pulumix.Output[*CustomActionTypeSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomActionTypeSettingsPtrOutput) Elem() CustomActionTypeSettingsOutput {
@@ -812,12 +715,6 @@ func (i PipelineArtifactStoreArgs) ToPipelineArtifactStoreOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreOutput)
 }
 
-func (i PipelineArtifactStoreArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineArtifactStore] {
-	return pulumix.Output[PipelineArtifactStore]{
-		OutputState: i.ToPipelineArtifactStoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PipelineArtifactStoreArrayInput is an input type that accepts PipelineArtifactStoreArray and PipelineArtifactStoreArrayOutput values.
 // You can construct a concrete instance of `PipelineArtifactStoreArrayInput` via:
 //
@@ -843,12 +740,6 @@ func (i PipelineArtifactStoreArray) ToPipelineArtifactStoreArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreArrayOutput)
 }
 
-func (i PipelineArtifactStoreArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineArtifactStore] {
-	return pulumix.Output[[]PipelineArtifactStore]{
-		OutputState: i.ToPipelineArtifactStoreArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PipelineArtifactStoreOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStoreOutput) ElementType() reflect.Type {
@@ -861,12 +752,6 @@ func (o PipelineArtifactStoreOutput) ToPipelineArtifactStoreOutput() PipelineArt
 
 func (o PipelineArtifactStoreOutput) ToPipelineArtifactStoreOutputWithContext(ctx context.Context) PipelineArtifactStoreOutput {
 	return o
-}
-
-func (o PipelineArtifactStoreOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineArtifactStore] {
-	return pulumix.Output[PipelineArtifactStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
@@ -901,12 +786,6 @@ func (o PipelineArtifactStoreArrayOutput) ToPipelineArtifactStoreArrayOutput() P
 
 func (o PipelineArtifactStoreArrayOutput) ToPipelineArtifactStoreArrayOutputWithContext(ctx context.Context) PipelineArtifactStoreArrayOutput {
 	return o
-}
-
-func (o PipelineArtifactStoreArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineArtifactStore] {
-	return pulumix.Output[[]PipelineArtifactStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipelineArtifactStoreArrayOutput) Index(i pulumi.IntInput) PipelineArtifactStoreOutput {
@@ -952,12 +831,6 @@ func (i PipelineArtifactStoreEncryptionKeyArgs) ToPipelineArtifactStoreEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreEncryptionKeyOutput)
 }
 
-func (i PipelineArtifactStoreEncryptionKeyArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineArtifactStoreEncryptionKey] {
-	return pulumix.Output[PipelineArtifactStoreEncryptionKey]{
-		OutputState: i.ToPipelineArtifactStoreEncryptionKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PipelineArtifactStoreEncryptionKeyArgs) ToPipelineArtifactStoreEncryptionKeyPtrOutput() PipelineArtifactStoreEncryptionKeyPtrOutput {
 	return i.ToPipelineArtifactStoreEncryptionKeyPtrOutputWithContext(context.Background())
 }
@@ -999,12 +872,6 @@ func (i *pipelineArtifactStoreEncryptionKeyPtrType) ToPipelineArtifactStoreEncry
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
-func (i *pipelineArtifactStoreEncryptionKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineArtifactStoreEncryptionKey] {
-	return pulumix.Output[*PipelineArtifactStoreEncryptionKey]{
-		OutputState: i.ToPipelineArtifactStoreEncryptionKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PipelineArtifactStoreEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (PipelineArtifactStoreEncryptionKeyOutput) ElementType() reflect.Type {
@@ -1029,12 +896,6 @@ func (o PipelineArtifactStoreEncryptionKeyOutput) ToPipelineArtifactStoreEncrypt
 	}).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
 
-func (o PipelineArtifactStoreEncryptionKeyOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineArtifactStoreEncryptionKey] {
-	return pulumix.Output[PipelineArtifactStoreEncryptionKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The KMS key ARN or ID
 func (o PipelineArtifactStoreEncryptionKeyOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) string { return v.Id }).(pulumi.StringOutput)
@@ -1057,12 +918,6 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) ToPipelineArtifactStoreEncr
 
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) ToPipelineArtifactStoreEncryptionKeyPtrOutputWithContext(ctx context.Context) PipelineArtifactStoreEncryptionKeyPtrOutput {
 	return o
-}
-
-func (o PipelineArtifactStoreEncryptionKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineArtifactStoreEncryptionKey] {
-	return pulumix.Output[*PipelineArtifactStoreEncryptionKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Elem() PipelineArtifactStoreEncryptionKeyOutput {
@@ -1132,12 +987,6 @@ func (i PipelineStageArgs) ToPipelineStageOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageOutput)
 }
 
-func (i PipelineStageArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineStage] {
-	return pulumix.Output[PipelineStage]{
-		OutputState: i.ToPipelineStageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PipelineStageArrayInput is an input type that accepts PipelineStageArray and PipelineStageArrayOutput values.
 // You can construct a concrete instance of `PipelineStageArrayInput` via:
 //
@@ -1163,12 +1012,6 @@ func (i PipelineStageArray) ToPipelineStageArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageArrayOutput)
 }
 
-func (i PipelineStageArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineStage] {
-	return pulumix.Output[[]PipelineStage]{
-		OutputState: i.ToPipelineStageArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PipelineStageOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageOutput) ElementType() reflect.Type {
@@ -1181,12 +1024,6 @@ func (o PipelineStageOutput) ToPipelineStageOutput() PipelineStageOutput {
 
 func (o PipelineStageOutput) ToPipelineStageOutputWithContext(ctx context.Context) PipelineStageOutput {
 	return o
-}
-
-func (o PipelineStageOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineStage] {
-	return pulumix.Output[PipelineStage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action(s) to include in the stage. Defined as an `action` block below
@@ -1211,12 +1048,6 @@ func (o PipelineStageArrayOutput) ToPipelineStageArrayOutput() PipelineStageArra
 
 func (o PipelineStageArrayOutput) ToPipelineStageArrayOutputWithContext(ctx context.Context) PipelineStageArrayOutput {
 	return o
-}
-
-func (o PipelineStageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineStage] {
-	return pulumix.Output[[]PipelineStage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipelineStageArrayOutput) Index(i pulumi.IntInput) PipelineStageOutput {
@@ -1306,12 +1137,6 @@ func (i PipelineStageActionArgs) ToPipelineStageActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageActionOutput)
 }
 
-func (i PipelineStageActionArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineStageAction] {
-	return pulumix.Output[PipelineStageAction]{
-		OutputState: i.ToPipelineStageActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PipelineStageActionArrayInput is an input type that accepts PipelineStageActionArray and PipelineStageActionArrayOutput values.
 // You can construct a concrete instance of `PipelineStageActionArrayInput` via:
 //
@@ -1337,12 +1162,6 @@ func (i PipelineStageActionArray) ToPipelineStageActionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageActionArrayOutput)
 }
 
-func (i PipelineStageActionArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineStageAction] {
-	return pulumix.Output[[]PipelineStageAction]{
-		OutputState: i.ToPipelineStageActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PipelineStageActionOutput struct{ *pulumi.OutputState }
 
 func (PipelineStageActionOutput) ElementType() reflect.Type {
@@ -1355,12 +1174,6 @@ func (o PipelineStageActionOutput) ToPipelineStageActionOutput() PipelineStageAc
 
 func (o PipelineStageActionOutput) ToPipelineStageActionOutputWithContext(ctx context.Context) PipelineStageActionOutput {
 	return o
-}
-
-func (o PipelineStageActionOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineStageAction] {
-	return pulumix.Output[PipelineStageAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
@@ -1439,12 +1252,6 @@ func (o PipelineStageActionArrayOutput) ToPipelineStageActionArrayOutputWithCont
 	return o
 }
 
-func (o PipelineStageActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineStageAction] {
-	return pulumix.Output[[]PipelineStageAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipelineStageActionArrayOutput) Index(i pulumi.IntInput) PipelineStageActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageAction {
 		return vs[0].([]PipelineStageAction)[vs[1].(int)]
@@ -1488,12 +1295,6 @@ func (i WebhookAuthenticationConfigurationArgs) ToWebhookAuthenticationConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthenticationConfigurationOutput)
 }
 
-func (i WebhookAuthenticationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WebhookAuthenticationConfiguration] {
-	return pulumix.Output[WebhookAuthenticationConfiguration]{
-		OutputState: i.ToWebhookAuthenticationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WebhookAuthenticationConfigurationArgs) ToWebhookAuthenticationConfigurationPtrOutput() WebhookAuthenticationConfigurationPtrOutput {
 	return i.ToWebhookAuthenticationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1535,12 +1336,6 @@ func (i *webhookAuthenticationConfigurationPtrType) ToWebhookAuthenticationConfi
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookAuthenticationConfigurationPtrOutput)
 }
 
-func (i *webhookAuthenticationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WebhookAuthenticationConfiguration] {
-	return pulumix.Output[*WebhookAuthenticationConfiguration]{
-		OutputState: i.ToWebhookAuthenticationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WebhookAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebhookAuthenticationConfigurationOutput) ElementType() reflect.Type {
@@ -1565,12 +1360,6 @@ func (o WebhookAuthenticationConfigurationOutput) ToWebhookAuthenticationConfigu
 	}).(WebhookAuthenticationConfigurationPtrOutput)
 }
 
-func (o WebhookAuthenticationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WebhookAuthenticationConfiguration] {
-	return pulumix.Output[WebhookAuthenticationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A valid CIDR block for `IP` filtering. Required for `IP`.
 func (o WebhookAuthenticationConfigurationOutput) AllowedIpRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *string { return v.AllowedIpRange }).(pulumi.StringPtrOutput)
@@ -1593,12 +1382,6 @@ func (o WebhookAuthenticationConfigurationPtrOutput) ToWebhookAuthenticationConf
 
 func (o WebhookAuthenticationConfigurationPtrOutput) ToWebhookAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthenticationConfigurationPtrOutput {
 	return o
-}
-
-func (o WebhookAuthenticationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebhookAuthenticationConfiguration] {
-	return pulumix.Output[*WebhookAuthenticationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebhookAuthenticationConfigurationPtrOutput) Elem() WebhookAuthenticationConfigurationOutput {
@@ -1668,12 +1451,6 @@ func (i WebhookFilterArgs) ToWebhookFilterOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterOutput)
 }
 
-func (i WebhookFilterArgs) ToOutput(ctx context.Context) pulumix.Output[WebhookFilter] {
-	return pulumix.Output[WebhookFilter]{
-		OutputState: i.ToWebhookFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WebhookFilterArrayInput is an input type that accepts WebhookFilterArray and WebhookFilterArrayOutput values.
 // You can construct a concrete instance of `WebhookFilterArrayInput` via:
 //
@@ -1699,12 +1476,6 @@ func (i WebhookFilterArray) ToWebhookFilterArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookFilterArrayOutput)
 }
 
-func (i WebhookFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]WebhookFilter] {
-	return pulumix.Output[[]WebhookFilter]{
-		OutputState: i.ToWebhookFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WebhookFilterOutput struct{ *pulumi.OutputState }
 
 func (WebhookFilterOutput) ElementType() reflect.Type {
@@ -1717,12 +1488,6 @@ func (o WebhookFilterOutput) ToWebhookFilterOutput() WebhookFilterOutput {
 
 func (o WebhookFilterOutput) ToWebhookFilterOutputWithContext(ctx context.Context) WebhookFilterOutput {
 	return o
-}
-
-func (o WebhookFilterOutput) ToOutput(ctx context.Context) pulumix.Output[WebhookFilter] {
-	return pulumix.Output[WebhookFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The [JSON path](https://github.com/json-path/JsonPath) to filter on.
@@ -1747,12 +1512,6 @@ func (o WebhookFilterArrayOutput) ToWebhookFilterArrayOutput() WebhookFilterArra
 
 func (o WebhookFilterArrayOutput) ToWebhookFilterArrayOutputWithContext(ctx context.Context) WebhookFilterArrayOutput {
 	return o
-}
-
-func (o WebhookFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WebhookFilter] {
-	return pulumix.Output[[]WebhookFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebhookFilterArrayOutput) Index(i pulumi.IntInput) WebhookFilterOutput {

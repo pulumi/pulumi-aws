@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Database{}
 	case "aws:athena/namedQuery:NamedQuery":
 		r = &NamedQuery{}
+	case "aws:athena/preparedStatement:PreparedStatement":
+		r = &PreparedStatement{}
 	case "aws:athena/workgroup:Workgroup":
 		r = &Workgroup{}
 	default:
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"athena/namedQuery",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"athena/preparedStatement",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

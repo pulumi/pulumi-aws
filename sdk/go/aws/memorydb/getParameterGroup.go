@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a MemoryDB Parameter Group.
@@ -113,12 +112,6 @@ func (o LookupParameterGroupResultOutput) ToLookupParameterGroupResultOutput() L
 
 func (o LookupParameterGroupResultOutput) ToLookupParameterGroupResultOutputWithContext(ctx context.Context) LookupParameterGroupResultOutput {
 	return o
-}
-
-func (o LookupParameterGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupParameterGroupResult] {
-	return pulumix.Output[LookupParameterGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the parameter group.

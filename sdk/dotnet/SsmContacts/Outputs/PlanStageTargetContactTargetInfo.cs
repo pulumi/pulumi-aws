@@ -14,9 +14,12 @@ namespace Pulumi.Aws.SsmContacts.Outputs
     public sealed class PlanStageTargetContactTargetInfo
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact or escalation plan.
+        /// The Amazon Resource Name (ARN) of the contact.
         /// </summary>
         public readonly string? ContactId;
+        /// <summary>
+        /// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+        /// </summary>
         public readonly bool IsEssential;
 
         [OutputConstructor]

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IP address pool resource for IPAM.
@@ -393,12 +392,6 @@ func (i *VpcIpamPool) ToVpcIpamPoolOutputWithContext(ctx context.Context) VpcIpa
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolOutput)
 }
 
-func (i *VpcIpamPool) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamPool] {
-	return pulumix.Output[*VpcIpamPool]{
-		OutputState: i.ToVpcIpamPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpcIpamPoolArrayInput is an input type that accepts VpcIpamPoolArray and VpcIpamPoolArrayOutput values.
 // You can construct a concrete instance of `VpcIpamPoolArrayInput` via:
 //
@@ -422,12 +415,6 @@ func (i VpcIpamPoolArray) ToVpcIpamPoolArrayOutput() VpcIpamPoolArrayOutput {
 
 func (i VpcIpamPoolArray) ToVpcIpamPoolArrayOutputWithContext(ctx context.Context) VpcIpamPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolArrayOutput)
-}
-
-func (i VpcIpamPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamPool] {
-	return pulumix.Output[[]*VpcIpamPool]{
-		OutputState: i.ToVpcIpamPoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpcIpamPoolMapInput is an input type that accepts VpcIpamPoolMap and VpcIpamPoolMapOutput values.
@@ -455,12 +442,6 @@ func (i VpcIpamPoolMap) ToVpcIpamPoolMapOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolMapOutput)
 }
 
-func (i VpcIpamPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamPool] {
-	return pulumix.Output[map[string]*VpcIpamPool]{
-		OutputState: i.ToVpcIpamPoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcIpamPoolOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPoolOutput) ElementType() reflect.Type {
@@ -473,12 +454,6 @@ func (o VpcIpamPoolOutput) ToVpcIpamPoolOutput() VpcIpamPoolOutput {
 
 func (o VpcIpamPoolOutput) ToVpcIpamPoolOutputWithContext(ctx context.Context) VpcIpamPoolOutput {
 	return o
-}
-
-func (o VpcIpamPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamPool] {
-	return pulumix.Output[*VpcIpamPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
@@ -591,12 +566,6 @@ func (o VpcIpamPoolArrayOutput) ToVpcIpamPoolArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o VpcIpamPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamPool] {
-	return pulumix.Output[[]*VpcIpamPool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcIpamPoolArrayOutput) Index(i pulumi.IntInput) VpcIpamPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamPool {
 		return vs[0].([]*VpcIpamPool)[vs[1].(int)]
@@ -615,12 +584,6 @@ func (o VpcIpamPoolMapOutput) ToVpcIpamPoolMapOutput() VpcIpamPoolMapOutput {
 
 func (o VpcIpamPoolMapOutput) ToVpcIpamPoolMapOutputWithContext(ctx context.Context) VpcIpamPoolMapOutput {
 	return o
-}
-
-func (o VpcIpamPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamPool] {
-	return pulumix.Output[map[string]*VpcIpamPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcIpamPoolMapOutput) MapIndex(k pulumi.StringInput) VpcIpamPoolOutput {

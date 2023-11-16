@@ -147,7 +147,7 @@ namespace Pulumi.Aws.SsmContacts
         public Output<string> ContactId { get; private set; } = null!;
 
         /// <summary>
-        /// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         /// </summary>
         [Output("stages")]
         public Output<ImmutableArray<Outputs.PlanStage>> Stages { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.SsmContacts
         private InputList<Inputs.PlanStageArgs>? _stages;
 
         /// <summary>
-        /// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         /// </summary>
         public InputList<Inputs.PlanStageArgs> Stages
         {
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.SsmContacts
         private InputList<Inputs.PlanStageGetArgs>? _stages;
 
         /// <summary>
-        /// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         /// </summary>
         public InputList<Inputs.PlanStageGetArgs> Stages
         {

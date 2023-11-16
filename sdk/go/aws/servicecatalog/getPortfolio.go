@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for a Service Catalog Portfolio.
@@ -121,12 +120,6 @@ func (o LookupPortfolioResultOutput) ToLookupPortfolioResultOutput() LookupPortf
 
 func (o LookupPortfolioResultOutput) ToLookupPortfolioResultOutputWithContext(ctx context.Context) LookupPortfolioResultOutput {
 	return o
-}
-
-func (o LookupPortfolioResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPortfolioResult] {
-	return pulumix.Output[LookupPortfolioResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPortfolioResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

@@ -65,14 +65,14 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      * 
      */
     @Import(name="compatibleRuntimes")
     private @Nullable Output<List<String>> compatibleRuntimes;
 
     /**
-     * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+     * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      * 
      */
     public Optional<Output<List<String>>> compatibleRuntimes() {
@@ -408,7 +408,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param compatibleRuntimes List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+         * @param compatibleRuntimes List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param compatibleRuntimes List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+         * @param compatibleRuntimes List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param compatibleRuntimes List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+         * @param compatibleRuntimes List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
          * 
          * @return builder
          * 

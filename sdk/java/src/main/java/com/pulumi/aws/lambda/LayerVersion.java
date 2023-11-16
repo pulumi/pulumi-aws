@@ -122,14 +122,14 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.compatibleArchitectures);
     }
     /**
-     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      * 
      */
     @Export(name="compatibleRuntimes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> compatibleRuntimes;
 
     /**
-     * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+     * @return List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      * 
      */
     public Output<Optional<List<String>>> compatibleRuntimes() {

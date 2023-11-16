@@ -1,0 +1,160 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-11-10T18:15:55.179014-05:00",
+            "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+            "version": "v3.92.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:BMqCsUOVWns=:v1:6gm9YTlwyUeZvKdB:7XP5pt1/piUiK620qFnFV+fh9O13Gg=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::pulumi:pulumi:Stack::CloudWatch-p-it-antons-mac-route53-5af92cd0",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2023-11-10T23:14:19.281071Z",
+                "modified": "2023-11-10T23:14:19.281071Z",
+                "sourcePosition": "project:///node_modules/@pulumi/runtime/stack.ts#36,23"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::pulumi:providers:aws::prov",
+                "custom": true,
+                "id": "fba90568-2818-4148-b62e-038148852fc2",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "region": "us-west-2",
+                    "skipCredentialsValidation": "false",
+                    "skipMetadataApiCheck": "true",
+                    "skipRegionValidation": "true",
+                    "version": "5.42.0"
+                },
+                "outputs": {
+                    "region": "us-west-2",
+                    "skipCredentialsValidation": "false",
+                    "skipMetadataApiCheck": "true",
+                    "skipRegionValidation": "true",
+                    "version": "5.42.0"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::pulumi:pulumi:Stack::CloudWatch-p-it-antons-mac-route53-5af92cd0",
+                "propertyDependencies": {
+                    "region": null,
+                    "skipCredentialsValidation": null,
+                    "skipMetadataApiCheck": null,
+                    "skipRegionValidation": null
+                },
+                "created": "2023-11-10T23:14:20.807332Z",
+                "modified": "2023-11-10T23:14:20.807332Z",
+                "sourcePosition": "project:///node_modules/@pulumi/provider.ts#128,9"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::aws:route53/zone:Zone::example.com",
+                "custom": true,
+                "id": "Z097280451OLZWU2PKIQ",
+                "type": "aws:route53/zone:Zone",
+                "inputs": {
+                    "__defaults": [
+                        "forceDestroy",
+                        "name"
+                    ],
+                    "comment": "Managed by Pulumi",
+                    "forceDestroy": false,
+                    "name": "example.com-8b845b8"
+                },
+                "outputs": {
+                    "arn": "arn:aws:route53:::hostedzone/Z097280451OLZWU2PKIQ",
+                    "comment": "Managed by Pulumi",
+                    "delegationSetId": "",
+                    "forceDestroy": false,
+                    "id": "Z097280451OLZWU2PKIQ",
+                    "name": "example.com-8b845b8",
+                    "nameServers": [
+                        "ns-1059.awsdns-04.org",
+                        "ns-1586.awsdns-06.co.uk",
+                        "ns-211.awsdns-26.com",
+                        "ns-871.awsdns-44.net"
+                    ],
+                    "primaryNameServer": "ns-871.awsdns-44.net",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcs": [],
+                    "zoneId": "Z097280451OLZWU2PKIQ"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::pulumi:pulumi:Stack::CloudWatch-p-it-antons-mac-route53-5af92cd0",
+                "provider": "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::pulumi:providers:aws::prov::fba90568-2818-4148-b62e-038148852fc2",
+                "propertyDependencies": {
+                    "comment": null
+                },
+                "created": "2023-11-10T23:15:11.452795Z",
+                "modified": "2023-11-10T23:15:11.452795Z",
+                "sourcePosition": "project:///index.ts#21,22"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::aws:route53/record:Record::www-dev",
+                "custom": true,
+                "id": "Z097280451OLZWU2PKIQ_www_CNAME_dev",
+                "type": "aws:route53/record:Record",
+                "inputs": {
+                    "__defaults": [],
+                    "name": "www",
+                    "records": [
+                        "dev.example.com"
+                    ],
+                    "setIdentifier": "dev",
+                    "ttl": 5,
+                    "type": "CNAME",
+                    "weightedRoutingPolicies": [
+                        {
+                            "__defaults": [],
+                            "weight": 10
+                        }
+                    ],
+                    "zoneId": "Z097280451OLZWU2PKIQ"
+                },
+                "outputs": {
+                    "__meta": "{\"schema_version\":\"2\"}",
+                    "fqdn": "www.example.com-8b845b8",
+                    "healthCheckId": "",
+                    "id": "Z097280451OLZWU2PKIQ_www_CNAME_dev",
+                    "multivalueAnswerRoutingPolicy": false,
+                    "name": "www",
+                    "records": [
+                        "dev.example.com"
+                    ],
+                    "setIdentifier": "dev",
+                    "ttl": 5,
+                    "type": "CNAME",
+                    "weightedRoutingPolicies": [
+                        {
+                            "weight": 10
+                        }
+                    ],
+                    "zoneId": "Z097280451OLZWU2PKIQ"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::pulumi:pulumi:Stack::CloudWatch-p-it-antons-mac-route53-5af92cd0",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::aws:route53/zone:Zone::example.com"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::pulumi:providers:aws::prov::fba90568-2818-4148-b62e-038148852fc2",
+                "propertyDependencies": {
+                    "name": null,
+                    "records": null,
+                    "setIdentifier": null,
+                    "ttl": null,
+                    "type": null,
+                    "weightedRoutingPolicies": null,
+                    "zoneId": [
+                        "urn:pulumi:p-it-antons-mac-route53-5af92cd0::CloudWatch::aws:route53/zone:Zone::example.com"
+                    ]
+                },
+                "created": "2023-11-10T23:15:55.178863Z",
+                "modified": "2023-11-10T23:15:55.178863Z",
+                "sourcePosition": "project:///index.ts#23,17"
+            }
+        ]
+    }
+}

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.SsmContacts.Inputs
 
     public sealed class PlanStageTargetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+        /// </summary>
         [Input("channelTargetInfo")]
         public Input<Inputs.PlanStageTargetChannelTargetInfoArgs>? ChannelTargetInfo { get; set; }
 
+        /// <summary>
+        /// A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+        /// </summary>
         [Input("contactTargetInfo")]
         public Input<Inputs.PlanStageTargetContactTargetInfoArgs>? ContactTargetInfo { get; set; }
 

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS EventBridge Pipes Pipe.
@@ -444,12 +443,6 @@ func (i *Pipe) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeOutput)
 }
 
-func (i *Pipe) ToOutput(ctx context.Context) pulumix.Output[*Pipe] {
-	return pulumix.Output[*Pipe]{
-		OutputState: i.ToPipeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PipeArrayInput is an input type that accepts PipeArray and PipeArrayOutput values.
 // You can construct a concrete instance of `PipeArrayInput` via:
 //
@@ -473,12 +466,6 @@ func (i PipeArray) ToPipeArrayOutput() PipeArrayOutput {
 
 func (i PipeArray) ToPipeArrayOutputWithContext(ctx context.Context) PipeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeArrayOutput)
-}
-
-func (i PipeArray) ToOutput(ctx context.Context) pulumix.Output[[]*Pipe] {
-	return pulumix.Output[[]*Pipe]{
-		OutputState: i.ToPipeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PipeMapInput is an input type that accepts PipeMap and PipeMapOutput values.
@@ -506,12 +493,6 @@ func (i PipeMap) ToPipeMapOutputWithContext(ctx context.Context) PipeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeMapOutput)
 }
 
-func (i PipeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pipe] {
-	return pulumix.Output[map[string]*Pipe]{
-		OutputState: i.ToPipeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PipeOutput struct{ *pulumi.OutputState }
 
 func (PipeOutput) ElementType() reflect.Type {
@@ -524,12 +505,6 @@ func (o PipeOutput) ToPipeOutput() PipeOutput {
 
 func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
-}
-
-func (o PipeOutput) ToOutput(ctx context.Context) pulumix.Output[*Pipe] {
-	return pulumix.Output[*Pipe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
@@ -620,12 +595,6 @@ func (o PipeArrayOutput) ToPipeArrayOutputWithContext(ctx context.Context) PipeA
 	return o
 }
 
-func (o PipeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Pipe] {
-	return pulumix.Output[[]*Pipe]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeArrayOutput) Index(i pulumi.IntInput) PipeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Pipe {
 		return vs[0].([]*Pipe)[vs[1].(int)]
@@ -644,12 +613,6 @@ func (o PipeMapOutput) ToPipeMapOutput() PipeMapOutput {
 
 func (o PipeMapOutput) ToPipeMapOutputWithContext(ctx context.Context) PipeMapOutput {
 	return o
-}
-
-func (o PipeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pipe] {
-	return pulumix.Output[map[string]*Pipe]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeMapOutput) MapIndex(k pulumi.StringInput) PipeOutput {

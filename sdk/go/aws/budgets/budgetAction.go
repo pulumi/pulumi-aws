@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a budget action resource. Budget actions are cost savings controls that run either automatically on your behalf or by using a workflow approval process.
@@ -346,12 +345,6 @@ func (i *BudgetAction) ToBudgetActionOutputWithContext(ctx context.Context) Budg
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionOutput)
 }
 
-func (i *BudgetAction) ToOutput(ctx context.Context) pulumix.Output[*BudgetAction] {
-	return pulumix.Output[*BudgetAction]{
-		OutputState: i.ToBudgetActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BudgetActionArrayInput is an input type that accepts BudgetActionArray and BudgetActionArrayOutput values.
 // You can construct a concrete instance of `BudgetActionArrayInput` via:
 //
@@ -375,12 +368,6 @@ func (i BudgetActionArray) ToBudgetActionArrayOutput() BudgetActionArrayOutput {
 
 func (i BudgetActionArray) ToBudgetActionArrayOutputWithContext(ctx context.Context) BudgetActionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionArrayOutput)
-}
-
-func (i BudgetActionArray) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetAction] {
-	return pulumix.Output[[]*BudgetAction]{
-		OutputState: i.ToBudgetActionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BudgetActionMapInput is an input type that accepts BudgetActionMap and BudgetActionMapOutput values.
@@ -408,12 +395,6 @@ func (i BudgetActionMap) ToBudgetActionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionMapOutput)
 }
 
-func (i BudgetActionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetAction] {
-	return pulumix.Output[map[string]*BudgetAction]{
-		OutputState: i.ToBudgetActionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BudgetActionOutput struct{ *pulumi.OutputState }
 
 func (BudgetActionOutput) ElementType() reflect.Type {
@@ -426,12 +407,6 @@ func (o BudgetActionOutput) ToBudgetActionOutput() BudgetActionOutput {
 
 func (o BudgetActionOutput) ToBudgetActionOutputWithContext(ctx context.Context) BudgetActionOutput {
 	return o
-}
-
-func (o BudgetActionOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetAction] {
-	return pulumix.Output[*BudgetAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the target account for budget. Will use current user's accountId by default if omitted.
@@ -508,12 +483,6 @@ func (o BudgetActionArrayOutput) ToBudgetActionArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o BudgetActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetAction] {
-	return pulumix.Output[[]*BudgetAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetActionArrayOutput) Index(i pulumi.IntInput) BudgetActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetAction {
 		return vs[0].([]*BudgetAction)[vs[1].(int)]
@@ -532,12 +501,6 @@ func (o BudgetActionMapOutput) ToBudgetActionMapOutput() BudgetActionMapOutput {
 
 func (o BudgetActionMapOutput) ToBudgetActionMapOutputWithContext(ctx context.Context) BudgetActionMapOutput {
 	return o
-}
-
-func (o BudgetActionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetAction] {
-	return pulumix.Output[map[string]*BudgetAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BudgetActionMapOutput) MapIndex(k pulumi.StringInput) BudgetActionOutput {

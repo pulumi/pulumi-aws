@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about EMR Release Labels.
@@ -103,12 +102,6 @@ func (o GetReleaseLabelsResultOutput) ToGetReleaseLabelsResultOutput() GetReleas
 
 func (o GetReleaseLabelsResultOutput) ToGetReleaseLabelsResultOutputWithContext(ctx context.Context) GetReleaseLabelsResultOutput {
 	return o
-}
-
-func (o GetReleaseLabelsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetReleaseLabelsResult] {
-	return pulumix.Output[GetReleaseLabelsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetReleaseLabelsResultOutput) Filters() GetReleaseLabelsFiltersPtrOutput {

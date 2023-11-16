@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The VPC Endpoint data source provides details about
@@ -167,12 +166,6 @@ func (o LookupVpcEndpointResultOutput) ToLookupVpcEndpointResultOutput() LookupV
 
 func (o LookupVpcEndpointResultOutput) ToLookupVpcEndpointResultOutputWithContext(ctx context.Context) LookupVpcEndpointResultOutput {
 	return o
-}
-
-func (o LookupVpcEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcEndpointResult] {
-	return pulumix.Output[LookupVpcEndpointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the VPC endpoint.

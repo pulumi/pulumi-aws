@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge event API Destination resource.
@@ -205,12 +204,6 @@ func (i *EventApiDestination) ToEventApiDestinationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(EventApiDestinationOutput)
 }
 
-func (i *EventApiDestination) ToOutput(ctx context.Context) pulumix.Output[*EventApiDestination] {
-	return pulumix.Output[*EventApiDestination]{
-		OutputState: i.ToEventApiDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventApiDestinationArrayInput is an input type that accepts EventApiDestinationArray and EventApiDestinationArrayOutput values.
 // You can construct a concrete instance of `EventApiDestinationArrayInput` via:
 //
@@ -234,12 +227,6 @@ func (i EventApiDestinationArray) ToEventApiDestinationArrayOutput() EventApiDes
 
 func (i EventApiDestinationArray) ToEventApiDestinationArrayOutputWithContext(ctx context.Context) EventApiDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventApiDestinationArrayOutput)
-}
-
-func (i EventApiDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventApiDestination] {
-	return pulumix.Output[[]*EventApiDestination]{
-		OutputState: i.ToEventApiDestinationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventApiDestinationMapInput is an input type that accepts EventApiDestinationMap and EventApiDestinationMapOutput values.
@@ -267,12 +254,6 @@ func (i EventApiDestinationMap) ToEventApiDestinationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EventApiDestinationMapOutput)
 }
 
-func (i EventApiDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventApiDestination] {
-	return pulumix.Output[map[string]*EventApiDestination]{
-		OutputState: i.ToEventApiDestinationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventApiDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventApiDestinationOutput) ElementType() reflect.Type {
@@ -285,12 +266,6 @@ func (o EventApiDestinationOutput) ToEventApiDestinationOutput() EventApiDestina
 
 func (o EventApiDestinationOutput) ToEventApiDestinationOutputWithContext(ctx context.Context) EventApiDestinationOutput {
 	return o
-}
-
-func (o EventApiDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*EventApiDestination] {
-	return pulumix.Output[*EventApiDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the event API Destination.
@@ -342,12 +317,6 @@ func (o EventApiDestinationArrayOutput) ToEventApiDestinationArrayOutputWithCont
 	return o
 }
 
-func (o EventApiDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventApiDestination] {
-	return pulumix.Output[[]*EventApiDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventApiDestinationArrayOutput) Index(i pulumi.IntInput) EventApiDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventApiDestination {
 		return vs[0].([]*EventApiDestination)[vs[1].(int)]
@@ -366,12 +335,6 @@ func (o EventApiDestinationMapOutput) ToEventApiDestinationMapOutput() EventApiD
 
 func (o EventApiDestinationMapOutput) ToEventApiDestinationMapOutputWithContext(ctx context.Context) EventApiDestinationMapOutput {
 	return o
-}
-
-func (o EventApiDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventApiDestination] {
-	return pulumix.Output[map[string]*EventApiDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventApiDestinationMapOutput) MapIndex(k pulumi.StringInput) EventApiDestinationOutput {

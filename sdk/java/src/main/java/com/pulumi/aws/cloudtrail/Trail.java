@@ -40,8 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.cloudtrail.Trail;
- * import com.pulumi.aws.cloudtrail.TrailArgs;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetPartitionArgs;
@@ -50,6 +48,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import com.pulumi.aws.cloudtrail.Trail;
+ * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,12 +66,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
  *             .forceDestroy(true)
- *             .build());
- * 
- *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
- *             .s3BucketName(exampleBucketV2.id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
- *             .includeGlobalServiceEvents(false)
  *             .build());
  * 
  *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
@@ -123,6 +118,14 @@ import javax.annotation.Nullable;
  *             .bucket(exampleBucketV2.id())
  *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
+ * 
+ *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
+ *             .s3BucketName(exampleBucketV2.id())
+ *             .s3KeyPrefix(&#34;prefix&#34;)
+ *             .includeGlobalServiceEvents(false)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleBucketPolicy)
+ *                 .build());
  * 
  *     }
  * }
@@ -448,10 +451,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Cloudtrails using the `name`. For example:
+ * Using `pulumi import`, import Cloudtrails using the `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+ *  $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
  * ```
  * 
  */

@@ -13,20 +13,28 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanStageTargetContactTargetInfo {
     /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * @return The Amazon Resource Name (ARN) of the contact.
      * 
      */
     private @Nullable String contactId;
+    /**
+     * @return A Boolean value determining if the contact&#39;s acknowledgement stops the progress of stages in the plan.
+     * 
+     */
     private Boolean isEssential;
 
     private PlanStageTargetContactTargetInfo() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * @return The Amazon Resource Name (ARN) of the contact.
      * 
      */
     public Optional<String> contactId() {
         return Optional.ofNullable(this.contactId);
     }
+    /**
+     * @return A Boolean value determining if the contact&#39;s acknowledgement stops the progress of stages in the plan.
+     * 
+     */
     public Boolean isEssential() {
         return this.isEssential;
     }

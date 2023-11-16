@@ -26,6 +26,11 @@ public final class OrganizationConfigurationAutoEnable {
      * 
      */
     private @Nullable Boolean lambda;
+    /**
+     * @return Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+     * 
+     */
+    private @Nullable Boolean lambdaCode;
 
     private OrganizationConfigurationAutoEnable() {}
     /**
@@ -49,6 +54,13 @@ public final class OrganizationConfigurationAutoEnable {
     public Optional<Boolean> lambda() {
         return Optional.ofNullable(this.lambda);
     }
+    /**
+     * @return Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+     * 
+     */
+    public Optional<Boolean> lambdaCode() {
+        return Optional.ofNullable(this.lambdaCode);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -62,12 +74,14 @@ public final class OrganizationConfigurationAutoEnable {
         private Boolean ec2;
         private Boolean ecr;
         private @Nullable Boolean lambda;
+        private @Nullable Boolean lambdaCode;
         public Builder() {}
         public Builder(OrganizationConfigurationAutoEnable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ec2 = defaults.ec2;
     	      this.ecr = defaults.ecr;
     	      this.lambda = defaults.lambda;
+    	      this.lambdaCode = defaults.lambdaCode;
         }
 
         @CustomType.Setter
@@ -85,11 +99,17 @@ public final class OrganizationConfigurationAutoEnable {
             this.lambda = lambda;
             return this;
         }
+        @CustomType.Setter
+        public Builder lambdaCode(@Nullable Boolean lambdaCode) {
+            this.lambdaCode = lambdaCode;
+            return this;
+        }
         public OrganizationConfigurationAutoEnable build() {
             final var o = new OrganizationConfigurationAutoEnable();
             o.ec2 = ec2;
             o.ecr = ecr;
             o.lambda = lambda;
+            o.lambdaCode = lambdaCode;
             return o;
         }
     }

@@ -31,6 +31,21 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
     }
 
     /**
+     * The S3 path where offline records are written.
+     * 
+     */
+    @Import(name="resolvedOutputS3Uri")
+    private @Nullable Output<String> resolvedOutputS3Uri;
+
+    /**
+     * @return The S3 path where offline records are written.
+     * 
+     */
+    public Optional<Output<String>> resolvedOutputS3Uri() {
+        return Optional.ofNullable(this.resolvedOutputS3Uri);
+    }
+
+    /**
      * The S3 URI, or location in Amazon S3, of OfflineStore.
      * 
      */
@@ -49,6 +64,7 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
 
     private FeatureGroupOfflineStoreConfigS3StorageConfigArgs(FeatureGroupOfflineStoreConfigS3StorageConfigArgs $) {
         this.kmsKeyId = $.kmsKeyId;
+        this.resolvedOutputS3Uri = $.resolvedOutputS3Uri;
         this.s3Uri = $.s3Uri;
     }
 
@@ -89,6 +105,27 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfigArgs extends com
          */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
+        }
+
+        /**
+         * @param resolvedOutputS3Uri The S3 path where offline records are written.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolvedOutputS3Uri(@Nullable Output<String> resolvedOutputS3Uri) {
+            $.resolvedOutputS3Uri = resolvedOutputS3Uri;
+            return this;
+        }
+
+        /**
+         * @param resolvedOutputS3Uri The S3 path where offline records are written.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolvedOutputS3Uri(String resolvedOutputS3Uri) {
+            return resolvedOutputS3Uri(Output.of(resolvedOutputS3Uri));
         }
 
         /**

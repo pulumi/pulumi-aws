@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SNS topic resource
@@ -157,11 +156,15 @@ type Topic struct {
 	ApplicationSuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"applicationSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	ApplicationSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"applicationSuccessFeedbackSampleRate"`
+	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+	ArchivePolicy pulumi.StringPtrOutput `pulumi:"archivePolicy"`
 	// The ARN of the SNS topic, as a more obvious property (clone of id)
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
+	BeginningArchiveTime pulumi.StringOutput `pulumi:"beginningArchiveTime"`
 	// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
 	ContentBasedDeduplication pulumi.BoolPtrOutput `pulumi:"contentBasedDeduplication"`
-	// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+	// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
 	DeliveryPolicy pulumi.StringPtrOutput `pulumi:"deliveryPolicy"`
 	// The display name for the topic
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
@@ -253,11 +256,15 @@ type topicState struct {
 	ApplicationSuccessFeedbackRoleArn *string `pulumi:"applicationSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	ApplicationSuccessFeedbackSampleRate *int `pulumi:"applicationSuccessFeedbackSampleRate"`
+	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+	ArchivePolicy *string `pulumi:"archivePolicy"`
 	// The ARN of the SNS topic, as a more obvious property (clone of id)
 	Arn *string `pulumi:"arn"`
+	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
+	BeginningArchiveTime *string `pulumi:"beginningArchiveTime"`
 	// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
 	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
-	// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+	// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
 	DeliveryPolicy *string `pulumi:"deliveryPolicy"`
 	// The display name for the topic
 	DisplayName *string `pulumi:"displayName"`
@@ -316,11 +323,15 @@ type TopicState struct {
 	ApplicationSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	ApplicationSuccessFeedbackSampleRate pulumi.IntPtrInput
+	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+	ArchivePolicy pulumi.StringPtrInput
 	// The ARN of the SNS topic, as a more obvious property (clone of id)
 	Arn pulumi.StringPtrInput
+	// The oldest timestamp at which a FIFO topic subscriber can start a replay.
+	BeginningArchiveTime pulumi.StringPtrInput
 	// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
 	ContentBasedDeduplication pulumi.BoolPtrInput
-	// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+	// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
 	DeliveryPolicy pulumi.StringPtrInput
 	// The display name for the topic
 	DisplayName pulumi.StringPtrInput
@@ -383,9 +394,11 @@ type topicArgs struct {
 	ApplicationSuccessFeedbackRoleArn *string `pulumi:"applicationSuccessFeedbackRoleArn"`
 	// Percentage of success to sample
 	ApplicationSuccessFeedbackSampleRate *int `pulumi:"applicationSuccessFeedbackSampleRate"`
+	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+	ArchivePolicy *string `pulumi:"archivePolicy"`
 	// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
 	ContentBasedDeduplication *bool `pulumi:"contentBasedDeduplication"`
-	// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+	// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
 	DeliveryPolicy *string `pulumi:"deliveryPolicy"`
 	// The display name for the topic
 	DisplayName *string `pulumi:"displayName"`
@@ -439,9 +452,11 @@ type TopicArgs struct {
 	ApplicationSuccessFeedbackRoleArn pulumi.StringPtrInput
 	// Percentage of success to sample
 	ApplicationSuccessFeedbackSampleRate pulumi.IntPtrInput
+	// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+	ArchivePolicy pulumi.StringPtrInput
 	// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
 	ContentBasedDeduplication pulumi.BoolPtrInput
-	// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+	// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
 	DeliveryPolicy pulumi.StringPtrInput
 	// The display name for the topic
 	DisplayName pulumi.StringPtrInput
@@ -510,12 +525,6 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicOutput)
 }
 
-func (i *Topic) ToOutput(ctx context.Context) pulumix.Output[*Topic] {
-	return pulumix.Output[*Topic]{
-		OutputState: i.ToTopicOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicArrayInput is an input type that accepts TopicArray and TopicArrayOutput values.
 // You can construct a concrete instance of `TopicArrayInput` via:
 //
@@ -539,12 +548,6 @@ func (i TopicArray) ToTopicArrayOutput() TopicArrayOutput {
 
 func (i TopicArray) ToTopicArrayOutputWithContext(ctx context.Context) TopicArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicArrayOutput)
-}
-
-func (i TopicArray) ToOutput(ctx context.Context) pulumix.Output[[]*Topic] {
-	return pulumix.Output[[]*Topic]{
-		OutputState: i.ToTopicArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TopicMapInput is an input type that accepts TopicMap and TopicMapOutput values.
@@ -572,12 +575,6 @@ func (i TopicMap) ToTopicMapOutputWithContext(ctx context.Context) TopicMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TopicMapOutput)
 }
 
-func (i TopicMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Topic] {
-	return pulumix.Output[map[string]*Topic]{
-		OutputState: i.ToTopicMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicOutput struct{ *pulumi.OutputState }
 
 func (TopicOutput) ElementType() reflect.Type {
@@ -590,12 +587,6 @@ func (o TopicOutput) ToTopicOutput() TopicOutput {
 
 func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
-}
-
-func (o TopicOutput) ToOutput(ctx context.Context) pulumix.Output[*Topic] {
-	return pulumix.Output[*Topic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IAM role for failure feedback
@@ -613,9 +604,19 @@ func (o TopicOutput) ApplicationSuccessFeedbackSampleRate() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v *Topic) pulumi.IntPtrOutput { return v.ApplicationSuccessFeedbackSampleRate }).(pulumi.IntPtrOutput)
 }
 
+// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+func (o TopicOutput) ArchivePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.ArchivePolicy }).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the SNS topic, as a more obvious property (clone of id)
 func (o TopicOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The oldest timestamp at which a FIFO topic subscriber can start a replay.
+func (o TopicOutput) BeginningArchiveTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.BeginningArchiveTime }).(pulumi.StringOutput)
 }
 
 // Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -623,7 +624,7 @@ func (o TopicOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.ContentBasedDeduplication }).(pulumi.BoolPtrOutput)
 }
 
-// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
 func (o TopicOutput) DeliveryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DeliveryPolicy }).(pulumi.StringPtrOutput)
 }
@@ -759,12 +760,6 @@ func (o TopicArrayOutput) ToTopicArrayOutputWithContext(ctx context.Context) Top
 	return o
 }
 
-func (o TopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Topic] {
-	return pulumix.Output[[]*Topic]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicArrayOutput) Index(i pulumi.IntInput) TopicOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Topic {
 		return vs[0].([]*Topic)[vs[1].(int)]
@@ -783,12 +778,6 @@ func (o TopicMapOutput) ToTopicMapOutput() TopicMapOutput {
 
 func (o TopicMapOutput) ToTopicMapOutputWithContext(ctx context.Context) TopicMapOutput {
 	return o
-}
-
-func (o TopicMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Topic] {
-	return pulumix.Output[map[string]*Topic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicMapOutput) MapIndex(k pulumi.StringInput) TopicOutput {

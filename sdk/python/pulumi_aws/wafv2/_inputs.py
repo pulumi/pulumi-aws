@@ -4696,7 +4696,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs']]],
                  field_to_match: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs']] = None):
         """
-        :param pulumi.Input[str] regex_string: The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
+        :param pulumi.Input[str] regex_string: The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
@@ -4711,7 +4711,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="regexString")
     def regex_string(self) -> pulumi.Input[str]:
         """
-        The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
+        The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         """
         return pulumi.get(self, "regex_string")
 
@@ -8251,7 +8251,7 @@ class RuleGroupRuleStatementRegexMatchStatementArgs:
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs']]],
                  field_to_match: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs']] = None):
         """
-        :param pulumi.Input[str] regex_string: The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
+        :param pulumi.Input[str] regex_string: The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
@@ -8266,7 +8266,7 @@ class RuleGroupRuleStatementRegexMatchStatementArgs:
     @pulumi.getter(name="regexString")
     def regex_string(self) -> pulumi.Input[str]:
         """
-        The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
+        The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         """
         return pulumi.get(self, "regex_string")
 

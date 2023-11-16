@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
@@ -118,6 +117,8 @@ type Task struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig TaskTaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
 }
 
 // NewTask registers a new resource with the given unique name, arguments, and options.
@@ -184,6 +185,8 @@ type taskState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
 }
 
 type TaskState struct {
@@ -211,6 +214,8 @@ type TaskState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig TaskTaskReportConfigPtrInput
 }
 
 func (TaskState) ElementType() reflect.Type {
@@ -236,6 +241,8 @@ type taskArgs struct {
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
 }
 
 // The set of arguments for constructing a Task resource.
@@ -258,6 +265,8 @@ type TaskArgs struct {
 	SourceLocationArn pulumi.StringInput
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig TaskTaskReportConfigPtrInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {
@@ -281,12 +290,6 @@ func (i *Task) ToTaskOutput() TaskOutput {
 
 func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOutput)
-}
-
-func (i *Task) ToOutput(ctx context.Context) pulumix.Output[*Task] {
-	return pulumix.Output[*Task]{
-		OutputState: i.ToTaskOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TaskArrayInput is an input type that accepts TaskArray and TaskArrayOutput values.
@@ -314,12 +317,6 @@ func (i TaskArray) ToTaskArrayOutputWithContext(ctx context.Context) TaskArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(TaskArrayOutput)
 }
 
-func (i TaskArray) ToOutput(ctx context.Context) pulumix.Output[[]*Task] {
-	return pulumix.Output[[]*Task]{
-		OutputState: i.ToTaskArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TaskMapInput is an input type that accepts TaskMap and TaskMapOutput values.
 // You can construct a concrete instance of `TaskMapInput` via:
 //
@@ -345,12 +342,6 @@ func (i TaskMap) ToTaskMapOutputWithContext(ctx context.Context) TaskMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskMapOutput)
 }
 
-func (i TaskMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Task] {
-	return pulumix.Output[map[string]*Task]{
-		OutputState: i.ToTaskMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TaskOutput struct{ *pulumi.OutputState }
 
 func (TaskOutput) ElementType() reflect.Type {
@@ -363,12 +354,6 @@ func (o TaskOutput) ToTaskOutput() TaskOutput {
 
 func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
-}
-
-func (o TaskOutput) ToOutput(ctx context.Context) pulumix.Output[*Task] {
-	return pulumix.Output[*Task]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the DataSync Task.
@@ -428,6 +413,11 @@ func (o TaskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+func (o TaskOutput) TaskReportConfig() TaskTaskReportConfigPtrOutput {
+	return o.ApplyT(func(v *Task) TaskTaskReportConfigPtrOutput { return v.TaskReportConfig }).(TaskTaskReportConfigPtrOutput)
+}
+
 type TaskArrayOutput struct{ *pulumi.OutputState }
 
 func (TaskArrayOutput) ElementType() reflect.Type {
@@ -440,12 +430,6 @@ func (o TaskArrayOutput) ToTaskArrayOutput() TaskArrayOutput {
 
 func (o TaskArrayOutput) ToTaskArrayOutputWithContext(ctx context.Context) TaskArrayOutput {
 	return o
-}
-
-func (o TaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Task] {
-	return pulumix.Output[[]*Task]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskArrayOutput) Index(i pulumi.IntInput) TaskOutput {
@@ -466,12 +450,6 @@ func (o TaskMapOutput) ToTaskMapOutput() TaskMapOutput {
 
 func (o TaskMapOutput) ToTaskMapOutputWithContext(ctx context.Context) TaskMapOutput {
 	return o
-}
-
-func (o TaskMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Task] {
-	return pulumix.Output[map[string]*Task]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskMapOutput) MapIndex(k pulumi.StringInput) TaskOutput {

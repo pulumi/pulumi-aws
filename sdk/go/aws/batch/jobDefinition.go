@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Batch Job Definition resource.
@@ -489,12 +488,6 @@ func (i *JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) Jo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionOutput)
 }
 
-func (i *JobDefinition) ToOutput(ctx context.Context) pulumix.Output[*JobDefinition] {
-	return pulumix.Output[*JobDefinition]{
-		OutputState: i.ToJobDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionArrayInput is an input type that accepts JobDefinitionArray and JobDefinitionArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionArrayInput` via:
 //
@@ -518,12 +511,6 @@ func (i JobDefinitionArray) ToJobDefinitionArrayOutput() JobDefinitionArrayOutpu
 
 func (i JobDefinitionArray) ToJobDefinitionArrayOutputWithContext(ctx context.Context) JobDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionArrayOutput)
-}
-
-func (i JobDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*JobDefinition] {
-	return pulumix.Output[[]*JobDefinition]{
-		OutputState: i.ToJobDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // JobDefinitionMapInput is an input type that accepts JobDefinitionMap and JobDefinitionMapOutput values.
@@ -551,12 +538,6 @@ func (i JobDefinitionMap) ToJobDefinitionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMapOutput)
 }
 
-func (i JobDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobDefinition] {
-	return pulumix.Output[map[string]*JobDefinition]{
-		OutputState: i.ToJobDefinitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionOutput) ElementType() reflect.Type {
@@ -569,12 +550,6 @@ func (o JobDefinitionOutput) ToJobDefinitionOutput() JobDefinitionOutput {
 
 func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Context) JobDefinitionOutput {
 	return o
-}
-
-func (o JobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinition] {
-	return pulumix.Output[*JobDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name of the job definition.
@@ -663,12 +638,6 @@ func (o JobDefinitionArrayOutput) ToJobDefinitionArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o JobDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*JobDefinition] {
-	return pulumix.Output[[]*JobDefinition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobDefinitionArrayOutput) Index(i pulumi.IntInput) JobDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobDefinition {
 		return vs[0].([]*JobDefinition)[vs[1].(int)]
@@ -687,12 +656,6 @@ func (o JobDefinitionMapOutput) ToJobDefinitionMapOutput() JobDefinitionMapOutpu
 
 func (o JobDefinitionMapOutput) ToJobDefinitionMapOutputWithContext(ctx context.Context) JobDefinitionMapOutput {
 	return o
-}
-
-func (o JobDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobDefinition] {
-	return pulumix.Output[map[string]*JobDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionMapOutput) MapIndex(k pulumi.StringInput) JobDefinitionOutput {

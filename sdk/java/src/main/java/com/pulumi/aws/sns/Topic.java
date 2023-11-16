@@ -215,6 +215,20 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.applicationSuccessFeedbackSampleRate);
     }
     /**
+     * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+     * 
+     */
+    @Export(name="archivePolicy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> archivePolicy;
+
+    /**
+     * @return The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+     * 
+     */
+    public Output<Optional<String>> archivePolicy() {
+        return Codegen.optional(this.archivePolicy);
+    }
+    /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      * 
      */
@@ -227,6 +241,20 @@ public class Topic extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * The oldest timestamp at which a FIFO topic subscriber can start a replay.
+     * 
+     */
+    @Export(name="beginningArchiveTime", refs={String.class}, tree="[0]")
+    private Output<String> beginningArchiveTime;
+
+    /**
+     * @return The oldest timestamp at which a FIFO topic subscriber can start a replay.
+     * 
+     */
+    public Output<String> beginningArchiveTime() {
+        return this.beginningArchiveTime;
     }
     /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -243,14 +271,14 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contentBasedDeduplication);
     }
     /**
-     * The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+     * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      * 
      */
     @Export(name="deliveryPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryPolicy;
 
     /**
-     * @return The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+     * @return The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      * 
      */
     public Output<Optional<String>> deliveryPolicy() {

@@ -1,0 +1,9 @@
+
+name: "aws_sns_topic_Topic_1"
+runtime: yaml
+    
+resources:
+  user_updates:
+    type: aws:sns:Topic
+    properties:
+      name: user-updates-topic

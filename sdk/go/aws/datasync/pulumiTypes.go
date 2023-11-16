@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i EfsLocationEc2ConfigArgs) ToEfsLocationEc2ConfigOutput() EfsLocationEc2C
 
 func (i EfsLocationEc2ConfigArgs) ToEfsLocationEc2ConfigOutputWithContext(ctx context.Context) EfsLocationEc2ConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationEc2ConfigOutput)
-}
-
-func (i EfsLocationEc2ConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EfsLocationEc2Config] {
-	return pulumix.Output[EfsLocationEc2Config]{
-		OutputState: i.ToEfsLocationEc2ConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i EfsLocationEc2ConfigArgs) ToEfsLocationEc2ConfigPtrOutput() EfsLocationEc2ConfigPtrOutput {
@@ -98,12 +91,6 @@ func (i *efsLocationEc2ConfigPtrType) ToEfsLocationEc2ConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationEc2ConfigPtrOutput)
 }
 
-func (i *efsLocationEc2ConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EfsLocationEc2Config] {
-	return pulumix.Output[*EfsLocationEc2Config]{
-		OutputState: i.ToEfsLocationEc2ConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EfsLocationEc2ConfigOutput struct{ *pulumi.OutputState }
 
 func (EfsLocationEc2ConfigOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o EfsLocationEc2ConfigOutput) ToEfsLocationEc2ConfigPtrOutputWithContext(c
 	}).(EfsLocationEc2ConfigPtrOutput)
 }
 
-func (o EfsLocationEc2ConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EfsLocationEc2Config] {
-	return pulumix.Output[EfsLocationEc2Config]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
 func (o EfsLocationEc2ConfigOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EfsLocationEc2Config) []string { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
@@ -156,12 +137,6 @@ func (o EfsLocationEc2ConfigPtrOutput) ToEfsLocationEc2ConfigPtrOutput() EfsLoca
 
 func (o EfsLocationEc2ConfigPtrOutput) ToEfsLocationEc2ConfigPtrOutputWithContext(ctx context.Context) EfsLocationEc2ConfigPtrOutput {
 	return o
-}
-
-func (o EfsLocationEc2ConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EfsLocationEc2Config] {
-	return pulumix.Output[*EfsLocationEc2Config]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EfsLocationEc2ConfigPtrOutput) Elem() EfsLocationEc2ConfigOutput {
@@ -227,12 +202,6 @@ func (i FsxOpenZfsFileSystemProtocolArgs) ToFsxOpenZfsFileSystemProtocolOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolOutput)
 }
 
-func (i FsxOpenZfsFileSystemProtocolArgs) ToOutput(ctx context.Context) pulumix.Output[FsxOpenZfsFileSystemProtocol] {
-	return pulumix.Output[FsxOpenZfsFileSystemProtocol]{
-		OutputState: i.ToFsxOpenZfsFileSystemProtocolOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FsxOpenZfsFileSystemProtocolArgs) ToFsxOpenZfsFileSystemProtocolPtrOutput() FsxOpenZfsFileSystemProtocolPtrOutput {
 	return i.ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(context.Background())
 }
@@ -274,12 +243,6 @@ func (i *fsxOpenZfsFileSystemProtocolPtrType) ToFsxOpenZfsFileSystemProtocolPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolPtrOutput)
 }
 
-func (i *fsxOpenZfsFileSystemProtocolPtrType) ToOutput(ctx context.Context) pulumix.Output[*FsxOpenZfsFileSystemProtocol] {
-	return pulumix.Output[*FsxOpenZfsFileSystemProtocol]{
-		OutputState: i.ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FsxOpenZfsFileSystemProtocolOutput struct{ *pulumi.OutputState }
 
 func (FsxOpenZfsFileSystemProtocolOutput) ElementType() reflect.Type {
@@ -304,12 +267,6 @@ func (o FsxOpenZfsFileSystemProtocolOutput) ToFsxOpenZfsFileSystemProtocolPtrOut
 	}).(FsxOpenZfsFileSystemProtocolPtrOutput)
 }
 
-func (o FsxOpenZfsFileSystemProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[FsxOpenZfsFileSystemProtocol] {
-	return pulumix.Output[FsxOpenZfsFileSystemProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
 func (o FsxOpenZfsFileSystemProtocolOutput) Nfs() FsxOpenZfsFileSystemProtocolNfsOutput {
 	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocol) FsxOpenZfsFileSystemProtocolNfs { return v.Nfs }).(FsxOpenZfsFileSystemProtocolNfsOutput)
@@ -327,12 +284,6 @@ func (o FsxOpenZfsFileSystemProtocolPtrOutput) ToFsxOpenZfsFileSystemProtocolPtr
 
 func (o FsxOpenZfsFileSystemProtocolPtrOutput) ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolPtrOutput {
 	return o
-}
-
-func (o FsxOpenZfsFileSystemProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FsxOpenZfsFileSystemProtocol] {
-	return pulumix.Output[*FsxOpenZfsFileSystemProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FsxOpenZfsFileSystemProtocolPtrOutput) Elem() FsxOpenZfsFileSystemProtocolOutput {
@@ -388,12 +339,6 @@ func (i FsxOpenZfsFileSystemProtocolNfsArgs) ToFsxOpenZfsFileSystemProtocolNfsOu
 	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsOutput)
 }
 
-func (i FsxOpenZfsFileSystemProtocolNfsArgs) ToOutput(ctx context.Context) pulumix.Output[FsxOpenZfsFileSystemProtocolNfs] {
-	return pulumix.Output[FsxOpenZfsFileSystemProtocolNfs]{
-		OutputState: i.ToFsxOpenZfsFileSystemProtocolNfsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FsxOpenZfsFileSystemProtocolNfsArgs) ToFsxOpenZfsFileSystemProtocolNfsPtrOutput() FsxOpenZfsFileSystemProtocolNfsPtrOutput {
 	return i.ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(context.Background())
 }
@@ -435,12 +380,6 @@ func (i *fsxOpenZfsFileSystemProtocolNfsPtrType) ToFsxOpenZfsFileSystemProtocolN
 	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsPtrOutput)
 }
 
-func (i *fsxOpenZfsFileSystemProtocolNfsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FsxOpenZfsFileSystemProtocolNfs] {
-	return pulumix.Output[*FsxOpenZfsFileSystemProtocolNfs]{
-		OutputState: i.ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FsxOpenZfsFileSystemProtocolNfsOutput struct{ *pulumi.OutputState }
 
 func (FsxOpenZfsFileSystemProtocolNfsOutput) ElementType() reflect.Type {
@@ -465,12 +404,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsOutput) ToFsxOpenZfsFileSystemProtocolNfs
 	}).(FsxOpenZfsFileSystemProtocolNfsPtrOutput)
 }
 
-func (o FsxOpenZfsFileSystemProtocolNfsOutput) ToOutput(ctx context.Context) pulumix.Output[FsxOpenZfsFileSystemProtocolNfs] {
-	return pulumix.Output[FsxOpenZfsFileSystemProtocolNfs]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Represents the mount options that are available for DataSync to access an NFS location. See below.
 func (o FsxOpenZfsFileSystemProtocolNfsOutput) MountOptions() FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput {
 	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocolNfs) FsxOpenZfsFileSystemProtocolNfsMountOptions {
@@ -490,12 +423,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) ToFsxOpenZfsFileSystemProtocol
 
 func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsPtrOutput {
 	return o
-}
-
-func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FsxOpenZfsFileSystemProtocolNfs] {
-	return pulumix.Output[*FsxOpenZfsFileSystemProtocolNfs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) Elem() FsxOpenZfsFileSystemProtocolNfsOutput {
@@ -551,12 +478,6 @@ func (i FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) ToFsxOpenZfsFileSystemP
 	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput)
 }
 
-func (i FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FsxOpenZfsFileSystemProtocolNfsMountOptions] {
-	return pulumix.Output[FsxOpenZfsFileSystemProtocolNfsMountOptions]{
-		OutputState: i.ToFsxOpenZfsFileSystemProtocolNfsMountOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput() FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
 	return i.ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Background())
 }
@@ -598,12 +519,6 @@ func (i *fsxOpenZfsFileSystemProtocolNfsMountOptionsPtrType) ToFsxOpenZfsFileSys
 	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput)
 }
 
-func (i *fsxOpenZfsFileSystemProtocolNfsMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FsxOpenZfsFileSystemProtocolNfsMountOptions] {
-	return pulumix.Output[*FsxOpenZfsFileSystemProtocolNfsMountOptions]{
-		OutputState: i.ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput struct{ *pulumi.OutputState }
 
 func (FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ElementType() reflect.Type {
@@ -628,12 +543,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ToFsxOpenZfsFileSyste
 	}).(FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput)
 }
 
-func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FsxOpenZfsFileSystemProtocolNfsMountOptions] {
-	return pulumix.Output[FsxOpenZfsFileSystemProtocolNfsMountOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocolNfsMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
@@ -651,12 +560,6 @@ func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) ToFsxOpenZfsFileSy
 
 func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
 	return o
-}
-
-func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FsxOpenZfsFileSystemProtocolNfsMountOptions] {
-	return pulumix.Output[*FsxOpenZfsFileSystemProtocolNfsMountOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) Elem() FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput {
@@ -712,12 +615,6 @@ func (i LocationAzureBlobSasConfigurationArgs) ToLocationAzureBlobSasConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobSasConfigurationOutput)
 }
 
-func (i LocationAzureBlobSasConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobSasConfiguration] {
-	return pulumix.Output[LocationAzureBlobSasConfiguration]{
-		OutputState: i.ToLocationAzureBlobSasConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LocationAzureBlobSasConfigurationArgs) ToLocationAzureBlobSasConfigurationPtrOutput() LocationAzureBlobSasConfigurationPtrOutput {
 	return i.ToLocationAzureBlobSasConfigurationPtrOutputWithContext(context.Background())
 }
@@ -759,12 +656,6 @@ func (i *locationAzureBlobSasConfigurationPtrType) ToLocationAzureBlobSasConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobSasConfigurationPtrOutput)
 }
 
-func (i *locationAzureBlobSasConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobSasConfiguration] {
-	return pulumix.Output[*LocationAzureBlobSasConfiguration]{
-		OutputState: i.ToLocationAzureBlobSasConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationAzureBlobSasConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LocationAzureBlobSasConfigurationOutput) ElementType() reflect.Type {
@@ -789,12 +680,6 @@ func (o LocationAzureBlobSasConfigurationOutput) ToLocationAzureBlobSasConfigura
 	}).(LocationAzureBlobSasConfigurationPtrOutput)
 }
 
-func (o LocationAzureBlobSasConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobSasConfiguration] {
-	return pulumix.Output[LocationAzureBlobSasConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A SAS token that provides permissions to access your Azure Blob Storage.
 func (o LocationAzureBlobSasConfigurationOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationAzureBlobSasConfiguration) string { return v.Token }).(pulumi.StringOutput)
@@ -812,12 +697,6 @@ func (o LocationAzureBlobSasConfigurationPtrOutput) ToLocationAzureBlobSasConfig
 
 func (o LocationAzureBlobSasConfigurationPtrOutput) ToLocationAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobSasConfigurationPtrOutput {
 	return o
-}
-
-func (o LocationAzureBlobSasConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobSasConfiguration] {
-	return pulumix.Output[*LocationAzureBlobSasConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationAzureBlobSasConfigurationPtrOutput) Elem() LocationAzureBlobSasConfigurationOutput {
@@ -877,12 +756,6 @@ func (i LocationFsxOntapFileSystemProtocolArgs) ToLocationFsxOntapFileSystemProt
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolOutput)
 }
 
-func (i LocationFsxOntapFileSystemProtocolArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocol] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocol]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LocationFsxOntapFileSystemProtocolArgs) ToLocationFsxOntapFileSystemProtocolPtrOutput() LocationFsxOntapFileSystemProtocolPtrOutput {
 	return i.ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(context.Background())
 }
@@ -924,12 +797,6 @@ func (i *locationFsxOntapFileSystemProtocolPtrType) ToLocationFsxOntapFileSystem
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolPtrOutput)
 }
 
-func (i *locationFsxOntapFileSystemProtocolPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocol] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocol]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationFsxOntapFileSystemProtocolOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxOntapFileSystemProtocolOutput) ElementType() reflect.Type {
@@ -954,12 +821,6 @@ func (o LocationFsxOntapFileSystemProtocolOutput) ToLocationFsxOntapFileSystemPr
 	}).(LocationFsxOntapFileSystemProtocolPtrOutput)
 }
 
-func (o LocationFsxOntapFileSystemProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocol] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
 func (o LocationFsxOntapFileSystemProtocolOutput) Nfs() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolNfs { return v.Nfs }).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
@@ -982,12 +843,6 @@ func (o LocationFsxOntapFileSystemProtocolPtrOutput) ToLocationFsxOntapFileSyste
 
 func (o LocationFsxOntapFileSystemProtocolPtrOutput) ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolPtrOutput {
 	return o
-}
-
-func (o LocationFsxOntapFileSystemProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocol] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationFsxOntapFileSystemProtocolPtrOutput) Elem() LocationFsxOntapFileSystemProtocolOutput {
@@ -1053,12 +908,6 @@ func (i LocationFsxOntapFileSystemProtocolNfsArgs) ToLocationFsxOntapFileSystemP
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsOutput)
 }
 
-func (i LocationFsxOntapFileSystemProtocolNfsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocolNfs] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocolNfs]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolNfsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LocationFsxOntapFileSystemProtocolNfsArgs) ToLocationFsxOntapFileSystemProtocolNfsPtrOutput() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
 	return i.ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(context.Background())
 }
@@ -1100,12 +949,6 @@ func (i *locationFsxOntapFileSystemProtocolNfsPtrType) ToLocationFsxOntapFileSys
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
 }
 
-func (i *locationFsxOntapFileSystemProtocolNfsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocolNfs] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocolNfs]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationFsxOntapFileSystemProtocolNfsOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxOntapFileSystemProtocolNfsOutput) ElementType() reflect.Type {
@@ -1130,12 +973,6 @@ func (o LocationFsxOntapFileSystemProtocolNfsOutput) ToLocationFsxOntapFileSyste
 	}).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
 }
 
-func (o LocationFsxOntapFileSystemProtocolNfsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocolNfs] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocolNfs]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
 func (o LocationFsxOntapFileSystemProtocolNfsOutput) MountOptions() LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolNfs) LocationFsxOntapFileSystemProtocolNfsMountOptions {
@@ -1155,12 +992,6 @@ func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) ToLocationFsxOntapFileSy
 
 func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsPtrOutput {
 	return o
-}
-
-func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocolNfs] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocolNfs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) Elem() LocationFsxOntapFileSystemProtocolNfsOutput {
@@ -1216,12 +1047,6 @@ func (i LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs) ToLocationFsxOnta
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput)
 }
 
-func (i LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocolNfsMountOptions] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocolNfsMountOptions]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolNfsMountOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
 	return i.ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Background())
 }
@@ -1263,12 +1088,6 @@ func (i *locationFsxOntapFileSystemProtocolNfsMountOptionsPtrType) ToLocationFsx
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput)
 }
 
-func (i *locationFsxOntapFileSystemProtocolNfsMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocolNfsMountOptions] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocolNfsMountOptions]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) ElementType() reflect.Type {
@@ -1293,12 +1112,6 @@ func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) ToLocationFsxOn
 	}).(LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput)
 }
 
-func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocolNfsMountOptions] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocolNfsMountOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolNfsMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
@@ -1316,12 +1129,6 @@ func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) ToLocationFs
 
 func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
 	return o
-}
-
-func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocolNfsMountOptions] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocolNfsMountOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) Elem() LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput {
@@ -1389,12 +1196,6 @@ func (i LocationFsxOntapFileSystemProtocolSmbArgs) ToLocationFsxOntapFileSystemP
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbOutput)
 }
 
-func (i LocationFsxOntapFileSystemProtocolSmbArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocolSmb] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocolSmb]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolSmbOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LocationFsxOntapFileSystemProtocolSmbArgs) ToLocationFsxOntapFileSystemProtocolSmbPtrOutput() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
 	return i.ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(context.Background())
 }
@@ -1436,12 +1237,6 @@ func (i *locationFsxOntapFileSystemProtocolSmbPtrType) ToLocationFsxOntapFileSys
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbPtrOutput)
 }
 
-func (i *locationFsxOntapFileSystemProtocolSmbPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocolSmb] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocolSmb]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationFsxOntapFileSystemProtocolSmbOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxOntapFileSystemProtocolSmbOutput) ElementType() reflect.Type {
@@ -1464,12 +1259,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbOutput) ToLocationFsxOntapFileSyste
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFsxOntapFileSystemProtocolSmb) *LocationFsxOntapFileSystemProtocolSmb {
 		return &v
 	}).(LocationFsxOntapFileSystemProtocolSmbPtrOutput)
-}
-
-func (o LocationFsxOntapFileSystemProtocolSmbOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocolSmb] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocolSmb]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
@@ -1506,12 +1295,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) ToLocationFsxOntapFileSy
 
 func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbPtrOutput {
 	return o
-}
-
-func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocolSmb] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocolSmb]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) Elem() LocationFsxOntapFileSystemProtocolSmbOutput {
@@ -1597,12 +1380,6 @@ func (i LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs) ToLocationFsxOnta
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput)
 }
 
-func (i LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocolSmbMountOptions] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocolSmbMountOptions]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolSmbMountOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
 	return i.ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(context.Background())
 }
@@ -1644,12 +1421,6 @@ func (i *locationFsxOntapFileSystemProtocolSmbMountOptionsPtrType) ToLocationFsx
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput)
 }
 
-func (i *locationFsxOntapFileSystemProtocolSmbMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocolSmbMountOptions] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocolSmbMountOptions]{
-		OutputState: i.ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) ElementType() reflect.Type {
@@ -1674,12 +1445,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) ToLocationFsxOn
 	}).(LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput)
 }
 
-func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFsxOntapFileSystemProtocolSmbMountOptions] {
-	return pulumix.Output[LocationFsxOntapFileSystemProtocolSmbMountOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
 func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmbMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
@@ -1697,12 +1462,6 @@ func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) ToLocationFs
 
 func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
 	return o
-}
-
-func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystemProtocolSmbMountOptions] {
-	return pulumix.Output[*LocationFsxOntapFileSystemProtocolSmbMountOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) Elem() LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput {
@@ -1762,12 +1521,6 @@ func (i LocationHdfsNameNodeArgs) ToLocationHdfsNameNodeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsNameNodeOutput)
 }
 
-func (i LocationHdfsNameNodeArgs) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsNameNode] {
-	return pulumix.Output[LocationHdfsNameNode]{
-		OutputState: i.ToLocationHdfsNameNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocationHdfsNameNodeArrayInput is an input type that accepts LocationHdfsNameNodeArray and LocationHdfsNameNodeArrayOutput values.
 // You can construct a concrete instance of `LocationHdfsNameNodeArrayInput` via:
 //
@@ -1793,12 +1546,6 @@ func (i LocationHdfsNameNodeArray) ToLocationHdfsNameNodeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsNameNodeArrayOutput)
 }
 
-func (i LocationHdfsNameNodeArray) ToOutput(ctx context.Context) pulumix.Output[[]LocationHdfsNameNode] {
-	return pulumix.Output[[]LocationHdfsNameNode]{
-		OutputState: i.ToLocationHdfsNameNodeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationHdfsNameNodeOutput struct{ *pulumi.OutputState }
 
 func (LocationHdfsNameNodeOutput) ElementType() reflect.Type {
@@ -1811,12 +1558,6 @@ func (o LocationHdfsNameNodeOutput) ToLocationHdfsNameNodeOutput() LocationHdfsN
 
 func (o LocationHdfsNameNodeOutput) ToLocationHdfsNameNodeOutputWithContext(ctx context.Context) LocationHdfsNameNodeOutput {
 	return o
-}
-
-func (o LocationHdfsNameNodeOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsNameNode] {
-	return pulumix.Output[LocationHdfsNameNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
@@ -1841,12 +1582,6 @@ func (o LocationHdfsNameNodeArrayOutput) ToLocationHdfsNameNodeArrayOutput() Loc
 
 func (o LocationHdfsNameNodeArrayOutput) ToLocationHdfsNameNodeArrayOutputWithContext(ctx context.Context) LocationHdfsNameNodeArrayOutput {
 	return o
-}
-
-func (o LocationHdfsNameNodeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocationHdfsNameNode] {
-	return pulumix.Output[[]LocationHdfsNameNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationHdfsNameNodeArrayOutput) Index(i pulumi.IntInput) LocationHdfsNameNodeOutput {
@@ -1892,12 +1627,6 @@ func (i LocationHdfsQopConfigurationArgs) ToLocationHdfsQopConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsQopConfigurationOutput)
 }
 
-func (i LocationHdfsQopConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsQopConfiguration] {
-	return pulumix.Output[LocationHdfsQopConfiguration]{
-		OutputState: i.ToLocationHdfsQopConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LocationHdfsQopConfigurationArgs) ToLocationHdfsQopConfigurationPtrOutput() LocationHdfsQopConfigurationPtrOutput {
 	return i.ToLocationHdfsQopConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1939,12 +1668,6 @@ func (i *locationHdfsQopConfigurationPtrType) ToLocationHdfsQopConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsQopConfigurationPtrOutput)
 }
 
-func (i *locationHdfsQopConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsQopConfiguration] {
-	return pulumix.Output[*LocationHdfsQopConfiguration]{
-		OutputState: i.ToLocationHdfsQopConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationHdfsQopConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LocationHdfsQopConfigurationOutput) ElementType() reflect.Type {
@@ -1969,12 +1692,6 @@ func (o LocationHdfsQopConfigurationOutput) ToLocationHdfsQopConfigurationPtrOut
 	}).(LocationHdfsQopConfigurationPtrOutput)
 }
 
-func (o LocationHdfsQopConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsQopConfiguration] {
-	return pulumix.Output[LocationHdfsQopConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
 func (o LocationHdfsQopConfigurationOutput) DataTransferProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationHdfsQopConfiguration) *string { return v.DataTransferProtection }).(pulumi.StringPtrOutput)
@@ -1997,12 +1714,6 @@ func (o LocationHdfsQopConfigurationPtrOutput) ToLocationHdfsQopConfigurationPtr
 
 func (o LocationHdfsQopConfigurationPtrOutput) ToLocationHdfsQopConfigurationPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationPtrOutput {
 	return o
-}
-
-func (o LocationHdfsQopConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsQopConfiguration] {
-	return pulumix.Output[*LocationHdfsQopConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationHdfsQopConfigurationPtrOutput) Elem() LocationHdfsQopConfigurationOutput {
@@ -2068,12 +1779,6 @@ func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMountOptionsOutput)
 }
 
-func (i LocationSmbMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[LocationSmbMountOptions] {
-	return pulumix.Output[LocationSmbMountOptions]{
-		OutputState: i.ToLocationSmbMountOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LocationSmbMountOptionsArgs) ToLocationSmbMountOptionsPtrOutput() LocationSmbMountOptionsPtrOutput {
 	return i.ToLocationSmbMountOptionsPtrOutputWithContext(context.Background())
 }
@@ -2115,12 +1820,6 @@ func (i *locationSmbMountOptionsPtrType) ToLocationSmbMountOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMountOptionsPtrOutput)
 }
 
-func (i *locationSmbMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LocationSmbMountOptions] {
-	return pulumix.Output[*LocationSmbMountOptions]{
-		OutputState: i.ToLocationSmbMountOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationSmbMountOptionsOutput struct{ *pulumi.OutputState }
 
 func (LocationSmbMountOptionsOutput) ElementType() reflect.Type {
@@ -2145,12 +1844,6 @@ func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsPtrOutputWithCon
 	}).(LocationSmbMountOptionsPtrOutput)
 }
 
-func (o LocationSmbMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[LocationSmbMountOptions] {
-	return pulumix.Output[LocationSmbMountOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
 func (o LocationSmbMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationSmbMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
@@ -2168,12 +1861,6 @@ func (o LocationSmbMountOptionsPtrOutput) ToLocationSmbMountOptionsPtrOutput() L
 
 func (o LocationSmbMountOptionsPtrOutput) ToLocationSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsPtrOutput {
 	return o
-}
-
-func (o LocationSmbMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationSmbMountOptions] {
-	return pulumix.Output[*LocationSmbMountOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationSmbMountOptionsPtrOutput) Elem() LocationSmbMountOptionsOutput {
@@ -2229,12 +1916,6 @@ func (i NfsLocationMountOptionsArgs) ToNfsLocationMountOptionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationMountOptionsOutput)
 }
 
-func (i NfsLocationMountOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[NfsLocationMountOptions] {
-	return pulumix.Output[NfsLocationMountOptions]{
-		OutputState: i.ToNfsLocationMountOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NfsLocationMountOptionsArgs) ToNfsLocationMountOptionsPtrOutput() NfsLocationMountOptionsPtrOutput {
 	return i.ToNfsLocationMountOptionsPtrOutputWithContext(context.Background())
 }
@@ -2276,12 +1957,6 @@ func (i *nfsLocationMountOptionsPtrType) ToNfsLocationMountOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationMountOptionsPtrOutput)
 }
 
-func (i *nfsLocationMountOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*NfsLocationMountOptions] {
-	return pulumix.Output[*NfsLocationMountOptions]{
-		OutputState: i.ToNfsLocationMountOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NfsLocationMountOptionsOutput struct{ *pulumi.OutputState }
 
 func (NfsLocationMountOptionsOutput) ElementType() reflect.Type {
@@ -2306,12 +1981,6 @@ func (o NfsLocationMountOptionsOutput) ToNfsLocationMountOptionsPtrOutputWithCon
 	}).(NfsLocationMountOptionsPtrOutput)
 }
 
-func (o NfsLocationMountOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[NfsLocationMountOptions] {
-	return pulumix.Output[NfsLocationMountOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
 func (o NfsLocationMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NfsLocationMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
@@ -2329,12 +1998,6 @@ func (o NfsLocationMountOptionsPtrOutput) ToNfsLocationMountOptionsPtrOutput() N
 
 func (o NfsLocationMountOptionsPtrOutput) ToNfsLocationMountOptionsPtrOutputWithContext(ctx context.Context) NfsLocationMountOptionsPtrOutput {
 	return o
-}
-
-func (o NfsLocationMountOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NfsLocationMountOptions] {
-	return pulumix.Output[*NfsLocationMountOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NfsLocationMountOptionsPtrOutput) Elem() NfsLocationMountOptionsOutput {
@@ -2390,12 +2053,6 @@ func (i NfsLocationOnPremConfigArgs) ToNfsLocationOnPremConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationOnPremConfigOutput)
 }
 
-func (i NfsLocationOnPremConfigArgs) ToOutput(ctx context.Context) pulumix.Output[NfsLocationOnPremConfig] {
-	return pulumix.Output[NfsLocationOnPremConfig]{
-		OutputState: i.ToNfsLocationOnPremConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NfsLocationOnPremConfigArgs) ToNfsLocationOnPremConfigPtrOutput() NfsLocationOnPremConfigPtrOutput {
 	return i.ToNfsLocationOnPremConfigPtrOutputWithContext(context.Background())
 }
@@ -2437,12 +2094,6 @@ func (i *nfsLocationOnPremConfigPtrType) ToNfsLocationOnPremConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationOnPremConfigPtrOutput)
 }
 
-func (i *nfsLocationOnPremConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*NfsLocationOnPremConfig] {
-	return pulumix.Output[*NfsLocationOnPremConfig]{
-		OutputState: i.ToNfsLocationOnPremConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NfsLocationOnPremConfigOutput struct{ *pulumi.OutputState }
 
 func (NfsLocationOnPremConfigOutput) ElementType() reflect.Type {
@@ -2467,12 +2118,6 @@ func (o NfsLocationOnPremConfigOutput) ToNfsLocationOnPremConfigPtrOutputWithCon
 	}).(NfsLocationOnPremConfigPtrOutput)
 }
 
-func (o NfsLocationOnPremConfigOutput) ToOutput(ctx context.Context) pulumix.Output[NfsLocationOnPremConfig] {
-	return pulumix.Output[NfsLocationOnPremConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 func (o NfsLocationOnPremConfigOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NfsLocationOnPremConfig) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
@@ -2490,12 +2135,6 @@ func (o NfsLocationOnPremConfigPtrOutput) ToNfsLocationOnPremConfigPtrOutput() N
 
 func (o NfsLocationOnPremConfigPtrOutput) ToNfsLocationOnPremConfigPtrOutputWithContext(ctx context.Context) NfsLocationOnPremConfigPtrOutput {
 	return o
-}
-
-func (o NfsLocationOnPremConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NfsLocationOnPremConfig] {
-	return pulumix.Output[*NfsLocationOnPremConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NfsLocationOnPremConfigPtrOutput) Elem() NfsLocationOnPremConfigOutput {
@@ -2551,12 +2190,6 @@ func (i S3LocationS3ConfigArgs) ToS3LocationS3ConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(S3LocationS3ConfigOutput)
 }
 
-func (i S3LocationS3ConfigArgs) ToOutput(ctx context.Context) pulumix.Output[S3LocationS3Config] {
-	return pulumix.Output[S3LocationS3Config]{
-		OutputState: i.ToS3LocationS3ConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i S3LocationS3ConfigArgs) ToS3LocationS3ConfigPtrOutput() S3LocationS3ConfigPtrOutput {
 	return i.ToS3LocationS3ConfigPtrOutputWithContext(context.Background())
 }
@@ -2598,12 +2231,6 @@ func (i *s3locationS3ConfigPtrType) ToS3LocationS3ConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(S3LocationS3ConfigPtrOutput)
 }
 
-func (i *s3locationS3ConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*S3LocationS3Config] {
-	return pulumix.Output[*S3LocationS3Config]{
-		OutputState: i.ToS3LocationS3ConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type S3LocationS3ConfigOutput struct{ *pulumi.OutputState }
 
 func (S3LocationS3ConfigOutput) ElementType() reflect.Type {
@@ -2628,12 +2255,6 @@ func (o S3LocationS3ConfigOutput) ToS3LocationS3ConfigPtrOutputWithContext(ctx c
 	}).(S3LocationS3ConfigPtrOutput)
 }
 
-func (o S3LocationS3ConfigOutput) ToOutput(ctx context.Context) pulumix.Output[S3LocationS3Config] {
-	return pulumix.Output[S3LocationS3Config]{
-		OutputState: o.OutputState,
-	}
-}
-
 // ARN of the IAM Role used to connect to the S3 Bucket.
 func (o S3LocationS3ConfigOutput) BucketAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v S3LocationS3Config) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
@@ -2651,12 +2272,6 @@ func (o S3LocationS3ConfigPtrOutput) ToS3LocationS3ConfigPtrOutput() S3LocationS
 
 func (o S3LocationS3ConfigPtrOutput) ToS3LocationS3ConfigPtrOutputWithContext(ctx context.Context) S3LocationS3ConfigPtrOutput {
 	return o
-}
-
-func (o S3LocationS3ConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*S3LocationS3Config] {
-	return pulumix.Output[*S3LocationS3Config]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o S3LocationS3ConfigPtrOutput) Elem() S3LocationS3ConfigOutput {
@@ -2716,12 +2331,6 @@ func (i TaskExcludesArgs) ToTaskExcludesOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TaskExcludesOutput)
 }
 
-func (i TaskExcludesArgs) ToOutput(ctx context.Context) pulumix.Output[TaskExcludes] {
-	return pulumix.Output[TaskExcludes]{
-		OutputState: i.ToTaskExcludesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TaskExcludesArgs) ToTaskExcludesPtrOutput() TaskExcludesPtrOutput {
 	return i.ToTaskExcludesPtrOutputWithContext(context.Background())
 }
@@ -2763,12 +2372,6 @@ func (i *taskExcludesPtrType) ToTaskExcludesPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TaskExcludesPtrOutput)
 }
 
-func (i *taskExcludesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskExcludes] {
-	return pulumix.Output[*TaskExcludes]{
-		OutputState: i.ToTaskExcludesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TaskExcludesOutput struct{ *pulumi.OutputState }
 
 func (TaskExcludesOutput) ElementType() reflect.Type {
@@ -2793,12 +2396,6 @@ func (o TaskExcludesOutput) ToTaskExcludesPtrOutputWithContext(ctx context.Conte
 	}).(TaskExcludesPtrOutput)
 }
 
-func (o TaskExcludesOutput) ToOutput(ctx context.Context) pulumix.Output[TaskExcludes] {
-	return pulumix.Output[TaskExcludes]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 func (o TaskExcludesOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskExcludes) *string { return v.FilterType }).(pulumi.StringPtrOutput)
@@ -2821,12 +2418,6 @@ func (o TaskExcludesPtrOutput) ToTaskExcludesPtrOutput() TaskExcludesPtrOutput {
 
 func (o TaskExcludesPtrOutput) ToTaskExcludesPtrOutputWithContext(ctx context.Context) TaskExcludesPtrOutput {
 	return o
-}
-
-func (o TaskExcludesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskExcludes] {
-	return pulumix.Output[*TaskExcludes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskExcludesPtrOutput) Elem() TaskExcludesOutput {
@@ -2896,12 +2487,6 @@ func (i TaskIncludesArgs) ToTaskIncludesOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TaskIncludesOutput)
 }
 
-func (i TaskIncludesArgs) ToOutput(ctx context.Context) pulumix.Output[TaskIncludes] {
-	return pulumix.Output[TaskIncludes]{
-		OutputState: i.ToTaskIncludesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TaskIncludesArgs) ToTaskIncludesPtrOutput() TaskIncludesPtrOutput {
 	return i.ToTaskIncludesPtrOutputWithContext(context.Background())
 }
@@ -2943,12 +2528,6 @@ func (i *taskIncludesPtrType) ToTaskIncludesPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TaskIncludesPtrOutput)
 }
 
-func (i *taskIncludesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskIncludes] {
-	return pulumix.Output[*TaskIncludes]{
-		OutputState: i.ToTaskIncludesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TaskIncludesOutput struct{ *pulumi.OutputState }
 
 func (TaskIncludesOutput) ElementType() reflect.Type {
@@ -2973,12 +2552,6 @@ func (o TaskIncludesOutput) ToTaskIncludesPtrOutputWithContext(ctx context.Conte
 	}).(TaskIncludesPtrOutput)
 }
 
-func (o TaskIncludesOutput) ToOutput(ctx context.Context) pulumix.Output[TaskIncludes] {
-	return pulumix.Output[TaskIncludes]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
 func (o TaskIncludesOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskIncludes) *string { return v.FilterType }).(pulumi.StringPtrOutput)
@@ -3001,12 +2574,6 @@ func (o TaskIncludesPtrOutput) ToTaskIncludesPtrOutput() TaskIncludesPtrOutput {
 
 func (o TaskIncludesPtrOutput) ToTaskIncludesPtrOutputWithContext(ctx context.Context) TaskIncludesPtrOutput {
 	return o
-}
-
-func (o TaskIncludesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskIncludes] {
-	return pulumix.Output[*TaskIncludes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskIncludesPtrOutput) Elem() TaskIncludesOutput {
@@ -3128,12 +2695,6 @@ func (i TaskOptionsArgs) ToTaskOptionsOutputWithContext(ctx context.Context) Tas
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOptionsOutput)
 }
 
-func (i TaskOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[TaskOptions] {
-	return pulumix.Output[TaskOptions]{
-		OutputState: i.ToTaskOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TaskOptionsArgs) ToTaskOptionsPtrOutput() TaskOptionsPtrOutput {
 	return i.ToTaskOptionsPtrOutputWithContext(context.Background())
 }
@@ -3175,12 +2736,6 @@ func (i *taskOptionsPtrType) ToTaskOptionsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOptionsPtrOutput)
 }
 
-func (i *taskOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskOptions] {
-	return pulumix.Output[*TaskOptions]{
-		OutputState: i.ToTaskOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TaskOptionsOutput struct{ *pulumi.OutputState }
 
 func (TaskOptionsOutput) ElementType() reflect.Type {
@@ -3203,12 +2758,6 @@ func (o TaskOptionsOutput) ToTaskOptionsPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskOptions) *TaskOptions {
 		return &v
 	}).(TaskOptionsPtrOutput)
-}
-
-func (o TaskOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptions] {
-	return pulumix.Output[TaskOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
@@ -3298,12 +2847,6 @@ func (o TaskOptionsPtrOutput) ToTaskOptionsPtrOutput() TaskOptionsPtrOutput {
 
 func (o TaskOptionsPtrOutput) ToTaskOptionsPtrOutputWithContext(ctx context.Context) TaskOptionsPtrOutput {
 	return o
-}
-
-func (o TaskOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptions] {
-	return pulumix.Output[*TaskOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsPtrOutput) Elem() TaskOptionsOutput {
@@ -3499,12 +3042,6 @@ func (i TaskScheduleArgs) ToTaskScheduleOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TaskScheduleOutput)
 }
 
-func (i TaskScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[TaskSchedule] {
-	return pulumix.Output[TaskSchedule]{
-		OutputState: i.ToTaskScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TaskScheduleArgs) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
 	return i.ToTaskSchedulePtrOutputWithContext(context.Background())
 }
@@ -3546,12 +3083,6 @@ func (i *taskSchedulePtrType) ToTaskSchedulePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSchedulePtrOutput)
 }
 
-func (i *taskSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*TaskSchedule] {
-	return pulumix.Output[*TaskSchedule]{
-		OutputState: i.ToTaskSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TaskScheduleOutput struct{ *pulumi.OutputState }
 
 func (TaskScheduleOutput) ElementType() reflect.Type {
@@ -3576,12 +3107,6 @@ func (o TaskScheduleOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Conte
 	}).(TaskSchedulePtrOutput)
 }
 
-func (o TaskScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[TaskSchedule] {
-	return pulumix.Output[TaskSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
 func (o TaskScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
@@ -3601,12 +3126,6 @@ func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o TaskSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSchedule] {
-	return pulumix.Output[*TaskSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSchedulePtrOutput) Elem() TaskScheduleOutput {
 	return o.ApplyT(func(v *TaskSchedule) TaskSchedule {
 		if v != nil {
@@ -3624,6 +3143,588 @@ func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfig struct {
+	// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+	OutputType *string `pulumi:"outputType"`
+	// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	ReportLevel *string `pulumi:"reportLevel"`
+	// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
+	ReportOverrides *TaskTaskReportConfigReportOverrides `pulumi:"reportOverrides"`
+	// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
+	S3Destination TaskTaskReportConfigS3Destination `pulumi:"s3Destination"`
+	// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+	S3ObjectVersioning *string `pulumi:"s3ObjectVersioning"`
+}
+
+// TaskTaskReportConfigInput is an input type that accepts TaskTaskReportConfigArgs and TaskTaskReportConfigOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigInput` via:
+//
+//	TaskTaskReportConfigArgs{...}
+type TaskTaskReportConfigInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigOutput() TaskTaskReportConfigOutput
+	ToTaskTaskReportConfigOutputWithContext(context.Context) TaskTaskReportConfigOutput
+}
+
+type TaskTaskReportConfigArgs struct {
+	// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+	OutputType pulumi.StringPtrInput `pulumi:"outputType"`
+	// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	ReportLevel pulumi.StringPtrInput `pulumi:"reportLevel"`
+	// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
+	ReportOverrides TaskTaskReportConfigReportOverridesPtrInput `pulumi:"reportOverrides"`
+	// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
+	S3Destination TaskTaskReportConfigS3DestinationInput `pulumi:"s3Destination"`
+	// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+	S3ObjectVersioning pulumi.StringPtrInput `pulumi:"s3ObjectVersioning"`
+}
+
+func (TaskTaskReportConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfig)(nil)).Elem()
+}
+
+func (i TaskTaskReportConfigArgs) ToTaskTaskReportConfigOutput() TaskTaskReportConfigOutput {
+	return i.ToTaskTaskReportConfigOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigArgs) ToTaskTaskReportConfigOutputWithContext(ctx context.Context) TaskTaskReportConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigOutput)
+}
+
+func (i TaskTaskReportConfigArgs) ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput {
+	return i.ToTaskTaskReportConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigArgs) ToTaskTaskReportConfigPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigOutput).ToTaskTaskReportConfigPtrOutputWithContext(ctx)
+}
+
+// TaskTaskReportConfigPtrInput is an input type that accepts TaskTaskReportConfigArgs, TaskTaskReportConfigPtr and TaskTaskReportConfigPtrOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigPtrInput` via:
+//
+//	        TaskTaskReportConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskTaskReportConfigPtrInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput
+	ToTaskTaskReportConfigPtrOutputWithContext(context.Context) TaskTaskReportConfigPtrOutput
+}
+
+type taskTaskReportConfigPtrType TaskTaskReportConfigArgs
+
+func TaskTaskReportConfigPtr(v *TaskTaskReportConfigArgs) TaskTaskReportConfigPtrInput {
+	return (*taskTaskReportConfigPtrType)(v)
+}
+
+func (*taskTaskReportConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfig)(nil)).Elem()
+}
+
+func (i *taskTaskReportConfigPtrType) ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput {
+	return i.ToTaskTaskReportConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *taskTaskReportConfigPtrType) ToTaskTaskReportConfigPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigPtrOutput)
+}
+
+type TaskTaskReportConfigOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfig)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigOutput) ToTaskTaskReportConfigOutput() TaskTaskReportConfigOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigOutput) ToTaskTaskReportConfigOutputWithContext(ctx context.Context) TaskTaskReportConfigOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigOutput) ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput {
+	return o.ToTaskTaskReportConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTaskReportConfigOutput) ToTaskTaskReportConfigPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskTaskReportConfig) *TaskTaskReportConfig {
+		return &v
+	}).(TaskTaskReportConfigPtrOutput)
+}
+
+// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+func (o TaskTaskReportConfigOutput) OutputType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) *string { return v.OutputType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigOutput) ReportLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) *string { return v.ReportLevel }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
+func (o TaskTaskReportConfigOutput) ReportOverrides() TaskTaskReportConfigReportOverridesPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) *TaskTaskReportConfigReportOverrides { return v.ReportOverrides }).(TaskTaskReportConfigReportOverridesPtrOutput)
+}
+
+// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
+func (o TaskTaskReportConfigOutput) S3Destination() TaskTaskReportConfigS3DestinationOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) TaskTaskReportConfigS3Destination { return v.S3Destination }).(TaskTaskReportConfigS3DestinationOutput)
+}
+
+// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+func (o TaskTaskReportConfigOutput) S3ObjectVersioning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) *string { return v.S3ObjectVersioning }).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfig)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigPtrOutput) ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigPtrOutput) ToTaskTaskReportConfigPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigPtrOutput) Elem() TaskTaskReportConfigOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) TaskTaskReportConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TaskTaskReportConfig
+		return ret
+	}).(TaskTaskReportConfigOutput)
+}
+
+// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+func (o TaskTaskReportConfigPtrOutput) OutputType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigPtrOutput) ReportLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReportLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
+func (o TaskTaskReportConfigPtrOutput) ReportOverrides() TaskTaskReportConfigReportOverridesPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *TaskTaskReportConfigReportOverrides {
+		if v == nil {
+			return nil
+		}
+		return v.ReportOverrides
+	}).(TaskTaskReportConfigReportOverridesPtrOutput)
+}
+
+// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
+func (o TaskTaskReportConfigPtrOutput) S3Destination() TaskTaskReportConfigS3DestinationPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *TaskTaskReportConfigS3Destination {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Destination
+	}).(TaskTaskReportConfigS3DestinationPtrOutput)
+}
+
+// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+func (o TaskTaskReportConfigPtrOutput) S3ObjectVersioning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ObjectVersioning
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigReportOverrides struct {
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	DeletedOverride *string `pulumi:"deletedOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	SkippedOverride *string `pulumi:"skippedOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	TransferredOverride *string `pulumi:"transferredOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	VerifiedOverride *string `pulumi:"verifiedOverride"`
+}
+
+// TaskTaskReportConfigReportOverridesInput is an input type that accepts TaskTaskReportConfigReportOverridesArgs and TaskTaskReportConfigReportOverridesOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigReportOverridesInput` via:
+//
+//	TaskTaskReportConfigReportOverridesArgs{...}
+type TaskTaskReportConfigReportOverridesInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigReportOverridesOutput() TaskTaskReportConfigReportOverridesOutput
+	ToTaskTaskReportConfigReportOverridesOutputWithContext(context.Context) TaskTaskReportConfigReportOverridesOutput
+}
+
+type TaskTaskReportConfigReportOverridesArgs struct {
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	DeletedOverride pulumi.StringPtrInput `pulumi:"deletedOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	SkippedOverride pulumi.StringPtrInput `pulumi:"skippedOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	TransferredOverride pulumi.StringPtrInput `pulumi:"transferredOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	VerifiedOverride pulumi.StringPtrInput `pulumi:"verifiedOverride"`
+}
+
+func (TaskTaskReportConfigReportOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfigReportOverrides)(nil)).Elem()
+}
+
+func (i TaskTaskReportConfigReportOverridesArgs) ToTaskTaskReportConfigReportOverridesOutput() TaskTaskReportConfigReportOverridesOutput {
+	return i.ToTaskTaskReportConfigReportOverridesOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigReportOverridesArgs) ToTaskTaskReportConfigReportOverridesOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigReportOverridesOutput)
+}
+
+func (i TaskTaskReportConfigReportOverridesArgs) ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput {
+	return i.ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigReportOverridesArgs) ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigReportOverridesOutput).ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx)
+}
+
+// TaskTaskReportConfigReportOverridesPtrInput is an input type that accepts TaskTaskReportConfigReportOverridesArgs, TaskTaskReportConfigReportOverridesPtr and TaskTaskReportConfigReportOverridesPtrOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigReportOverridesPtrInput` via:
+//
+//	        TaskTaskReportConfigReportOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskTaskReportConfigReportOverridesPtrInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput
+	ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(context.Context) TaskTaskReportConfigReportOverridesPtrOutput
+}
+
+type taskTaskReportConfigReportOverridesPtrType TaskTaskReportConfigReportOverridesArgs
+
+func TaskTaskReportConfigReportOverridesPtr(v *TaskTaskReportConfigReportOverridesArgs) TaskTaskReportConfigReportOverridesPtrInput {
+	return (*taskTaskReportConfigReportOverridesPtrType)(v)
+}
+
+func (*taskTaskReportConfigReportOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfigReportOverrides)(nil)).Elem()
+}
+
+func (i *taskTaskReportConfigReportOverridesPtrType) ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput {
+	return i.ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *taskTaskReportConfigReportOverridesPtrType) ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigReportOverridesPtrOutput)
+}
+
+type TaskTaskReportConfigReportOverridesOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigReportOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfigReportOverrides)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigReportOverridesOutput) ToTaskTaskReportConfigReportOverridesOutput() TaskTaskReportConfigReportOverridesOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigReportOverridesOutput) ToTaskTaskReportConfigReportOverridesOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigReportOverridesOutput) ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput {
+	return o.ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTaskReportConfigReportOverridesOutput) ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskTaskReportConfigReportOverrides) *TaskTaskReportConfigReportOverrides {
+		return &v
+	}).(TaskTaskReportConfigReportOverridesPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesOutput) DeletedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.DeletedOverride }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesOutput) SkippedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.SkippedOverride }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesOutput) TransferredOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.TransferredOverride }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesOutput) VerifiedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.VerifiedOverride }).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigReportOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigReportOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfigReportOverrides)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigReportOverridesPtrOutput) ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigReportOverridesPtrOutput) ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigReportOverridesPtrOutput) Elem() TaskTaskReportConfigReportOverridesOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) TaskTaskReportConfigReportOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret TaskTaskReportConfigReportOverrides
+		return ret
+	}).(TaskTaskReportConfigReportOverridesOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesPtrOutput) DeletedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeletedOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesPtrOutput) SkippedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkippedOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesPtrOutput) TransferredOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransferredOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesPtrOutput) VerifiedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VerifiedOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigS3Destination struct {
+	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+	BucketAccessRoleArn string `pulumi:"bucketAccessRoleArn"`
+	// Specifies the ARN of the S3 bucket where DataSync uploads your report.
+	S3BucketArn string `pulumi:"s3BucketArn"`
+	// Specifies a bucket prefix for your report.
+	Subdirectory *string `pulumi:"subdirectory"`
+}
+
+// TaskTaskReportConfigS3DestinationInput is an input type that accepts TaskTaskReportConfigS3DestinationArgs and TaskTaskReportConfigS3DestinationOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigS3DestinationInput` via:
+//
+//	TaskTaskReportConfigS3DestinationArgs{...}
+type TaskTaskReportConfigS3DestinationInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigS3DestinationOutput() TaskTaskReportConfigS3DestinationOutput
+	ToTaskTaskReportConfigS3DestinationOutputWithContext(context.Context) TaskTaskReportConfigS3DestinationOutput
+}
+
+type TaskTaskReportConfigS3DestinationArgs struct {
+	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+	BucketAccessRoleArn pulumi.StringInput `pulumi:"bucketAccessRoleArn"`
+	// Specifies the ARN of the S3 bucket where DataSync uploads your report.
+	S3BucketArn pulumi.StringInput `pulumi:"s3BucketArn"`
+	// Specifies a bucket prefix for your report.
+	Subdirectory pulumi.StringPtrInput `pulumi:"subdirectory"`
+}
+
+func (TaskTaskReportConfigS3DestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfigS3Destination)(nil)).Elem()
+}
+
+func (i TaskTaskReportConfigS3DestinationArgs) ToTaskTaskReportConfigS3DestinationOutput() TaskTaskReportConfigS3DestinationOutput {
+	return i.ToTaskTaskReportConfigS3DestinationOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigS3DestinationArgs) ToTaskTaskReportConfigS3DestinationOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigS3DestinationOutput)
+}
+
+func (i TaskTaskReportConfigS3DestinationArgs) ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput {
+	return i.ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigS3DestinationArgs) ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigS3DestinationOutput).ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx)
+}
+
+// TaskTaskReportConfigS3DestinationPtrInput is an input type that accepts TaskTaskReportConfigS3DestinationArgs, TaskTaskReportConfigS3DestinationPtr and TaskTaskReportConfigS3DestinationPtrOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigS3DestinationPtrInput` via:
+//
+//	        TaskTaskReportConfigS3DestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskTaskReportConfigS3DestinationPtrInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput
+	ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(context.Context) TaskTaskReportConfigS3DestinationPtrOutput
+}
+
+type taskTaskReportConfigS3DestinationPtrType TaskTaskReportConfigS3DestinationArgs
+
+func TaskTaskReportConfigS3DestinationPtr(v *TaskTaskReportConfigS3DestinationArgs) TaskTaskReportConfigS3DestinationPtrInput {
+	return (*taskTaskReportConfigS3DestinationPtrType)(v)
+}
+
+func (*taskTaskReportConfigS3DestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfigS3Destination)(nil)).Elem()
+}
+
+func (i *taskTaskReportConfigS3DestinationPtrType) ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput {
+	return i.ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *taskTaskReportConfigS3DestinationPtrType) ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigS3DestinationPtrOutput)
+}
+
+type TaskTaskReportConfigS3DestinationOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigS3DestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfigS3Destination)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3DestinationOutput() TaskTaskReportConfigS3DestinationOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3DestinationOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput {
+	return o.ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskTaskReportConfigS3Destination) *TaskTaskReportConfigS3Destination {
+		return &v
+	}).(TaskTaskReportConfigS3DestinationPtrOutput)
+}
+
+// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+func (o TaskTaskReportConfigS3DestinationOutput) BucketAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
+}
+
+// Specifies the ARN of the S3 bucket where DataSync uploads your report.
+func (o TaskTaskReportConfigS3DestinationOutput) S3BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) string { return v.S3BucketArn }).(pulumi.StringOutput)
+}
+
+// Specifies a bucket prefix for your report.
+func (o TaskTaskReportConfigS3DestinationOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) *string { return v.Subdirectory }).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigS3DestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigS3DestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfigS3Destination)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigS3DestinationPtrOutput) ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigS3DestinationPtrOutput) ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigS3DestinationPtrOutput) Elem() TaskTaskReportConfigS3DestinationOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) TaskTaskReportConfigS3Destination {
+		if v != nil {
+			return *v
+		}
+		var ret TaskTaskReportConfigS3Destination
+		return ret
+	}).(TaskTaskReportConfigS3DestinationOutput)
+}
+
+// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+func (o TaskTaskReportConfigS3DestinationPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ARN of the S3 bucket where DataSync uploads your report.
+func (o TaskTaskReportConfigS3DestinationPtrOutput) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a bucket prefix for your report.
+func (o TaskTaskReportConfigS3DestinationPtrOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subdirectory
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3668,6 +3769,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsPtrInput)(nil)).Elem(), TaskOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskScheduleInput)(nil)).Elem(), TaskScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSchedulePtrInput)(nil)).Elem(), TaskScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigInput)(nil)).Elem(), TaskTaskReportConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigPtrInput)(nil)).Elem(), TaskTaskReportConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigReportOverridesInput)(nil)).Elem(), TaskTaskReportConfigReportOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigReportOverridesPtrInput)(nil)).Elem(), TaskTaskReportConfigReportOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigS3DestinationInput)(nil)).Elem(), TaskTaskReportConfigS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigS3DestinationPtrInput)(nil)).Elem(), TaskTaskReportConfigS3DestinationArgs{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigOutput{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigPtrOutput{})
 	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolOutput{})
@@ -3708,4 +3815,10 @@ func init() {
 	pulumi.RegisterOutputType(TaskOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TaskScheduleOutput{})
 	pulumi.RegisterOutputType(TaskSchedulePtrOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigPtrOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigReportOverridesOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigReportOverridesPtrOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigS3DestinationOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigS3DestinationPtrOutput{})
 }

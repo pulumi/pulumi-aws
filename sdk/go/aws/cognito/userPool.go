@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cognito User Pool resource.
@@ -500,12 +499,6 @@ func (i *UserPool) ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolOutput)
 }
 
-func (i *UserPool) ToOutput(ctx context.Context) pulumix.Output[*UserPool] {
-	return pulumix.Output[*UserPool]{
-		OutputState: i.ToUserPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPoolArrayInput is an input type that accepts UserPoolArray and UserPoolArrayOutput values.
 // You can construct a concrete instance of `UserPoolArrayInput` via:
 //
@@ -529,12 +522,6 @@ func (i UserPoolArray) ToUserPoolArrayOutput() UserPoolArrayOutput {
 
 func (i UserPoolArray) ToUserPoolArrayOutputWithContext(ctx context.Context) UserPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolArrayOutput)
-}
-
-func (i UserPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserPool] {
-	return pulumix.Output[[]*UserPool]{
-		OutputState: i.ToUserPoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserPoolMapInput is an input type that accepts UserPoolMap and UserPoolMapOutput values.
@@ -562,12 +549,6 @@ func (i UserPoolMap) ToUserPoolMapOutputWithContext(ctx context.Context) UserPoo
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolMapOutput)
 }
 
-func (i UserPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPool] {
-	return pulumix.Output[map[string]*UserPool]{
-		OutputState: i.ToUserPoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolOutput struct{ *pulumi.OutputState }
 
 func (UserPoolOutput) ElementType() reflect.Type {
@@ -580,12 +561,6 @@ func (o UserPoolOutput) ToUserPoolOutput() UserPoolOutput {
 
 func (o UserPoolOutput) ToUserPoolOutputWithContext(ctx context.Context) UserPoolOutput {
 	return o
-}
-
-func (o UserPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPool] {
-	return pulumix.Output[*UserPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
@@ -768,12 +743,6 @@ func (o UserPoolArrayOutput) ToUserPoolArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o UserPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserPool] {
-	return pulumix.Output[[]*UserPool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolArrayOutput) Index(i pulumi.IntInput) UserPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPool {
 		return vs[0].([]*UserPool)[vs[1].(int)]
@@ -792,12 +761,6 @@ func (o UserPoolMapOutput) ToUserPoolMapOutput() UserPoolMapOutput {
 
 func (o UserPoolMapOutput) ToUserPoolMapOutputWithContext(ctx context.Context) UserPoolMapOutput {
 	return o
-}
-
-func (o UserPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPool] {
-	return pulumix.Output[map[string]*UserPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolMapOutput) MapIndex(k pulumi.StringInput) UserPoolOutput {

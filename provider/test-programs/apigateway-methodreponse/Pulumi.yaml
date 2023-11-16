@@ -1,0 +1,37 @@
+
+name: "aws_apigateway_methodResponse_MethodResponse_1"
+runtime: yaml
+    
+resources:
+  MyDemoAPI:
+    type: aws:apigateway:RestApi
+    properties:
+      name: MyDemoAPI
+      description: This is my API for demonstration purposes
+  MyDemoResource:
+    type: aws:apigateway:Resource
+    properties:
+      restApi: ${MyDemoAPI.id}
+      parentId: ${MyDemoAPI.rootResourceId}
+      pathPart: mydemoresource
+  MyDemoMethod:
+    type: aws:apigateway:Method
+    properties:
+      restApi: ${MyDemoAPI.id}
+      resourceId: ${MyDemoResource.id}
+      httpMethod: GET
+      authorization: NONE
+  MyDemoIntegration:
+    type: aws:apigateway:Integration
+    properties:
+      restApi: ${MyDemoAPI.id}
+      resourceId: ${MyDemoResource.id}
+      httpMethod: ${MyDemoMethod.httpMethod}
+      type: MOCK
+  response_200:
+    type: aws:apigateway:MethodResponse
+    properties:
+      restApi: ${MyDemoAPI.id}
+      resourceId: ${MyDemoResource.id}
+      httpMethod: ${MyDemoMethod.httpMethod}
+      statusCode: '200'

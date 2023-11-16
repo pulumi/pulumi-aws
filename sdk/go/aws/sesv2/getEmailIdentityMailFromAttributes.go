@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
@@ -109,12 +108,6 @@ func (o LookupEmailIdentityMailFromAttributesResultOutput) ToLookupEmailIdentity
 
 func (o LookupEmailIdentityMailFromAttributesResultOutput) ToLookupEmailIdentityMailFromAttributesResultOutputWithContext(ctx context.Context) LookupEmailIdentityMailFromAttributesResultOutput {
 	return o
-}
-
-func (o LookupEmailIdentityMailFromAttributesResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEmailIdentityMailFromAttributesResult] {
-	return pulumix.Output[LookupEmailIdentityMailFromAttributesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.

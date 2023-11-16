@@ -10,9 +10,12 @@ import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
 import com.pulumi.aws.apigatewayv2.inputs.GetApisPlainArgs;
 import com.pulumi.aws.apigatewayv2.inputs.GetExportArgs;
 import com.pulumi.aws.apigatewayv2.inputs.GetExportPlainArgs;
+import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
+import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkPlainArgs;
 import com.pulumi.aws.apigatewayv2.outputs.GetApiResult;
 import com.pulumi.aws.apigatewayv2.outputs.GetApisResult;
 import com.pulumi.aws.apigatewayv2.outputs.GetExportResult;
+import com.pulumi.aws.apigatewayv2.outputs.GetVpcLinkResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -545,5 +548,157 @@ public final class Apigatewayv2Functions {
      */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:apigatewayv2/getExport:getExport", TypeShape.of(GetExportResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS API Gateway V2 VPC Link.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Apigatewayv2Functions.getVpcLink(GetVpcLinkArgs.builder()
+     *             .vpcLinkId(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args) {
+        return getVpcLink(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS API Gateway V2 VPC Link.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Apigatewayv2Functions.getVpcLink(GetVpcLinkArgs.builder()
+     *             .vpcLinkId(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVpcLinkResult> getVpcLinkPlain(GetVpcLinkPlainArgs args) {
+        return getVpcLinkPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS API Gateway V2 VPC Link.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Apigatewayv2Functions.getVpcLink(GetVpcLinkArgs.builder()
+     *             .vpcLinkId(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetVpcLinkResult> getVpcLink(GetVpcLinkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:apigatewayv2/getVpcLink:getVpcLink", TypeShape.of(GetVpcLinkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS API Gateway V2 VPC Link.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetVpcLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Apigatewayv2Functions.getVpcLink(GetVpcLinkArgs.builder()
+     *             .vpcLinkId(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetVpcLinkResult> getVpcLinkPlain(GetVpcLinkPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:apigatewayv2/getVpcLink:getVpcLink", TypeShape.of(GetVpcLinkResult.class), args, Utilities.withVersion(options));
     }
 }

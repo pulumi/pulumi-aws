@@ -411,6 +411,9 @@ export class Group extends pulumi.CustomResource {
      * behavior and potentially leaves resources dangling.
      */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    /**
+     * Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+     */
     public readonly forceDeleteWarmPool!: pulumi.Output<boolean | undefined>;
     /**
      * Time (in seconds) after instance comes into service before checking health.
@@ -720,6 +723,9 @@ export interface GroupState {
      * behavior and potentially leaves resources dangling.
      */
     forceDelete?: pulumi.Input<boolean>;
+    /**
+     * Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+     */
     forceDeleteWarmPool?: pulumi.Input<boolean>;
     /**
      * Time (in seconds) after instance comes into service before checking health.
@@ -917,6 +923,9 @@ export interface GroupArgs {
      * behavior and potentially leaves resources dangling.
      */
     forceDelete?: pulumi.Input<boolean>;
+    /**
+     * Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+     */
     forceDeleteWarmPool?: pulumi.Input<boolean>;
     /**
      * Time (in seconds) after instance comes into service before checking health.

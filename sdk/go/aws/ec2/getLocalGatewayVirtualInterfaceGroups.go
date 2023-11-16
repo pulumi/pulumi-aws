@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple EC2 Local Gateway Virtual Interface Groups, such as identifiers. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
@@ -105,12 +104,6 @@ func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) ToGetLocalGatewayVirt
 
 func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) ToGetLocalGatewayVirtualInterfaceGroupsResultOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsResultOutput {
 	return o
-}
-
-func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalGatewayVirtualInterfaceGroupsResult] {
-	return pulumix.Output[GetLocalGatewayVirtualInterfaceGroupsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Filters() GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {

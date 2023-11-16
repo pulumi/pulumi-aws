@@ -25,11 +25,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {
- *     s3BucketName: exampleBucketV2.id,
- *     s3KeyPrefix: "prefix",
- *     includeGlobalServiceEvents: false,
- * });
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentPartition = aws.getPartition({});
  * const currentRegion = aws.getRegion({});
@@ -77,6 +72,13 @@ import * as utilities from "../utilities";
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
  *     bucket: exampleBucketV2.id,
  *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
+ * });
+ * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {
+ *     s3BucketName: exampleBucketV2.id,
+ *     s3KeyPrefix: "prefix",
+ *     includeGlobalServiceEvents: false,
+ * }, {
+ *     dependsOn: [exampleBucketPolicy],
  * });
  * ```
  * ### Data Event Logging
@@ -146,10 +148,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Cloudtrails using the `name`. For example:
+ * Using `pulumi import`, import Cloudtrails using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+ *  $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
  * ```
  */
 export class Trail extends pulumi.CustomResource {

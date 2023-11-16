@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
@@ -165,12 +164,6 @@ func (i *LocalGatewayRoute) ToLocalGatewayRouteOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteOutput)
 }
 
-func (i *LocalGatewayRoute) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRoute] {
-	return pulumix.Output[*LocalGatewayRoute]{
-		OutputState: i.ToLocalGatewayRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalGatewayRouteArrayInput is an input type that accepts LocalGatewayRouteArray and LocalGatewayRouteArrayOutput values.
 // You can construct a concrete instance of `LocalGatewayRouteArrayInput` via:
 //
@@ -194,12 +187,6 @@ func (i LocalGatewayRouteArray) ToLocalGatewayRouteArrayOutput() LocalGatewayRou
 
 func (i LocalGatewayRouteArray) ToLocalGatewayRouteArrayOutputWithContext(ctx context.Context) LocalGatewayRouteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteArrayOutput)
-}
-
-func (i LocalGatewayRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGatewayRoute] {
-	return pulumix.Output[[]*LocalGatewayRoute]{
-		OutputState: i.ToLocalGatewayRouteArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalGatewayRouteMapInput is an input type that accepts LocalGatewayRouteMap and LocalGatewayRouteMapOutput values.
@@ -227,12 +214,6 @@ func (i LocalGatewayRouteMap) ToLocalGatewayRouteMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteMapOutput)
 }
 
-func (i LocalGatewayRouteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGatewayRoute] {
-	return pulumix.Output[map[string]*LocalGatewayRoute]{
-		OutputState: i.ToLocalGatewayRouteMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalGatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (LocalGatewayRouteOutput) ElementType() reflect.Type {
@@ -245,12 +226,6 @@ func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutput() LocalGatewayRouteOu
 
 func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutputWithContext(ctx context.Context) LocalGatewayRouteOutput {
 	return o
-}
-
-func (o LocalGatewayRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRoute] {
-	return pulumix.Output[*LocalGatewayRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
@@ -282,12 +257,6 @@ func (o LocalGatewayRouteArrayOutput) ToLocalGatewayRouteArrayOutputWithContext(
 	return o
 }
 
-func (o LocalGatewayRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGatewayRoute] {
-	return pulumix.Output[[]*LocalGatewayRoute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalGatewayRouteArrayOutput) Index(i pulumi.IntInput) LocalGatewayRouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGatewayRoute {
 		return vs[0].([]*LocalGatewayRoute)[vs[1].(int)]
@@ -306,12 +275,6 @@ func (o LocalGatewayRouteMapOutput) ToLocalGatewayRouteMapOutput() LocalGatewayR
 
 func (o LocalGatewayRouteMapOutput) ToLocalGatewayRouteMapOutputWithContext(ctx context.Context) LocalGatewayRouteMapOutput {
 	return o
-}
-
-func (o LocalGatewayRouteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGatewayRoute] {
-	return pulumix.Output[map[string]*LocalGatewayRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalGatewayRouteMapOutput) MapIndex(k pulumi.StringInput) LocalGatewayRouteOutput {

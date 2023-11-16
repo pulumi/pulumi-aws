@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Resource Access Manager (RAM) principal association. Depending if [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), the RAM behavior with different principal types changes.
@@ -194,12 +193,6 @@ func (i *PrincipalAssociation) ToPrincipalAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationOutput)
 }
 
-func (i *PrincipalAssociation) ToOutput(ctx context.Context) pulumix.Output[*PrincipalAssociation] {
-	return pulumix.Output[*PrincipalAssociation]{
-		OutputState: i.ToPrincipalAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrincipalAssociationArrayInput is an input type that accepts PrincipalAssociationArray and PrincipalAssociationArrayOutput values.
 // You can construct a concrete instance of `PrincipalAssociationArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i PrincipalAssociationArray) ToPrincipalAssociationArrayOutput() Principal
 
 func (i PrincipalAssociationArray) ToPrincipalAssociationArrayOutputWithContext(ctx context.Context) PrincipalAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationArrayOutput)
-}
-
-func (i PrincipalAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrincipalAssociation] {
-	return pulumix.Output[[]*PrincipalAssociation]{
-		OutputState: i.ToPrincipalAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrincipalAssociationMapInput is an input type that accepts PrincipalAssociationMap and PrincipalAssociationMapOutput values.
@@ -256,12 +243,6 @@ func (i PrincipalAssociationMap) ToPrincipalAssociationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationMapOutput)
 }
 
-func (i PrincipalAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrincipalAssociation] {
-	return pulumix.Output[map[string]*PrincipalAssociation]{
-		OutputState: i.ToPrincipalAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalAssociationOutput struct{ *pulumi.OutputState }
 
 func (PrincipalAssociationOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o PrincipalAssociationOutput) ToPrincipalAssociationOutput() PrincipalAsso
 
 func (o PrincipalAssociationOutput) ToPrincipalAssociationOutputWithContext(ctx context.Context) PrincipalAssociationOutput {
 	return o
-}
-
-func (o PrincipalAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalAssociation] {
-	return pulumix.Output[*PrincipalAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
@@ -306,12 +281,6 @@ func (o PrincipalAssociationArrayOutput) ToPrincipalAssociationArrayOutputWithCo
 	return o
 }
 
-func (o PrincipalAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrincipalAssociation] {
-	return pulumix.Output[[]*PrincipalAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrincipalAssociationArrayOutput) Index(i pulumi.IntInput) PrincipalAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrincipalAssociation {
 		return vs[0].([]*PrincipalAssociation)[vs[1].(int)]
@@ -330,12 +299,6 @@ func (o PrincipalAssociationMapOutput) ToPrincipalAssociationMapOutput() Princip
 
 func (o PrincipalAssociationMapOutput) ToPrincipalAssociationMapOutputWithContext(ctx context.Context) PrincipalAssociationMapOutput {
 	return o
-}
-
-func (o PrincipalAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrincipalAssociation] {
-	return pulumix.Output[map[string]*PrincipalAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalAssociationMapOutput) MapIndex(k pulumi.StringInput) PrincipalAssociationOutput {

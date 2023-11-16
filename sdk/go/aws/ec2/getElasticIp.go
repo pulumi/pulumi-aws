@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.Eip` provides details about a specific Elastic IP.
@@ -223,12 +222,6 @@ func (o GetElasticIpResultOutput) ToGetElasticIpResultOutput() GetElasticIpResul
 
 func (o GetElasticIpResultOutput) ToGetElasticIpResultOutputWithContext(ctx context.Context) GetElasticIpResultOutput {
 	return o
-}
-
-func (o GetElasticIpResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetElasticIpResult] {
-	return pulumix.Output[GetElasticIpResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID representing the association of the address with an instance in a VPC.

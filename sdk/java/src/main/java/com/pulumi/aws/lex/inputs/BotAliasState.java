@@ -47,14 +47,14 @@ public final class BotAliasState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the bot.
+     * The version of the bot.
      * 
      */
     @Import(name="botVersion")
     private @Nullable Output<String> botVersion;
 
     /**
-     * @return The name of the bot.
+     * @return The version of the bot.
      * 
      */
     public Optional<Output<String>> botVersion() {
@@ -226,7 +226,7 @@ public final class BotAliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param botVersion The name of the bot.
+         * @param botVersion The version of the bot.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class BotAliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param botVersion The name of the bot.
+         * @param botVersion The version of the bot.
          * 
          * @return builder
          * 

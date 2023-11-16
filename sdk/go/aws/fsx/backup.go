@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a FSx Backup resource.
@@ -314,12 +313,6 @@ func (i *Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupOutput)
 }
 
-func (i *Backup) ToOutput(ctx context.Context) pulumix.Output[*Backup] {
-	return pulumix.Output[*Backup]{
-		OutputState: i.ToBackupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BackupArrayInput is an input type that accepts BackupArray and BackupArrayOutput values.
 // You can construct a concrete instance of `BackupArrayInput` via:
 //
@@ -343,12 +336,6 @@ func (i BackupArray) ToBackupArrayOutput() BackupArrayOutput {
 
 func (i BackupArray) ToBackupArrayOutputWithContext(ctx context.Context) BackupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupArrayOutput)
-}
-
-func (i BackupArray) ToOutput(ctx context.Context) pulumix.Output[[]*Backup] {
-	return pulumix.Output[[]*Backup]{
-		OutputState: i.ToBackupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BackupMapInput is an input type that accepts BackupMap and BackupMapOutput values.
@@ -376,12 +363,6 @@ func (i BackupMap) ToBackupMapOutputWithContext(ctx context.Context) BackupMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BackupMapOutput)
 }
 
-func (i BackupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Backup] {
-	return pulumix.Output[map[string]*Backup]{
-		OutputState: i.ToBackupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupOutput struct{ *pulumi.OutputState }
 
 func (BackupOutput) ElementType() reflect.Type {
@@ -394,12 +375,6 @@ func (o BackupOutput) ToBackupOutput() BackupOutput {
 
 func (o BackupOutput) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
 	return o
-}
-
-func (o BackupOutput) ToOutput(ctx context.Context) pulumix.Output[*Backup] {
-	return pulumix.Output[*Backup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name of the backup.
@@ -458,12 +433,6 @@ func (o BackupArrayOutput) ToBackupArrayOutputWithContext(ctx context.Context) B
 	return o
 }
 
-func (o BackupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Backup] {
-	return pulumix.Output[[]*Backup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BackupArrayOutput) Index(i pulumi.IntInput) BackupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Backup {
 		return vs[0].([]*Backup)[vs[1].(int)]
@@ -482,12 +451,6 @@ func (o BackupMapOutput) ToBackupMapOutput() BackupMapOutput {
 
 func (o BackupMapOutput) ToBackupMapOutputWithContext(ctx context.Context) BackupMapOutput {
 	return o
-}
-
-func (o BackupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Backup] {
-	return pulumix.Output[map[string]*Backup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupMapOutput) MapIndex(k pulumi.StringInput) BackupOutput {

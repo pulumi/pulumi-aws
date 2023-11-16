@@ -83,7 +83,7 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     public readonly compatibleArchitectures!: pulumi.Output<string[] | undefined>;
     /**
-     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      */
     public readonly compatibleRuntimes!: pulumi.Output<string[] | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface LayerVersionState {
      */
     compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      */
     compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -298,7 +298,7 @@ export interface LayerVersionArgs {
      */
     compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+     * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      */
     compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

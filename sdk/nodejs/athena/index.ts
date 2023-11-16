@@ -15,10 +15,20 @@ export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
+export { GetNamedQueryArgs, GetNamedQueryResult, GetNamedQueryOutputArgs } from "./getNamedQuery";
+export const getNamedQuery: typeof import("./getNamedQuery").getNamedQuery = null as any;
+export const getNamedQueryOutput: typeof import("./getNamedQuery").getNamedQueryOutput = null as any;
+utilities.lazyLoad(exports, ["getNamedQuery","getNamedQueryOutput"], () => require("./getNamedQuery"));
+
 export { NamedQueryArgs, NamedQueryState } from "./namedQuery";
 export type NamedQuery = import("./namedQuery").NamedQuery;
 export const NamedQuery: typeof import("./namedQuery").NamedQuery = null as any;
 utilities.lazyLoad(exports, ["NamedQuery"], () => require("./namedQuery"));
+
+export { PreparedStatementArgs, PreparedStatementState } from "./preparedStatement";
+export type PreparedStatement = import("./preparedStatement").PreparedStatement;
+export const PreparedStatement: typeof import("./preparedStatement").PreparedStatement = null as any;
+utilities.lazyLoad(exports, ["PreparedStatement"], () => require("./preparedStatement"));
 
 export { WorkgroupArgs, WorkgroupState } from "./workgroup";
 export type Workgroup = import("./workgroup").Workgroup;
@@ -36,6 +46,8 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "aws:athena/namedQuery:NamedQuery":
                 return new NamedQuery(name, <any>undefined, { urn })
+            case "aws:athena/preparedStatement:PreparedStatement":
+                return new PreparedStatement(name, <any>undefined, { urn })
             case "aws:athena/workgroup:Workgroup":
                 return new Workgroup(name, <any>undefined, { urn })
             default:
@@ -46,4 +58,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "athena/dataCatalog", _module)
 pulumi.runtime.registerResourceModule("aws", "athena/database", _module)
 pulumi.runtime.registerResourceModule("aws", "athena/namedQuery", _module)
+pulumi.runtime.registerResourceModule("aws", "athena/preparedStatement", _module)
 pulumi.runtime.registerResourceModule("aws", "athena/workgroup", _module)

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an Amazon MSK Connect custom plugin.
@@ -106,12 +105,6 @@ func (o LookupCustomPluginResultOutput) ToLookupCustomPluginResultOutput() Looku
 
 func (o LookupCustomPluginResultOutput) ToLookupCustomPluginResultOutputWithContext(ctx context.Context) LookupCustomPluginResultOutput {
 	return o
-}
-
-func (o LookupCustomPluginResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomPluginResult] {
-	return pulumix.Output[LookupCustomPluginResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the ARN of the custom plugin.

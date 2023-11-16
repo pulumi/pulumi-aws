@@ -1,0 +1,400 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-10-05T17:19:48.398938-04:00",
+            "magic": "cdb46f20d3397474c4b7038ce63a3c40fb0da4b95458ef275b6ce689aec88d17",
+            "version": "v3.86.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:NSeMnW5aeJY=:v1:Ukh72zLEB1lXN6wd:Ogx9/oULTbQhQEQy+QnX8OVJhmXB7g=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:pulumi:Stack::test-p-it-antons-mac-route53-re-89f61aa4",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2023-10-05T21:19:02.739465Z",
+                "modified": "2023-10-05T21:19:02.739465Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:providers:aws::provider",
+                "custom": true,
+                "id": "f5257a9a-43a2-4505-99cb-ada8543d3496",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "version": "5.42.0"
+                },
+                "outputs": {
+                    "version": "5.42.0"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:pulumi:Stack::test-p-it-antons-mac-route53-re-89f61aa4",
+                "propertyDependencies": {
+                    "version": []
+                },
+                "created": "2023-10-05T21:19:04.243316Z",
+                "modified": "2023-10-05T21:19:04.243316Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/vpc:Vpc::vpc1",
+                "custom": true,
+                "id": "vpc-039c56ba1df582bda",
+                "type": "aws:ec2/vpc:Vpc",
+                "inputs": {
+                    "__defaults": [
+                        "enableDnsSupport",
+                        "instanceTenancy"
+                    ],
+                    "cidrBlock": "10.192.0.0/16",
+                    "enableDnsSupport": true,
+                    "instanceTenancy": "default"
+                },
+                "outputs": {
+                    "__meta": "{\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:vpc/vpc-039c56ba1df582bda",
+                    "assignGeneratedIpv6CidrBlock": false,
+                    "cidrBlock": "10.192.0.0/16",
+                    "defaultNetworkAclId": "acl-0722b806d1f553b04",
+                    "defaultRouteTableId": "rtb-0f2be38548299b3bd",
+                    "defaultSecurityGroupId": "sg-0d610423cc969a2de",
+                    "dhcpOptionsId": "dopt-1649d26e",
+                    "enableClassiclink": false,
+                    "enableClassiclinkDnsSupport": false,
+                    "enableDnsHostnames": false,
+                    "enableDnsSupport": true,
+                    "enableNetworkAddressUsageMetrics": false,
+                    "id": "vpc-039c56ba1df582bda",
+                    "instanceTenancy": "default",
+                    "ipv6AssociationId": "",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockNetworkBorderGroup": "",
+                    "ipv6IpamPoolId": "",
+                    "ipv6NetmaskLength": 0,
+                    "mainRouteTableId": "rtb-0f2be38548299b3bd",
+                    "ownerId": "616138583583",
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:pulumi:Stack::test-p-it-antons-mac-route53-re-89f61aa4",
+                "provider": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:providers:aws::provider::f5257a9a-43a2-4505-99cb-ada8543d3496",
+                "propertyDependencies": {
+                    "cidrBlock": null
+                },
+                "created": "2023-10-05T21:19:07.843508Z",
+                "modified": "2023-10-05T21:19:07.843508Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/subnet:Subnet::subnet1",
+                "custom": true,
+                "id": "subnet-064ec6f254490ff1c",
+                "type": "aws:ec2/subnet:Subnet",
+                "inputs": {
+                    "__defaults": [
+                        "assignIpv6AddressOnCreation",
+                        "enableDns64",
+                        "enableResourceNameDnsARecordOnLaunch",
+                        "enableResourceNameDnsAaaaRecordOnLaunch",
+                        "ipv6Native"
+                    ],
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2a",
+                    "cidrBlock": "10.192.20.0/24",
+                    "enableDns64": false,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "ipv6Native": false,
+                    "mapPublicIpOnLaunch": false,
+                    "vpcId": "vpc-039c56ba1df582bda"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-064ec6f254490ff1c",
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2a",
+                    "availabilityZoneId": "usw2-az2",
+                    "cidrBlock": "10.192.20.0/24",
+                    "customerOwnedIpv4Pool": "",
+                    "enableDns64": false,
+                    "enableLniAtDeviceIndex": 0,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "id": "subnet-064ec6f254490ff1c",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockAssociationId": "",
+                    "ipv6Native": false,
+                    "mapCustomerOwnedIpOnLaunch": false,
+                    "mapPublicIpOnLaunch": false,
+                    "outpostArn": "",
+                    "ownerId": "616138583583",
+                    "privateDnsHostnameTypeOnLaunch": "ip-name",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-039c56ba1df582bda"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:pulumi:Stack::test-p-it-antons-mac-route53-re-89f61aa4",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/vpc:Vpc::vpc1"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:providers:aws::provider::f5257a9a-43a2-4505-99cb-ada8543d3496",
+                "propertyDependencies": {
+                    "availabilityZone": null,
+                    "cidrBlock": null,
+                    "mapPublicIpOnLaunch": null,
+                    "vpcId": [
+                        "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/vpc:Vpc::vpc1"
+                    ]
+                },
+                "created": "2023-10-05T21:19:08.749779Z",
+                "modified": "2023-10-05T21:19:08.749779Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/subnet:Subnet::subnet2",
+                "custom": true,
+                "id": "subnet-051f07d063513bea3",
+                "type": "aws:ec2/subnet:Subnet",
+                "inputs": {
+                    "__defaults": [
+                        "assignIpv6AddressOnCreation",
+                        "enableDns64",
+                        "enableResourceNameDnsARecordOnLaunch",
+                        "enableResourceNameDnsAaaaRecordOnLaunch",
+                        "ipv6Native"
+                    ],
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2b",
+                    "cidrBlock": "10.192.21.0/24",
+                    "enableDns64": false,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "ipv6Native": false,
+                    "mapPublicIpOnLaunch": false,
+                    "vpcId": "vpc-039c56ba1df582bda"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-051f07d063513bea3",
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2b",
+                    "availabilityZoneId": "usw2-az1",
+                    "cidrBlock": "10.192.21.0/24",
+                    "customerOwnedIpv4Pool": "",
+                    "enableDns64": false,
+                    "enableLniAtDeviceIndex": 0,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "id": "subnet-051f07d063513bea3",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockAssociationId": "",
+                    "ipv6Native": false,
+                    "mapCustomerOwnedIpOnLaunch": false,
+                    "mapPublicIpOnLaunch": false,
+                    "outpostArn": "",
+                    "ownerId": "616138583583",
+                    "privateDnsHostnameTypeOnLaunch": "ip-name",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-039c56ba1df582bda"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:pulumi:Stack::test-p-it-antons-mac-route53-re-89f61aa4",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/vpc:Vpc::vpc1"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:providers:aws::provider::f5257a9a-43a2-4505-99cb-ada8543d3496",
+                "propertyDependencies": {
+                    "availabilityZone": null,
+                    "cidrBlock": null,
+                    "mapPublicIpOnLaunch": null,
+                    "vpcId": [
+                        "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/vpc:Vpc::vpc1"
+                    ]
+                },
+                "created": "2023-10-05T21:19:08.889103Z",
+                "modified": "2023-10-05T21:19:08.889103Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/securityGroup:SecurityGroup::securityGroupAllowTLS1",
+                "custom": true,
+                "id": "sg-0d52a4da392658e52",
+                "type": "aws:ec2/securityGroup:SecurityGroup",
+                "inputs": {
+                    "__defaults": [
+                        "name",
+                        "revokeRulesOnDelete"
+                    ],
+                    "description": "Allow TLS inbound traffic",
+                    "egress": [
+                        {
+                            "__defaults": [
+                                "self"
+                            ],
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "fromPort": 0,
+                            "ipv6CidrBlocks": [
+                                "::/0"
+                            ],
+                            "protocol": "-1",
+                            "self": false,
+                            "toPort": 0
+                        }
+                    ],
+                    "ingress": [
+                        {
+                            "__defaults": [
+                                "self"
+                            ],
+                            "cidrBlocks": [
+                                "10.192.0.0/16"
+                            ],
+                            "description": "TLS from VPC",
+                            "fromPort": 443,
+                            "protocol": "tcp",
+                            "self": false,
+                            "toPort": 443
+                        }
+                    ],
+                    "name": "securityGroupAllowTLS1-b9fc4a6",
+                    "revokeRulesOnDelete": false,
+                    "vpcId": "vpc-039c56ba1df582bda"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":900000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:security-group/sg-0d52a4da392658e52",
+                    "description": "Allow TLS inbound traffic",
+                    "egress": [
+                        {
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "fromPort": 0,
+                            "ipv6CidrBlocks": [
+                                "::/0"
+                            ],
+                            "prefixListIds": [],
+                            "protocol": "-1",
+                            "securityGroups": [],
+                            "self": false,
+                            "toPort": 0
+                        }
+                    ],
+                    "id": "sg-0d52a4da392658e52",
+                    "ingress": [
+                        {
+                            "cidrBlocks": [
+                                "10.192.0.0/16"
+                            ],
+                            "description": "TLS from VPC",
+                            "fromPort": 443,
+                            "ipv6CidrBlocks": [],
+                            "prefixListIds": [],
+                            "protocol": "tcp",
+                            "securityGroups": [],
+                            "self": false,
+                            "toPort": 443
+                        }
+                    ],
+                    "name": "securityGroupAllowTLS1-b9fc4a6",
+                    "namePrefix": "",
+                    "ownerId": "616138583583",
+                    "revokeRulesOnDelete": false,
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-039c56ba1df582bda"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:pulumi:Stack::test-p-it-antons-mac-route53-re-89f61aa4",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/vpc:Vpc::vpc1"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:providers:aws::provider::f5257a9a-43a2-4505-99cb-ada8543d3496",
+                "propertyDependencies": {
+                    "description": null,
+                    "egress": null,
+                    "ingress": [
+                        "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/vpc:Vpc::vpc1"
+                    ],
+                    "vpcId": [
+                        "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/vpc:Vpc::vpc1"
+                    ]
+                },
+                "created": "2023-10-05T21:19:11.096925Z",
+                "modified": "2023-10-05T21:19:11.096925Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:route53/resolverEndpoint:ResolverEndpoint::tested-resource",
+                "custom": true,
+                "id": "rslvr-in-7214ef4397f14849a",
+                "type": "aws:route53/resolverEndpoint:ResolverEndpoint",
+                "inputs": {
+                    "__defaults": [
+                        "name"
+                    ],
+                    "direction": "INBOUND",
+                    "ipAddresses": [
+                        {
+                            "__defaults": [],
+                            "subnetId": "subnet-064ec6f254490ff1c"
+                        },
+                        {
+                            "__defaults": [],
+                            "ip": "10.192.21.4",
+                            "subnetId": "subnet-051f07d063513bea3"
+                        }
+                    ],
+                    "name": "tested-resource-bfcd9d1",
+                    "securityGroupIds": [
+                        "sg-0d52a4da392658e52"
+                    ]
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":600000000000,\"update\":600000000000}}",
+                    "arn": "arn:aws:route53resolver:us-west-2:616138583583:resolver-endpoint/rslvr-in-7214ef4397f14849a",
+                    "direction": "INBOUND",
+                    "hostVpcId": "vpc-039c56ba1df582bda",
+                    "id": "rslvr-in-7214ef4397f14849a",
+                    "ipAddresses": [
+                        {
+                            "ip": "10.192.20.212",
+                            "ipId": "rni-f14d825d24db43469",
+                            "subnetId": "subnet-064ec6f254490ff1c"
+                        },
+                        {
+                            "ip": "10.192.21.4",
+                            "ipId": "rni-eff698d6aac4d148d",
+                            "subnetId": "subnet-051f07d063513bea3"
+                        }
+                    ],
+                    "name": "tested-resource-bfcd9d1",
+                    "securityGroupIds": [
+                        "sg-0d52a4da392658e52"
+                    ],
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:pulumi:Stack::test-p-it-antons-mac-route53-re-89f61aa4",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/securityGroup:SecurityGroup::securityGroupAllowTLS1",
+                    "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/subnet:Subnet::subnet1",
+                    "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/subnet:Subnet::subnet2"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::pulumi:providers:aws::provider::f5257a9a-43a2-4505-99cb-ada8543d3496",
+                "propertyDependencies": {
+                    "direction": null,
+                    "ipAddresses": [
+                        "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/subnet:Subnet::subnet1",
+                        "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/subnet:Subnet::subnet2"
+                    ],
+                    "securityGroupIds": [
+                        "urn:pulumi:p-it-antons-mac-route53-re-89f61aa4::test::aws:ec2/securityGroup:SecurityGroup::securityGroupAllowTLS1"
+                    ]
+                },
+                "created": "2023-10-05T21:19:48.398897Z",
+                "modified": "2023-10-05T21:19:48.398897Z"
+            }
+        ]
+    }
+}

@@ -1,0 +1,9 @@
+
+name: "aws_secretsmanager_secret_Secret_1"
+runtime: yaml
+    
+resources:
+  example:
+    type: aws:secretsmanager:Secret
+    properties:
+      name: example

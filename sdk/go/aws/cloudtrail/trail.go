@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudTrail resource.
@@ -44,14 +43,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
 //				ForceDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
-//				S3BucketName:               exampleBucketV2.ID(),
-//				S3KeyPrefix:                pulumi.String("prefix"),
-//				IncludeGlobalServiceEvents: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -135,12 +126,22 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucketV2.ID(),
 //				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
 //					return &examplePolicyDocument.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
+//				S3BucketName:               exampleBucketV2.ID(),
+//				S3KeyPrefix:                pulumi.String("prefix"),
+//				IncludeGlobalServiceEvents: pulumi.Bool(false),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketPolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -315,11 +316,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Cloudtrails using the `name`. For example:
+// Using `pulumi import`, import Cloudtrails using the `arn`. For example:
 //
 // ```sh
 //
-//	$ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+//	$ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
 //
 // ```
 type Trail struct {
@@ -597,12 +598,6 @@ func (i *Trail) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrailOutput)
 }
 
-func (i *Trail) ToOutput(ctx context.Context) pulumix.Output[*Trail] {
-	return pulumix.Output[*Trail]{
-		OutputState: i.ToTrailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrailArrayInput is an input type that accepts TrailArray and TrailArrayOutput values.
 // You can construct a concrete instance of `TrailArrayInput` via:
 //
@@ -626,12 +621,6 @@ func (i TrailArray) ToTrailArrayOutput() TrailArrayOutput {
 
 func (i TrailArray) ToTrailArrayOutputWithContext(ctx context.Context) TrailArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrailArrayOutput)
-}
-
-func (i TrailArray) ToOutput(ctx context.Context) pulumix.Output[[]*Trail] {
-	return pulumix.Output[[]*Trail]{
-		OutputState: i.ToTrailArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrailMapInput is an input type that accepts TrailMap and TrailMapOutput values.
@@ -659,12 +648,6 @@ func (i TrailMap) ToTrailMapOutputWithContext(ctx context.Context) TrailMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TrailMapOutput)
 }
 
-func (i TrailMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Trail] {
-	return pulumix.Output[map[string]*Trail]{
-		OutputState: i.ToTrailMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrailOutput struct{ *pulumi.OutputState }
 
 func (TrailOutput) ElementType() reflect.Type {
@@ -677,12 +660,6 @@ func (o TrailOutput) ToTrailOutput() TrailOutput {
 
 func (o TrailOutput) ToTrailOutputWithContext(ctx context.Context) TrailOutput {
 	return o
-}
-
-func (o TrailOutput) ToOutput(ctx context.Context) pulumix.Output[*Trail] {
-	return pulumix.Output[*Trail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
@@ -798,12 +775,6 @@ func (o TrailArrayOutput) ToTrailArrayOutputWithContext(ctx context.Context) Tra
 	return o
 }
 
-func (o TrailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Trail] {
-	return pulumix.Output[[]*Trail]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrailArrayOutput) Index(i pulumi.IntInput) TrailOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Trail {
 		return vs[0].([]*Trail)[vs[1].(int)]
@@ -822,12 +793,6 @@ func (o TrailMapOutput) ToTrailMapOutput() TrailMapOutput {
 
 func (o TrailMapOutput) ToTrailMapOutputWithContext(ctx context.Context) TrailMapOutput {
 	return o
-}
-
-func (o TrailMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Trail] {
-	return pulumix.Output[map[string]*Trail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrailMapOutput) MapIndex(k pulumi.StringInput) TrailOutput {

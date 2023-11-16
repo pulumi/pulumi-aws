@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
@@ -245,12 +244,6 @@ func (i *ConfiguredTable) ToConfiguredTableOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableOutput)
 }
 
-func (i *ConfiguredTable) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTable] {
-	return pulumix.Output[*ConfiguredTable]{
-		OutputState: i.ToConfiguredTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfiguredTableArrayInput is an input type that accepts ConfiguredTableArray and ConfiguredTableArrayOutput values.
 // You can construct a concrete instance of `ConfiguredTableArrayInput` via:
 //
@@ -274,12 +267,6 @@ func (i ConfiguredTableArray) ToConfiguredTableArrayOutput() ConfiguredTableArra
 
 func (i ConfiguredTableArray) ToConfiguredTableArrayOutputWithContext(ctx context.Context) ConfiguredTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableArrayOutput)
-}
-
-func (i ConfiguredTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfiguredTable] {
-	return pulumix.Output[[]*ConfiguredTable]{
-		OutputState: i.ToConfiguredTableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConfiguredTableMapInput is an input type that accepts ConfiguredTableMap and ConfiguredTableMapOutput values.
@@ -307,12 +294,6 @@ func (i ConfiguredTableMap) ToConfiguredTableMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableMapOutput)
 }
 
-func (i ConfiguredTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfiguredTable] {
-	return pulumix.Output[map[string]*ConfiguredTable]{
-		OutputState: i.ToConfiguredTableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableOutput) ElementType() reflect.Type {
@@ -325,12 +306,6 @@ func (o ConfiguredTableOutput) ToConfiguredTableOutput() ConfiguredTableOutput {
 
 func (o ConfiguredTableOutput) ToConfiguredTableOutputWithContext(ctx context.Context) ConfiguredTableOutput {
 	return o
-}
-
-func (o ConfiguredTableOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTable] {
-	return pulumix.Output[*ConfiguredTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The columns of the references table which will be included in the configured table.
@@ -399,12 +374,6 @@ func (o ConfiguredTableArrayOutput) ToConfiguredTableArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ConfiguredTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfiguredTable] {
-	return pulumix.Output[[]*ConfiguredTable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfiguredTableArrayOutput) Index(i pulumi.IntInput) ConfiguredTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfiguredTable {
 		return vs[0].([]*ConfiguredTable)[vs[1].(int)]
@@ -423,12 +392,6 @@ func (o ConfiguredTableMapOutput) ToConfiguredTableMapOutput() ConfiguredTableMa
 
 func (o ConfiguredTableMapOutput) ToConfiguredTableMapOutputWithContext(ctx context.Context) ConfiguredTableMapOutput {
 	return o
-}
-
-func (o ConfiguredTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfiguredTable] {
-	return pulumix.Output[map[string]*ConfiguredTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableMapOutput) MapIndex(k pulumi.StringInput) ConfiguredTableOutput {

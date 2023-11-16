@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PlanStageTargetChannelTargetInfo {
+    /**
+     * @return The Amazon Resource Name (ARN) of the contact channel.
+     * 
+     */
     private String contactChannelId;
+    /**
+     * @return The number of minutes to wait before retrying to send engagement if the engagement initially failed.
+     * 
+     */
     private @Nullable Integer retryIntervalInMinutes;
 
     private PlanStageTargetChannelTargetInfo() {}
+    /**
+     * @return The Amazon Resource Name (ARN) of the contact channel.
+     * 
+     */
     public String contactChannelId() {
         return this.contactChannelId;
     }
+    /**
+     * @return The number of minutes to wait before retrying to send engagement if the engagement initially failed.
+     * 
+     */
     public Optional<Integer> retryIntervalInMinutes() {
         return Optional.ofNullable(this.retryIntervalInMinutes);
     }

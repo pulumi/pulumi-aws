@@ -1,0 +1,170 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-11-10T17:25:34.429157-05:00",
+            "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+            "version": "v3.92.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:2M1q459VsZw=:v1:0xBa7u3UP0AANw0F:1yXC+mhS/LB6M/mT/rdG216WLQWySw=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-dynamodb-t-10164fc0::aws_dynamodb_table_Table_1::pulumi:pulumi:Stack::aws_dynamodb_table_Table_1-p-it-antons-mac-dynamodb-t-10164fc0",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2023-11-10T22:25:07.207847Z",
+                "modified": "2023-11-10T22:25:07.207847Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-dynamodb-t-10164fc0::aws_dynamodb_table_Table_1::pulumi:providers:aws::default",
+                "custom": true,
+                "id": "abc0e33d-0d06-4113-9383-a8375d8e3ab3",
+                "type": "pulumi:providers:aws",
+                "created": "2023-11-10T22:25:08.698334Z",
+                "modified": "2023-11-10T22:25:08.698334Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-dynamodb-t-10164fc0::aws_dynamodb_table_Table_1::aws:dynamodb/table:Table::basic-dynamodb-table",
+                "custom": true,
+                "id": "GameScores",
+                "type": "aws:dynamodb/table:Table",
+                "inputs": {
+                    "__defaults": [
+                        "tableClass"
+                    ],
+                    "attributes": [
+                        {
+                            "__defaults": [],
+                            "name": "UserId",
+                            "type": "S"
+                        },
+                        {
+                            "__defaults": [],
+                            "name": "GameTitle",
+                            "type": "S"
+                        },
+                        {
+                            "__defaults": [],
+                            "name": "TopScore",
+                            "type": "N"
+                        }
+                    ],
+                    "billingMode": "PROVISIONED",
+                    "globalSecondaryIndexes": [
+                        {
+                            "__defaults": [],
+                            "hashKey": "GameTitle",
+                            "name": "GameTitleIndex",
+                            "nonKeyAttributes": [
+                                "UserId"
+                            ],
+                            "projectionType": "INCLUDE",
+                            "rangeKey": "TopScore",
+                            "readCapacity": 10,
+                            "writeCapacity": 10
+                        }
+                    ],
+                    "hashKey": "UserId",
+                    "name": "GameScores",
+                    "rangeKey": "GameTitle",
+                    "readCapacity": 20,
+                    "tableClass": "STANDARD",
+                    "tags": {
+                        "__defaults": [],
+                        "environment": "production",
+                        "name": "dynamodb-table-1"
+                    },
+                    "ttl": {
+                        "__defaults": [],
+                        "attributeName": "TimeToExist",
+                        "enabled": false
+                    },
+                    "writeCapacity": 20
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":600000000000,\"update\":3600000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:dynamodb:us-west-2:616138583583:table/GameScores",
+                    "attributes": [
+                        {
+                            "name": "TopScore",
+                            "type": "N"
+                        },
+                        {
+                            "name": "GameTitle",
+                            "type": "S"
+                        },
+                        {
+                            "name": "UserId",
+                            "type": "S"
+                        }
+                    ],
+                    "billingMode": "PROVISIONED",
+                    "deletionProtectionEnabled": false,
+                    "globalSecondaryIndexes": [
+                        {
+                            "hashKey": "GameTitle",
+                            "name": "GameTitleIndex",
+                            "nonKeyAttributes": [
+                                "UserId"
+                            ],
+                            "projectionType": "INCLUDE",
+                            "rangeKey": "TopScore",
+                            "readCapacity": 10,
+                            "writeCapacity": 10
+                        }
+                    ],
+                    "hashKey": "UserId",
+                    "id": "GameScores",
+                    "localSecondaryIndexes": [],
+                    "name": "GameScores",
+                    "pointInTimeRecovery": {
+                        "enabled": false
+                    },
+                    "rangeKey": "GameTitle",
+                    "readCapacity": 20,
+                    "replicas": [],
+                    "serverSideEncryption": null,
+                    "streamArn": "",
+                    "streamEnabled": false,
+                    "streamLabel": "",
+                    "streamViewType": "",
+                    "tableClass": "STANDARD",
+                    "tags": {
+                        "environment": "production",
+                        "name": "dynamodb-table-1"
+                    },
+                    "tagsAll": {
+                        "environment": "production",
+                        "name": "dynamodb-table-1"
+                    },
+                    "ttl": {
+                        "attributeName": "",
+                        "enabled": false
+                    },
+                    "writeCapacity": 20
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-dynamodb-t-10164fc0::aws_dynamodb_table_Table_1::pulumi:pulumi:Stack::aws_dynamodb_table_Table_1-p-it-antons-mac-dynamodb-t-10164fc0",
+                "provider": "urn:pulumi:p-it-antons-mac-dynamodb-t-10164fc0::aws_dynamodb_table_Table_1::pulumi:providers:aws::default::abc0e33d-0d06-4113-9383-a8375d8e3ab3",
+                "propertyDependencies": {
+                    "attributes": null,
+                    "billingMode": null,
+                    "globalSecondaryIndexes": null,
+                    "hashKey": null,
+                    "name": null,
+                    "rangeKey": null,
+                    "readCapacity": null,
+                    "tags": null,
+                    "ttl": null,
+                    "writeCapacity": null
+                },
+                "created": "2023-11-10T22:25:34.428735Z",
+                "modified": "2023-11-10T22:25:34.428735Z"
+            }
+        ]
+    }
+}
