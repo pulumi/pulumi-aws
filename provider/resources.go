@@ -646,8 +646,20 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 //go:embed cmd/pulumi-resource-aws/bridge-metadata.json
 var metadata []byte
 
+//go:embed cmd/pulumi-resource-aws/runtime-bridge-metadata.json
+var runtimeMetadata []byte
+
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() *tfbridge.ProviderInfo {
+	return ProviderFromMeta(tfbridge.NewProviderMetadata(metadata))
+}
+// Provider returns additional overlaid schema and metadata associated with the aws package.
+func RuntimeProvider() *tfbridge.ProviderInfo {
+	return ProviderFromMeta(tfbridge.NewProviderMetadata(runtimeMetadata))
+}
+
+// Provider returns additional overlaid schema and metadata associated with the aws package.
+func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
 	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
@@ -670,7 +682,10 @@ func Provider() *tfbridge.ProviderInfo {
 		// See pulumi/pulumi-aws#2880
 		SkipValidateProviderConfigForPluginFramework: true,
 
-		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		// Generate a trimmed down runtime-only metadata
+		GenerateRuntimeMetadata: true,
+
+		MetadataInfo: metaInfo,
 
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
